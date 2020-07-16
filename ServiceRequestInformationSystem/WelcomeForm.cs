@@ -17,6 +17,8 @@ namespace ServiceRequestInformationSystem
             InitializeComponent();
 
             label_name.Text = Username;
+
+
         }
 
         

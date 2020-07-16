@@ -16,6 +16,7 @@ namespace ServiceRequestInformationSystem.Models
         public DbSet<ServiceRequestInfo> ServiceRequestInfo { get; set; }
         public DbSet<ServiceProvidedBy> ServiceProvidedBy { get; set; }
         public DbSet<TechnicianRequest> TechnicianRequest { get; set; }
+        public DbSet<Account> Account { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

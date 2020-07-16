@@ -53,7 +53,7 @@ namespace ServiceRequestInformationSystem
 
             crystalReportViewer1.SelectionFormula = "monthname(month({ServiceRequestInfoes.DateAccomplished})) Like '*" + month + "*'" + " AND " + "Year({ServiceRequestInfoes.DateAccomplished})= " + year + "";
             //crystalReportViewer1.SelectionFormula = "monthname(month({ServiceRequestInfoes.DateAccomplished})) Like '*" + month + "*'";
-            CrystalReport1 report1 = new CrystalReport1();
+            rpt_Monthly report1 = new rpt_Monthly();
 
             report1.SetParameterValue("MonthLabel", month);
 

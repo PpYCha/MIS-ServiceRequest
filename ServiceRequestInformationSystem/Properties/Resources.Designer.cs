@@ -63,6 +63,17 @@ namespace ServiceRequestInformationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blue_tech_circuit_board_technology_animated_background_video_graphic_design_hd_1920x1080_ewva7rwie__F0000 {
+            get {
+                object obj = ResourceManager.GetObject("blue-tech-circuit-board-technology-animated-background-video-graphic-design-hd-19" +
+                        "20x1080_ewva7rwie__F0000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_new_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_add_new_32px", resourceCulture);
@@ -183,6 +194,26 @@ namespace ServiceRequestInformationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_shutdown_25px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_shutdown_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_shutdown_25px1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_shutdown_25px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_technical_support_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_technical_support_24px", resourceCulture);
@@ -196,6 +227,16 @@ namespace ServiceRequestInformationSystem.Properties {
         internal static System.Drawing.Bitmap icons8_update_32px {
             get {
                 object obj = ResourceManager.GetObject("icons8_update_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kjIF3P {
+            get {
+                object obj = ResourceManager.GetObject("kjIF3P", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -13,6 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>C:\Users\PpYCha\Desktop\Sample Install\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,12 +24,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,6 +79,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=5.1.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.1.2\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -89,6 +92,7 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -101,6 +105,7 @@
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
@@ -115,10 +120,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrystalReport1.cs">
+    <Compile Include="Migrations\202007161138370_FIX.cs" />
+    <Compile Include="Migrations\202007161138370_FIX.Designer.cs">
+      <DependentUpon>202007161138370_FIX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_Monthly.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <DependentUpon>rpt_Monthly.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataForm.cs">
@@ -173,6 +182,12 @@
     <Compile Include="Models\SrisDbInitializer.cs" />
     <Compile Include="Models\TechnicianRequest.cs" />
     <Compile Include="Models\TypeOfService.cs" />
+    <Compile Include="rpt_Test.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Test.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SQLCon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -195,17 +210,29 @@
     <Compile Include="ucArchived.Designer.cs">
       <DependentUpon>ucArchived.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucCompletedRequest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCompletedRequest.Designer.cs">
+      <DependentUpon>ucCompletedRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucImportExcel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucImportExcel.Designer.cs">
+      <DependentUpon>ucImportExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucReports.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucReports.Designer.cs">
       <DependentUpon>ucReports.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucRequest.cs">
+    <Compile Include="ucNewRequest.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucRequest.Designer.cs">
-      <DependentUpon>ucRequest.cs</DependentUpon>
+    <Compile Include="ucNewRequest.Designer.cs">
+      <DependentUpon>ucNewRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
@@ -213,9 +240,12 @@
     <Compile Include="WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <EmbeddedResource Include="Migrations\202007161138370_FIX.resx">
+      <DependentUpon>202007161138370_FIX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_Monthly.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+      <LastGenOutput>rpt_Monthly.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DataForm.resx">
       <DependentUpon>DataForm.cs</DependentUpon>
@@ -255,6 +285,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="rpt_Test.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Test.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="TechnicianForm.resx">
       <DependentUpon>TechnicianForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,11 +298,17 @@
     <EmbeddedResource Include="ucArchived.resx">
       <DependentUpon>ucArchived.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucCompletedRequest.resx">
+      <DependentUpon>ucCompletedRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucImportExcel.resx">
+      <DependentUpon>ucImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucReports.resx">
       <DependentUpon>ucReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucRequest.resx">
-      <DependentUpon>ucRequest.cs</DependentUpon>
+    <EmbeddedResource Include="ucNewRequest.resx">
+      <DependentUpon>ucNewRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
@@ -357,6 +397,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\misologo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-tech-circuit-board-technology-animated-background-video-graphic-design-hd-1920x1080_ewva7rwie__F0000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kjIF3P.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_shutdown_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_shutdown_25px1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

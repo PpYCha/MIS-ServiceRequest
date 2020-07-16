@@ -18,7 +18,8 @@ namespace ServiceRequestInformationSystem
             InitializeComponent();
         }
 
-        string accountValidation;
+        private string accountValidation;
+        private string role;
 
         private void tb_Username_Enter(object sender, EventArgs e)
         {
@@ -73,12 +74,23 @@ namespace ServiceRequestInformationSystem
                 WelcomeForm.Username = (SQLCon.sqlDataReader["Username"].ToString());
                 WelcomeForm.Password = (SQLCon.sqlDataReader["Password"].ToString());
                 accountValidation = (SQLCon.sqlDataReader["IsActive"].ToString());
+                role = (SQLCon.sqlDataReader["AccessLevel"].ToString());
             }
 
 
                 if (WelcomeForm.Username == tb_Username.Text && WelcomeForm.Password == tb_Password.Text && accountValidation == "True")
                 {
-                    this.Close();
+                   
+              
+                if (role == "Admin")
+                {
+                    MainForm.accessLevel = "Admin";
+                }
+                else
+                {
+                    MainForm.accessLevel = "Encoder";
+                }
+                this.Close();
                 WelcomeForm welcomeForm = new WelcomeForm();
                 welcomeForm.ShowDialog();
             }
@@ -98,6 +110,11 @@ namespace ServiceRequestInformationSystem
         }
 
         private void Pb_Close_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
         }

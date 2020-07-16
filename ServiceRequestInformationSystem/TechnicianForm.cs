@@ -18,9 +18,9 @@ namespace ServiceRequestInformationSystem
     {
 
         private string[] techId;
-        public static DataGridViewRow test;
+     
         public DataGridViewRow dgvr;
-   
+        public static string Choice;
 
         public TechnicianForm()
         {
@@ -59,7 +59,15 @@ namespace ServiceRequestInformationSystem
             
             checkColumn.FillWeight = 10; //if the datagridview is resized (on form resize) the checkbox won't take up too much; value is relative to the other columns' fill values
             metroGrid1.Columns.Add(checkColumn);
-            techId = ucRequest.PopulateCheckTechId.ToString().Split(',');
+            if (Choice == "ucNewRequest")
+            {
+                techId = ucNewRequest.PopulateCheckTechId.ToString().Split(',');
+            }
+            else if (Choice == "ucCompletedRequest")
+            {
+                techId = ucCompletedRequest.PopulateCheckTechId.ToString().Split(',');
+            }
+       
 
             
 
