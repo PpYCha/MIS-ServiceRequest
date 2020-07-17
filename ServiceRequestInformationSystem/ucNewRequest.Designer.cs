@@ -154,6 +154,7 @@
             this.cb_Service.Name = "cb_Service";
             this.cb_Service.Size = new System.Drawing.Size(309, 29);
             this.cb_Service.TabIndex = 63;
+            this.cb_Service.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_Service_KeyPress);
             this.cb_Service.Validating += new System.ComponentModel.CancelEventHandler(this.cb_Service_Validating);
             // 
             // panel1
@@ -405,6 +406,7 @@
             // 
             // tb_RequestedBy
             // 
+            this.tb_RequestedBy.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_RequestedBy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_RequestedBy.Location = new System.Drawing.Point(14, 139);
             this.tb_RequestedBy.Name = "tb_RequestedBy";

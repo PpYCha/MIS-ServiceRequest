@@ -32,6 +32,7 @@
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panel_MainMenu = new System.Windows.Forms.Panel();
             this.bt_Logout = new System.Windows.Forms.Button();
+            this.bt_BackUp = new System.Windows.Forms.Button();
             this.panel_SubMenu_Import = new System.Windows.Forms.Panel();
             this.bt_ImportExcel = new System.Windows.Forms.Button();
             this.bt_Menu_Import = new System.Windows.Forms.Button();
@@ -82,6 +83,7 @@
             // 
             this.panel_MainMenu.AutoScroll = true;
             this.panel_MainMenu.Controls.Add(this.bt_Logout);
+            this.panel_MainMenu.Controls.Add(this.bt_BackUp);
             this.panel_MainMenu.Controls.Add(this.panel_SubMenu_Import);
             this.panel_MainMenu.Controls.Add(this.bt_Menu_Import);
             this.panel_MainMenu.Controls.Add(this.panel_SubMenu_Accounts);
@@ -110,13 +112,31 @@
             this.bt_Logout.ForeColor = System.Drawing.Color.White;
             this.bt_Logout.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_shutdown_25px;
             this.bt_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Logout.Location = new System.Drawing.Point(0, 695);
+            this.bt_Logout.Location = new System.Drawing.Point(0, 750);
             this.bt_Logout.Name = "bt_Logout";
             this.bt_Logout.Size = new System.Drawing.Size(188, 55);
             this.bt_Logout.TabIndex = 9;
-            this.bt_Logout.Text = "Logout                      ";
+            this.bt_Logout.Text = "Logout                   ";
             this.bt_Logout.UseVisualStyleBackColor = false;
             this.bt_Logout.Click += new System.EventHandler(this.bt_Logout_Click);
+            // 
+            // bt_BackUp
+            // 
+            this.bt_BackUp.BackColor = System.Drawing.Color.Transparent;
+            this.bt_BackUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_BackUp.FlatAppearance.BorderSize = 0;
+            this.bt_BackUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_BackUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.bt_BackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_BackUp.ForeColor = System.Drawing.Color.White;
+            this.bt_BackUp.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_database_backup_24px;
+            this.bt_BackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_BackUp.Location = new System.Drawing.Point(0, 695);
+            this.bt_BackUp.Name = "bt_BackUp";
+            this.bt_BackUp.Size = new System.Drawing.Size(188, 55);
+            this.bt_BackUp.TabIndex = 10;
+            this.bt_BackUp.Text = "Backup Database";
+            this.bt_BackUp.UseVisualStyleBackColor = false;
             // 
             // panel_SubMenu_Import
             // 
@@ -547,5 +567,6 @@
         private System.Windows.Forms.Button bt_Menu_Import;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button bt_Logout;
+        private System.Windows.Forms.Button bt_BackUp;
     }
 }

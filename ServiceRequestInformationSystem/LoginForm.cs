@@ -63,7 +63,7 @@ namespace ServiceRequestInformationSystem
         {
             
             SQLCon.DbCon();
-            SQLCon.sql = "SELECT USER_ID, Username, Password, AccessLevel, IsActive FROM Accounts WHERE Username=@1 AND Password=@2";
+            SQLCon.sql = "SELECT USER_ID, Username, Password, FirstName, LastName , AccessLevel, IsActive FROM Accounts WHERE Username=@1 AND Password=@2";
             SQLCon.sqlCommand = new SqlCommand(SQLCon.sql, SQLCon.sqlConnection);
             SQLCon.sqlCommand.Parameters.AddWithValue("@1", tb_Username.Text);
             SQLCon.sqlCommand.Parameters.AddWithValue("@2", tb_Password.Text);
@@ -73,6 +73,8 @@ namespace ServiceRequestInformationSystem
             {
                 WelcomeForm.Username = (SQLCon.sqlDataReader["Username"].ToString());
                 WelcomeForm.Password = (SQLCon.sqlDataReader["Password"].ToString());
+                WelcomeForm.FirstName = (SQLCon.sqlDataReader["FirstName"].ToString());
+                WelcomeForm.LastName = (SQLCon.sqlDataReader["LastName"].ToString());
                 accountValidation = (SQLCon.sqlDataReader["IsActive"].ToString());
                 role = (SQLCon.sqlDataReader["AccessLevel"].ToString());
             }

@@ -16,7 +16,7 @@ namespace ServiceRequestInformationSystem
         public ucArchived()
         {
             InitializeComponent();
-            LoadRequestList();
+          //  LoadRequestList();
             //DataGridViewDesign();
         }
 

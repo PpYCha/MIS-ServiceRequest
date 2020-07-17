@@ -16,16 +16,16 @@ namespace ServiceRequestInformationSystem
         {
             InitializeComponent();
 
-            label_name.Text = Username;
-
+            label_name.Text = FirstName + " " + LastName;
+            
 
         }
 
         
         public static string Username { get; set; }
         public static string Password { get; set; }
-
-
+        public static string FirstName { get;  set; }
+        public static string LastName { get;  set; }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

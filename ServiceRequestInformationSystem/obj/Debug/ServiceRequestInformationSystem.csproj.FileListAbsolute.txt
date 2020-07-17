@@ -191,12 +191,6 @@ C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.DataForm.resources
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.LoginForm.resources
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.MainForm.resources
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.ssss.resources
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.Techinicinasss.resources
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.IsActiveinTS.resources
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.AddIsAcative.resources
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.NullinRemark.resources
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.Accounts.resources
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Properties.Resources.resources
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.TechnicianForm.resources
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.ucAccounts.resources
@@ -213,5 +207,3 @@ C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.csproj.CopyComplete
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.exe
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.pdb
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.csprojAssemblyReference.cache
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.FIX.resources
