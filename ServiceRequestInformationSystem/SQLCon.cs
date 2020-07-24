@@ -15,9 +15,10 @@ namespace ServiceRequestInformationSystem
         public static DataTable dataTable = new DataTable();
         public static string sql;
 
-      //static string dataSource = "PPYCHA"; 
-      //  static string databaseName = "TestSrisDb";
-      static string dataSource = "tcp:PPYCHA,49172";
+        //static string dataSource = "PPYCHA"; 
+        //  static string databaseName = "TestSrisDb";
+         static string dataSource = "tcp:192.168.0.100,49172";
+      
         static string databaseName = "SrisDb";
         //mycon = new SqlConnection(@"Data Source = tcp:desktop-neljd6c,1433; Initial Catalog = PAO-Information-System; Persist Security Info=True; User ID=emmaPC; Password='corona_2020'");
         public static void DbCon()

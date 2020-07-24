@@ -14,17 +14,20 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>E:\MIS\</PublishUrl>
+    <PublishUrl>\\Ppycha\update\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>26</ApplicationRevision>
+    <UpdateUrl>\\ppycha\update\</UpdateUrl>
+    <WebPage>publish.htm</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -139,6 +142,10 @@
     <Compile Include="Migrations\202007230252525_DateEntered.Designer.cs">
       <DependentUpon>202007230252525_DateEntered.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007240728042_IsLOgon.cs" />
+    <Compile Include="Migrations\202007240728042_IsLOgon.Designer.cs">
+      <DependentUpon>202007240728042_IsLOgon.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007230252525_DateEntered.resx">
       <DependentUpon>202007230252525_DateEntered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007240728042_IsLOgon.resx">
+      <DependentUpon>202007240728042_IsLOgon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>

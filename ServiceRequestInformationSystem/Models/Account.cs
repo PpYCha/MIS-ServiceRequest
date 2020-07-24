@@ -9,5 +9,6 @@
         public string LastName { get; set; }
         public string AccessLevel { get; set; }
         public bool IsActive { get; set; }
+        public bool IsLogOn { get; set; }
     }
 }
