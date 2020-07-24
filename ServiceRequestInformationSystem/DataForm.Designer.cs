@@ -96,6 +96,7 @@
             // 
             // tb_Remarks
             // 
+            this.tb_Remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_Remarks.Location = new System.Drawing.Point(101, 153);
             this.tb_Remarks.Name = "tb_Remarks";
             this.tb_Remarks.Size = new System.Drawing.Size(252, 22);
@@ -104,6 +105,7 @@
             // 
             // tb_Technician
             // 
+            this.tb_Technician.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_Technician.Location = new System.Drawing.Point(101, 115);
             this.tb_Technician.Name = "tb_Technician";
             this.tb_Technician.Size = new System.Drawing.Size(252, 22);
@@ -112,6 +114,7 @@
             // 
             // tb_Department
             // 
+            this.tb_Department.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_Department.Location = new System.Drawing.Point(101, 77);
             this.tb_Department.Name = "tb_Department";
             this.tb_Department.Size = new System.Drawing.Size(252, 22);
@@ -121,6 +124,7 @@
             // 
             // tb_Services
             // 
+            this.tb_Services.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_Services.Location = new System.Drawing.Point(101, 39);
             this.tb_Services.Name = "tb_Services";
             this.tb_Services.Size = new System.Drawing.Size(252, 22);

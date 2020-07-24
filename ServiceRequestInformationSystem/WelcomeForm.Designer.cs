@@ -62,6 +62,7 @@
             // 
             // label_name
             // 
+            this.label_name.AutoSize = true;
             this.label_name.BackColor = System.Drawing.Color.Transparent;
             this.label_name.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_name.ForeColor = System.Drawing.Color.White;

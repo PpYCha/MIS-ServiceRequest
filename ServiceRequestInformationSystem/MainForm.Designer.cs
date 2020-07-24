@@ -32,6 +32,7 @@
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panel_MainMenu = new System.Windows.Forms.Panel();
             this.bt_Logout = new System.Windows.Forms.Button();
+            this.bt_Menu_BackUp = new System.Windows.Forms.Button();
             this.panel_SubMenu_Import = new System.Windows.Forms.Panel();
             this.bt_ImportExcel = new System.Windows.Forms.Button();
             this.bt_Menu_Import = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.bt_RequestArchived = new System.Windows.Forms.Button();
             this.bt_Menu_Archived = new System.Windows.Forms.Button();
             this.panel_SubMenu_Request = new System.Windows.Forms.Panel();
-            this.bt_Libraries = new System.Windows.Forms.Button();
             this.bt_CompletedRequest = new System.Windows.Forms.Button();
             this.bt_AddRequest = new System.Windows.Forms.Button();
             this.bt_Menu_AddRequest = new System.Windows.Forms.Button();
@@ -82,6 +82,7 @@
             // 
             this.panel_MainMenu.AutoScroll = true;
             this.panel_MainMenu.Controls.Add(this.bt_Logout);
+            this.panel_MainMenu.Controls.Add(this.bt_Menu_BackUp);
             this.panel_MainMenu.Controls.Add(this.panel_SubMenu_Import);
             this.panel_MainMenu.Controls.Add(this.bt_Menu_Import);
             this.panel_MainMenu.Controls.Add(this.panel_SubMenu_Accounts);
@@ -110,19 +111,40 @@
             this.bt_Logout.ForeColor = System.Drawing.Color.White;
             this.bt_Logout.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_shutdown_25px;
             this.bt_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Logout.Location = new System.Drawing.Point(0, 695);
+            this.bt_Logout.Location = new System.Drawing.Point(0, 711);
             this.bt_Logout.Name = "bt_Logout";
             this.bt_Logout.Size = new System.Drawing.Size(188, 55);
             this.bt_Logout.TabIndex = 9;
-            this.bt_Logout.Text = "Logout                      ";
+            this.bt_Logout.TabStop = false;
+            this.bt_Logout.Text = "Logout                   ";
             this.bt_Logout.UseVisualStyleBackColor = false;
             this.bt_Logout.Click += new System.EventHandler(this.bt_Logout_Click);
+            // 
+            // bt_Menu_BackUp
+            // 
+            this.bt_Menu_BackUp.BackColor = System.Drawing.Color.Transparent;
+            this.bt_Menu_BackUp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_Menu_BackUp.FlatAppearance.BorderSize = 0;
+            this.bt_Menu_BackUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_Menu_BackUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.bt_Menu_BackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Menu_BackUp.ForeColor = System.Drawing.Color.White;
+            this.bt_Menu_BackUp.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_database_backup_24px;
+            this.bt_Menu_BackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_BackUp.Location = new System.Drawing.Point(0, 656);
+            this.bt_Menu_BackUp.Name = "bt_Menu_BackUp";
+            this.bt_Menu_BackUp.Size = new System.Drawing.Size(188, 55);
+            this.bt_Menu_BackUp.TabIndex = 10;
+            this.bt_Menu_BackUp.TabStop = false;
+            this.bt_Menu_BackUp.Text = "Backup Database";
+            this.bt_Menu_BackUp.UseVisualStyleBackColor = false;
+            this.bt_Menu_BackUp.Click += new System.EventHandler(this.bt_Menu_BackUp_Click);
             // 
             // panel_SubMenu_Import
             // 
             this.panel_SubMenu_Import.Controls.Add(this.bt_ImportExcel);
             this.panel_SubMenu_Import.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_SubMenu_Import.Location = new System.Drawing.Point(0, 656);
+            this.panel_SubMenu_Import.Location = new System.Drawing.Point(0, 617);
             this.panel_SubMenu_Import.Name = "panel_SubMenu_Import";
             this.panel_SubMenu_Import.Size = new System.Drawing.Size(188, 39);
             this.panel_SubMenu_Import.TabIndex = 7;
@@ -141,6 +163,7 @@
             this.bt_ImportExcel.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.bt_ImportExcel.Size = new System.Drawing.Size(188, 39);
             this.bt_ImportExcel.TabIndex = 0;
+            this.bt_ImportExcel.TabStop = false;
             this.bt_ImportExcel.Text = "Import Excel";
             this.bt_ImportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_ImportExcel.UseVisualStyleBackColor = true;
@@ -157,10 +180,11 @@
             this.bt_Menu_Import.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Import.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Import.Image")));
             this.bt_Menu_Import.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_Import.Location = new System.Drawing.Point(0, 601);
+            this.bt_Menu_Import.Location = new System.Drawing.Point(0, 562);
             this.bt_Menu_Import.Name = "bt_Menu_Import";
             this.bt_Menu_Import.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_Import.TabIndex = 8;
+            this.bt_Menu_Import.TabStop = false;
             this.bt_Menu_Import.Text = "Import                      ";
             this.bt_Menu_Import.UseVisualStyleBackColor = false;
             this.bt_Menu_Import.Click += new System.EventHandler(this.Bt_Menu_Import_Click);
@@ -171,7 +195,7 @@
             this.panel_SubMenu_Accounts.Controls.Add(this.bt_AddAccounts);
             this.panel_SubMenu_Accounts.Controls.Add(this.bt_YourInfo);
             this.panel_SubMenu_Accounts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_SubMenu_Accounts.Location = new System.Drawing.Point(0, 484);
+            this.panel_SubMenu_Accounts.Location = new System.Drawing.Point(0, 445);
             this.panel_SubMenu_Accounts.Name = "panel_SubMenu_Accounts";
             this.panel_SubMenu_Accounts.Size = new System.Drawing.Size(188, 117);
             this.panel_SubMenu_Accounts.TabIndex = 6;
@@ -190,6 +214,7 @@
             this.button10.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.button10.Size = new System.Drawing.Size(188, 39);
             this.button10.TabIndex = 2;
+            this.button10.TabStop = false;
             this.button10.Text = "Account list";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = true;
@@ -208,6 +233,7 @@
             this.bt_AddAccounts.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.bt_AddAccounts.Size = new System.Drawing.Size(188, 39);
             this.bt_AddAccounts.TabIndex = 1;
+            this.bt_AddAccounts.TabStop = false;
             this.bt_AddAccounts.Text = "Add accounts";
             this.bt_AddAccounts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_AddAccounts.UseVisualStyleBackColor = true;
@@ -227,6 +253,7 @@
             this.bt_YourInfo.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.bt_YourInfo.Size = new System.Drawing.Size(188, 39);
             this.bt_YourInfo.TabIndex = 0;
+            this.bt_YourInfo.TabStop = false;
             this.bt_YourInfo.Text = "Your info";
             this.bt_YourInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_YourInfo.UseVisualStyleBackColor = true;
@@ -242,10 +269,11 @@
             this.bt_Menu_Accounts.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Accounts.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Accounts.Image")));
             this.bt_Menu_Accounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_Accounts.Location = new System.Drawing.Point(0, 429);
+            this.bt_Menu_Accounts.Location = new System.Drawing.Point(0, 390);
             this.bt_Menu_Accounts.Name = "bt_Menu_Accounts";
             this.bt_Menu_Accounts.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_Accounts.TabIndex = 7;
+            this.bt_Menu_Accounts.TabStop = false;
             this.bt_Menu_Accounts.Text = "Accounts                      ";
             this.bt_Menu_Accounts.UseVisualStyleBackColor = false;
             this.bt_Menu_Accounts.Click += new System.EventHandler(this.Bt_Menu_Accounts_Click);
@@ -255,7 +283,7 @@
             this.panel_SubeMenu_Reports.Controls.Add(this.button6);
             this.panel_SubeMenu_Reports.Controls.Add(this.bt_rpt_Monthly);
             this.panel_SubeMenu_Reports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_SubeMenu_Reports.Location = new System.Drawing.Point(0, 351);
+            this.panel_SubeMenu_Reports.Location = new System.Drawing.Point(0, 312);
             this.panel_SubeMenu_Reports.Name = "panel_SubeMenu_Reports";
             this.panel_SubeMenu_Reports.Size = new System.Drawing.Size(188, 78);
             this.panel_SubeMenu_Reports.TabIndex = 5;
@@ -264,6 +292,8 @@
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Top;
             this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
@@ -272,6 +302,7 @@
             this.button6.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.button6.Size = new System.Drawing.Size(188, 39);
             this.button6.TabIndex = 1;
+            this.button6.TabStop = false;
             this.button6.Text = "Yearly report";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.UseVisualStyleBackColor = true;
@@ -290,6 +321,7 @@
             this.bt_rpt_Monthly.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.bt_rpt_Monthly.Size = new System.Drawing.Size(188, 39);
             this.bt_rpt_Monthly.TabIndex = 0;
+            this.bt_rpt_Monthly.TabStop = false;
             this.bt_rpt_Monthly.Text = "Montly report";
             this.bt_rpt_Monthly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_rpt_Monthly.UseVisualStyleBackColor = true;
@@ -306,10 +338,11 @@
             this.bt_Menu_Reports.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Reports.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Reports.Image")));
             this.bt_Menu_Reports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_Reports.Location = new System.Drawing.Point(0, 296);
+            this.bt_Menu_Reports.Location = new System.Drawing.Point(0, 257);
             this.bt_Menu_Reports.Name = "bt_Menu_Reports";
             this.bt_Menu_Reports.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_Reports.TabIndex = 3;
+            this.bt_Menu_Reports.TabStop = false;
             this.bt_Menu_Reports.Text = "Reports                      ";
             this.bt_Menu_Reports.UseVisualStyleBackColor = false;
             this.bt_Menu_Reports.Click += new System.EventHandler(this.bt_Reports_Click);
@@ -318,7 +351,7 @@
             // 
             this.panel_SubMenu_Archived.Controls.Add(this.bt_RequestArchived);
             this.panel_SubMenu_Archived.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_SubMenu_Archived.Location = new System.Drawing.Point(0, 257);
+            this.panel_SubMenu_Archived.Location = new System.Drawing.Point(0, 218);
             this.panel_SubMenu_Archived.Name = "panel_SubMenu_Archived";
             this.panel_SubMenu_Archived.Size = new System.Drawing.Size(188, 39);
             this.panel_SubMenu_Archived.TabIndex = 4;
@@ -337,6 +370,7 @@
             this.bt_RequestArchived.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.bt_RequestArchived.Size = new System.Drawing.Size(188, 39);
             this.bt_RequestArchived.TabIndex = 0;
+            this.bt_RequestArchived.TabStop = false;
             this.bt_RequestArchived.Text = "Requests";
             this.bt_RequestArchived.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_RequestArchived.UseVisualStyleBackColor = true;
@@ -353,48 +387,31 @@
             this.bt_Menu_Archived.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Archived.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Archived.Image")));
             this.bt_Menu_Archived.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_Archived.Location = new System.Drawing.Point(0, 202);
+            this.bt_Menu_Archived.Location = new System.Drawing.Point(0, 163);
             this.bt_Menu_Archived.Name = "bt_Menu_Archived";
             this.bt_Menu_Archived.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_Archived.TabIndex = 2;
+            this.bt_Menu_Archived.TabStop = false;
             this.bt_Menu_Archived.Text = "Archived                      ";
             this.bt_Menu_Archived.UseVisualStyleBackColor = false;
             this.bt_Menu_Archived.Click += new System.EventHandler(this.bt_Archived_Click);
             // 
             // panel_SubMenu_Request
             // 
-            this.panel_SubMenu_Request.Controls.Add(this.bt_Libraries);
             this.panel_SubMenu_Request.Controls.Add(this.bt_CompletedRequest);
             this.panel_SubMenu_Request.Controls.Add(this.bt_AddRequest);
             this.panel_SubMenu_Request.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_SubMenu_Request.Location = new System.Drawing.Point(0, 85);
             this.panel_SubMenu_Request.Name = "panel_SubMenu_Request";
-            this.panel_SubMenu_Request.Size = new System.Drawing.Size(188, 117);
+            this.panel_SubMenu_Request.Size = new System.Drawing.Size(188, 78);
             this.panel_SubMenu_Request.TabIndex = 5;
-            // 
-            // bt_Libraries
-            // 
-            this.bt_Libraries.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_Libraries.FlatAppearance.BorderSize = 0;
-            this.bt_Libraries.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.bt_Libraries.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
-            this.bt_Libraries.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Libraries.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Libraries.ForeColor = System.Drawing.Color.White;
-            this.bt_Libraries.Location = new System.Drawing.Point(0, 83);
-            this.bt_Libraries.Name = "bt_Libraries";
-            this.bt_Libraries.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
-            this.bt_Libraries.Size = new System.Drawing.Size(188, 39);
-            this.bt_Libraries.TabIndex = 1;
-            this.bt_Libraries.Text = "Libraries";
-            this.bt_Libraries.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Libraries.UseVisualStyleBackColor = true;
-            this.bt_Libraries.Click += new System.EventHandler(this.bt_Libraries_Click);
             // 
             // bt_CompletedRequest
             // 
             this.bt_CompletedRequest.Dock = System.Windows.Forms.DockStyle.Top;
             this.bt_CompletedRequest.FlatAppearance.BorderSize = 0;
+            this.bt_CompletedRequest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_CompletedRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.bt_CompletedRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_CompletedRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_CompletedRequest.ForeColor = System.Drawing.Color.White;
@@ -403,6 +420,7 @@
             this.bt_CompletedRequest.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.bt_CompletedRequest.Size = new System.Drawing.Size(188, 44);
             this.bt_CompletedRequest.TabIndex = 2;
+            this.bt_CompletedRequest.TabStop = false;
             this.bt_CompletedRequest.Text = "Completed Request";
             this.bt_CompletedRequest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_CompletedRequest.UseVisualStyleBackColor = true;
@@ -422,6 +440,7 @@
             this.bt_AddRequest.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.bt_AddRequest.Size = new System.Drawing.Size(188, 39);
             this.bt_AddRequest.TabIndex = 0;
+            this.bt_AddRequest.TabStop = false;
             this.bt_AddRequest.Text = "Pending Requests";
             this.bt_AddRequest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_AddRequest.UseVisualStyleBackColor = true;
@@ -443,6 +462,7 @@
             this.bt_Menu_AddRequest.Name = "bt_Menu_AddRequest";
             this.bt_Menu_AddRequest.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_AddRequest.TabIndex = 1;
+            this.bt_Menu_AddRequest.TabStop = false;
             this.bt_Menu_AddRequest.Text = "Repair Request             ";
             this.bt_Menu_AddRequest.UseVisualStyleBackColor = false;
             this.bt_Menu_AddRequest.Click += new System.EventHandler(this.bt_AddRequest_Click_1);
@@ -531,7 +551,6 @@
         private System.Windows.Forms.Button bt_Menu_Archived;
         private System.Windows.Forms.Panel panel_SubMenu_Request;
         private System.Windows.Forms.Button bt_CompletedRequest;
-        private System.Windows.Forms.Button bt_Libraries;
         private System.Windows.Forms.Button bt_AddRequest;
         private System.Windows.Forms.Button bt_Menu_AddRequest;
         private System.Windows.Forms.Panel panelLogo;
@@ -547,5 +566,6 @@
         private System.Windows.Forms.Button bt_Menu_Import;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button bt_Logout;
+        private System.Windows.Forms.Button bt_Menu_BackUp;
     }
 }

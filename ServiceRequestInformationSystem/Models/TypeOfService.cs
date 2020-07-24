@@ -8,6 +8,6 @@ namespace ServiceRequestInformationSystem.Models
         public string TypeOfServiceProvided { get; set; }
         public bool IsActive { get; set; }
 
-        public ICollection<ServiceRequestInfo> ServiceRequestInfo { get; internal set; }
+   //     public ICollection<ServiceRequestInfo> ServiceRequestInfo { get; internal set; }
     }
 }

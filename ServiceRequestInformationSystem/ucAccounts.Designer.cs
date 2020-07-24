@@ -99,6 +99,7 @@
             // 
             // tb_FirstName
             // 
+            this.tb_FirstName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_FirstName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_FirstName.Location = new System.Drawing.Point(31, 255);
             this.tb_FirstName.Name = "tb_FirstName";
@@ -118,6 +119,7 @@
             // 
             // tb_LastName
             // 
+            this.tb_LastName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_LastName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_LastName.Location = new System.Drawing.Point(31, 314);
             this.tb_LastName.Name = "tb_LastName";
@@ -154,7 +156,8 @@
             this.cb_AccessLevel.FormattingEnabled = true;
             this.cb_AccessLevel.Items.AddRange(new object[] {
             "Admin",
-            "Encoder"});
+            "Encoder",
+            "Technician"});
             this.cb_AccessLevel.Location = new System.Drawing.Point(31, 371);
             this.cb_AccessLevel.Name = "cb_AccessLevel";
             this.cb_AccessLevel.Size = new System.Drawing.Size(268, 29);

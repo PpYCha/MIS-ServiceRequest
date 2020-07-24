@@ -7,6 +7,6 @@ namespace ServiceRequestInformationSystem.Models
         public int Remark_ID { get; set; }
         public string Remars { get; set; }
         public bool IsActive { get; set; }
-        public ICollection<ServiceRequestInfo> ServiceRequestInfo { get; internal set; }
+       // public ICollection<ServiceRequestInfo> ServiceRequestInfo { get; internal set; }
     }
 }

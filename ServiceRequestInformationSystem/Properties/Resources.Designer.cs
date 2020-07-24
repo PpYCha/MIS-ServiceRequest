@@ -124,6 +124,16 @@ namespace ServiceRequestInformationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_database_backup_24px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_database_backup_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_list_50px {
             get {
                 object obj = ResourceManager.GetObject("icons8_list_50px", resourceCulture);

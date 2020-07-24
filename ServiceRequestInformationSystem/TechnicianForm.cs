@@ -41,10 +41,15 @@ namespace ServiceRequestInformationSystem
         {
             SQLCon.DbCon();
             SQLCon.sqlDataApater = new SqlDataAdapter(
-               @"SELECT *
-                   
+               @"SELECT DISTINCT
+                USER_ID,
+                CONCAT(FirstName, ' ', LastName) AS Technician
+                  
                 FROM 
-                   ServiceProvidedBies 
+                   Accounts 
+                WHERE
+                    AccessLevel = 'TECHNICIAN' AND
+                    IsActive = 1
                ", SQLCon.sqlConnection);
             SQLCon.dataTable = new DataTable();
             SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
@@ -80,7 +85,7 @@ namespace ServiceRequestInformationSystem
                     if (id == metroGrid1.Rows[test2].Cells[1].Value.ToString())
                     {
 
-                        row.Cells[3].Value = true;
+                        row.Cells[2].Value = true;
                     }
                     
                    
@@ -91,7 +96,7 @@ namespace ServiceRequestInformationSystem
             metroGrid1.Columns[0].Visible = false;
             metroGrid1.Columns[1].HeaderText = "Technicians";
             metroGrid1.Columns[1].ReadOnly = true;
-            metroGrid1.Columns[2].Visible = false;
+         
           
             metroGrid1.Columns[1].Width = 300;
 
@@ -116,9 +121,9 @@ namespace ServiceRequestInformationSystem
 
                     if (isSelected)
                     {
-                        SelectedProviderId += row.Cells["SP_ID"].Value.ToString() + ",";
+                        SelectedProviderId += row.Cells["USER_ID"].Value.ToString() + ",";
                         message += SelectedProviderId.ToString();
-                        PopulateTechinician += row.Cells["spName"].Value.ToString() + ",";
+                        PopulateTechinician += row.Cells["Technician"].Value.ToString() + ",";
                     }
                 }
 

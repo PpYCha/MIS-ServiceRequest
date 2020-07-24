@@ -40,6 +40,7 @@
             this.bt_Add = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_Ids = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,11 +58,12 @@
             // 
             // tb_RequestedBy
             // 
+            this.tb_RequestedBy.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_RequestedBy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_RequestedBy.Location = new System.Drawing.Point(14, 134);
             this.tb_RequestedBy.Name = "tb_RequestedBy";
             this.tb_RequestedBy.Size = new System.Drawing.Size(309, 29);
-            this.tb_RequestedBy.TabIndex = 87;
+            this.tb_RequestedBy.TabIndex = 2;
             // 
             // label8
             // 
@@ -80,7 +82,8 @@
             this.cb_Remarks.Location = new System.Drawing.Point(14, 243);
             this.cb_Remarks.Name = "cb_Remarks";
             this.cb_Remarks.Size = new System.Drawing.Size(309, 29);
-            this.cb_Remarks.TabIndex = 85;
+            this.cb_Remarks.TabIndex = 4;
+            this.cb_Remarks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_Remarks_KeyPress);
             // 
             // cb_Office
             // 
@@ -89,7 +92,8 @@
             this.cb_Office.Location = new System.Drawing.Point(14, 190);
             this.cb_Office.Name = "cb_Office";
             this.cb_Office.Size = new System.Drawing.Size(309, 29);
-            this.cb_Office.TabIndex = 84;
+            this.cb_Office.TabIndex = 3;
+            this.cb_Office.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_Office_KeyPress);
             // 
             // cb_Service
             // 
@@ -98,7 +102,8 @@
             this.cb_Service.Location = new System.Drawing.Point(14, 78);
             this.cb_Service.Name = "cb_Service";
             this.cb_Service.Size = new System.Drawing.Size(309, 29);
-            this.cb_Service.TabIndex = 83;
+            this.cb_Service.TabIndex = 1;
+            this.cb_Service.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_Service_KeyPress);
             // 
             // panel1
             // 
@@ -128,8 +133,10 @@
             this.bt_Clear.Name = "bt_Clear";
             this.bt_Clear.Size = new System.Drawing.Size(137, 39);
             this.bt_Clear.TabIndex = 44;
+            this.bt_Clear.TabStop = false;
             this.bt_Clear.Text = "Clear";
             this.bt_Clear.UseVisualStyleBackColor = false;
+            this.bt_Clear.Click += new System.EventHandler(this.bt_Clear_Click);
             // 
             // bt_Refresh
             // 
@@ -146,6 +153,7 @@
             this.bt_Refresh.Name = "bt_Refresh";
             this.bt_Refresh.Size = new System.Drawing.Size(137, 39);
             this.bt_Refresh.TabIndex = 42;
+            this.bt_Refresh.TabStop = false;
             this.bt_Refresh.Text = "    Refresh";
             this.bt_Refresh.UseVisualStyleBackColor = false;
             this.bt_Refresh.Click += new System.EventHandler(this.bt_Refresh_Click);
@@ -165,6 +173,7 @@
             this.bt_Add.Name = "bt_Add";
             this.bt_Add.Size = new System.Drawing.Size(137, 39);
             this.bt_Add.TabIndex = 41;
+            this.bt_Add.TabStop = false;
             this.bt_Add.Text = "Add";
             this.bt_Add.UseVisualStyleBackColor = false;
             this.bt_Add.Click += new System.EventHandler(this.bt_Add_Click);
@@ -177,13 +186,24 @@
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 21);
-            this.label1.TabIndex = 69;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Type of Service Provided";
             // 
             // errorProvider
             // 
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.errorProvider.SetIconAlignment(this.dateTimePicker1, System.Windows.Forms.ErrorIconAlignment.TopRight);
+            this.dateTimePicker1.Location = new System.Drawing.Point(356, 243);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(308, 29);
+            this.dateTimePicker1.TabIndex = 88;
+            this.dateTimePicker1.Visible = false;
             // 
             // label2
             // 
@@ -202,6 +222,7 @@
             this.tb_Ids.Name = "tb_Ids";
             this.tb_Ids.Size = new System.Drawing.Size(101, 21);
             this.tb_Ids.TabIndex = 80;
+            this.tb_Ids.TabStop = false;
             this.tb_Ids.Visible = false;
             // 
             // label3
@@ -228,13 +249,14 @@
             // 
             // tb_ServiceProvided
             // 
+            this.tb_ServiceProvided.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_ServiceProvided.Location = new System.Drawing.Point(355, 190);
             this.tb_ServiceProvided.Multiline = true;
             this.tb_ServiceProvided.Name = "tb_ServiceProvided";
             this.tb_ServiceProvided.ReadOnly = true;
             this.tb_ServiceProvided.ShortcutsEnabled = false;
             this.tb_ServiceProvided.Size = new System.Drawing.Size(309, 29);
-            this.tb_ServiceProvided.TabIndex = 79;
+            this.tb_ServiceProvided.TabIndex = 7;
             this.tb_ServiceProvided.TabStop = false;
             // 
             // label5
@@ -278,7 +300,7 @@
             this.dtp_Accomplished.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtp_Accomplished.Name = "dtp_Accomplished";
             this.dtp_Accomplished.Size = new System.Drawing.Size(309, 25);
-            this.dtp_Accomplished.TabIndex = 73;
+            this.dtp_Accomplished.TabIndex = 6;
             this.dtp_Accomplished.Value = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
             // 
             // dtp_Requested
@@ -289,7 +311,7 @@
             this.dtp_Requested.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtp_Requested.Name = "dtp_Requested";
             this.dtp_Requested.Size = new System.Drawing.Size(309, 25);
-            this.dtp_Requested.TabIndex = 72;
+            this.dtp_Requested.TabIndex = 5;
             this.dtp_Requested.Value = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
             // 
             // bt_MultipleTechinician
@@ -302,6 +324,7 @@
             this.bt_MultipleTechinician.Name = "bt_MultipleTechinician";
             this.bt_MultipleTechinician.Size = new System.Drawing.Size(24, 24);
             this.bt_MultipleTechinician.TabIndex = 81;
+            this.bt_MultipleTechinician.TabStop = false;
             this.bt_MultipleTechinician.UseVisualStyleBackColor = true;
             this.bt_MultipleTechinician.Click += new System.EventHandler(this.bt_MultipleTechinician_Click);
             // 
@@ -309,6 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.tb_RequestedBy);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cb_Remarks);
@@ -362,5 +386,6 @@
         private System.Windows.Forms.Label label7;
         private MetroFramework.Controls.MetroDateTime dtp_Accomplished;
         private MetroFramework.Controls.MetroDateTime dtp_Requested;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\PpYCha\Desktop\Sample Install\</PublishUrl>
+    <PublishUrl>E:\MIS\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,9 +24,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>26</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -62,6 +63,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8_maintenance.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -120,9 +124,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202007161138370_FIX.cs" />
-    <Compile Include="Migrations\202007161138370_FIX.Designer.cs">
-      <DependentUpon>202007161138370_FIX.cs</DependentUpon>
+    <Compile Include="BackUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackUpForm.Designer.cs">
+      <DependentUpon>BackUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="custom_ToUpper.cs" />
+    <Compile Include="Migrations\202007210355334_Feasa.cs" />
+    <Compile Include="Migrations\202007210355334_Feasa.Designer.cs">
+      <DependentUpon>202007210355334_Feasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007230252525_DateEntered.cs" />
+    <Compile Include="Migrations\202007230252525_DateEntered.Designer.cs">
+      <DependentUpon>202007230252525_DateEntered.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="rpt_Monthly.cs">
       <AutoGen>True</AutoGen>
@@ -147,30 +168,6 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003190300027_ssss.cs" />
-    <Compile Include="Migrations\202003190300027_ssss.Designer.cs">
-      <DependentUpon>202003190300027_ssss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005040132262_Techinicinasss.cs" />
-    <Compile Include="Migrations\202005040132262_Techinicinasss.Designer.cs">
-      <DependentUpon>202005040132262_Techinicinasss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005190022487_IsActiveinTS.cs" />
-    <Compile Include="Migrations\202005190022487_IsActiveinTS.Designer.cs">
-      <DependentUpon>202005190022487_IsActiveinTS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005190103533_AddIsAcative.cs" />
-    <Compile Include="Migrations\202005190103533_AddIsAcative.Designer.cs">
-      <DependentUpon>202005190103533_AddIsAcative.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005230537443_NullinRemark.cs" />
-    <Compile Include="Migrations\202005230537443_NullinRemark.Designer.cs">
-      <DependentUpon>202005230537443_NullinRemark.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006012223139_Accounts.cs" />
-    <Compile Include="Migrations\202006012223139_Accounts.Designer.cs">
-      <DependentUpon>202006012223139_Accounts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -240,8 +237,17 @@
     <Compile Include="WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202007161138370_FIX.resx">
-      <DependentUpon>202007161138370_FIX.cs</DependentUpon>
+    <EmbeddedResource Include="BackUpForm.resx">
+      <DependentUpon>BackUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007210355334_Feasa.resx">
+      <DependentUpon>202007210355334_Feasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007230252525_DateEntered.resx">
+      <DependentUpon>202007230252525_DateEntered.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rpt_Monthly.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -256,24 +262,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003190300027_ssss.resx">
-      <DependentUpon>202003190300027_ssss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005040132262_Techinicinasss.resx">
-      <DependentUpon>202005040132262_Techinicinasss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005190022487_IsActiveinTS.resx">
-      <DependentUpon>202005190022487_IsActiveinTS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005190103533_AddIsAcative.resx">
-      <DependentUpon>202005190103533_AddIsAcative.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005230537443_NullinRemark.resx">
-      <DependentUpon>202005230537443_NullinRemark.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006012223139_Accounts.resx">
-      <DependentUpon>202006012223139_Accounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -409,6 +397,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_shutdown_25px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_database_backup_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8_maintenance.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
