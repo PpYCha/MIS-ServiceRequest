@@ -33,10 +33,7 @@ namespace ServiceRequestInformationSystem
 
         private void ucCompletedRequest_Load(object sender, EventArgs e)
         {
-            PopulateComboBox("TypeOfServices", "TS_ID", "TypeOfServiceProvided", cb_Service);
-            PopulateComboBox("OfficeDepartments", "OD_ID", "OfficeDepartmentName", cb_Office);
-
-            PopulateComboBox("RemarkInfoes", "Remark_ID", "Remars", cb_Remarks);
+            PopulateComboBox_Infoes();
 
         }
 
@@ -183,5 +180,18 @@ namespace ServiceRequestInformationSystem
                 tb_ServiceProvided.Clear();
                 tb_Ids.Clear();
             }
+
+        private void bt_Refresh_Click(object sender, EventArgs e)
+        {
+            PopulateComboBox_Infoes();
         }
+
+        private void PopulateComboBox_Infoes()
+        {
+            PopulateComboBox("TypeOfServices", "TS_ID", "TypeOfServiceProvided", cb_Service);
+            PopulateComboBox("OfficeDepartments", "OD_ID", "OfficeDepartmentName", cb_Office);
+
+            PopulateComboBox("RemarkInfoes", "Remark_ID", "Remars", cb_Remarks);
+        }
+    }
     }

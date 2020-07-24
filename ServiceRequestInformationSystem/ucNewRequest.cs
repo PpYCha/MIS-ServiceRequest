@@ -29,16 +29,18 @@ namespace ServiceRequestInformationSystem
 
         public void ucRequest_Load(object sender, EventArgs e)
         {
+          
+            LoadRequest();
+            PopulateComboBox_Infoes();
+        }
+
+        private void PopulateComboBox_Infoes()
+        {
             PopulateComboBox("TypeOfServices", "TS_ID", "TypeOfServiceProvided", cb_Service);
             PopulateComboBox("OfficeDepartments", "OD_ID", "OfficeDepartmentName", cb_Office);
 
             PopulateComboBox("RemarkInfoes", "Remark_ID", "Remars", cb_Remarks);
-            LoadRequest();
-
         }
-
-     
-
 
         public  void RefreshList() 
         {
@@ -71,11 +73,11 @@ namespace ServiceRequestInformationSystem
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 //SQL
-                //try
-                //{
+                try
+                {
 
-               
-                TechnicianForm technicianForm = new TechnicianForm();
+
+                    TechnicianForm technicianForm = new TechnicianForm();
                 SQLCon.DbCon();
              
 
@@ -90,7 +92,7 @@ namespace ServiceRequestInformationSystem
 
                     if (cb_Remarks.SelectedIndex == -1)
                     {
-                        SQLCon.sqlCommand.Parameters.AddWithValue("@7", 19);
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@7", cb_Remarks.Text);
                     }
                     else
                     {
@@ -137,12 +139,12 @@ namespace ServiceRequestInformationSystem
 
                 MetroFramework.MetroMessageBox.Show(this, "New Request Added Succesfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearTextbox();
-                //}
-                //catch (Exception)
-                //{
+                }
+                catch (Exception e)
+                {
 
-                //    MetroFramework.MetroMessageBox.Show(this, "Please Assign Technicians", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
+                    MetroFramework.MetroMessageBox.Show(this, "" + e, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
             }
 
@@ -311,6 +313,8 @@ namespace ServiceRequestInformationSystem
         private void bt_Refresh_Click(object sender, EventArgs e)
         {
             LoadRequest();
+            PopulateComboBox_Infoes();
+            ClearTextbox();
 
         }
 

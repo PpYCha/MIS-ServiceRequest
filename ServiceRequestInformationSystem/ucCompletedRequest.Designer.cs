@@ -35,6 +35,9 @@
             this.cb_Office = new System.Windows.Forms.ComboBox();
             this.cb_Service = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bt_Clear = new System.Windows.Forms.Button();
+            this.bt_Refresh = new System.Windows.Forms.Button();
+            this.bt_Add = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label2 = new System.Windows.Forms.Label();
@@ -47,9 +50,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtp_Accomplished = new MetroFramework.Controls.MetroDateTime();
             this.dtp_Requested = new MetroFramework.Controls.MetroDateTime();
-            this.bt_Clear = new System.Windows.Forms.Button();
-            this.bt_Refresh = new System.Windows.Forms.Button();
-            this.bt_Add = new System.Windows.Forms.Button();
             this.bt_MultipleTechinician = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -112,6 +112,62 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(1);
             this.panel1.Size = new System.Drawing.Size(139, 119);
             this.panel1.TabIndex = 82;
+            // 
+            // bt_Clear
+            // 
+            this.bt_Clear.BackColor = System.Drawing.Color.White;
+            this.bt_Clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bt_Clear.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_Clear.FlatAppearance.BorderSize = 0;
+            this.bt_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Clear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Clear.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_clear_symbol_32px;
+            this.bt_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Clear.Location = new System.Drawing.Point(1, 79);
+            this.bt_Clear.Margin = new System.Windows.Forms.Padding(0);
+            this.bt_Clear.Name = "bt_Clear";
+            this.bt_Clear.Size = new System.Drawing.Size(137, 39);
+            this.bt_Clear.TabIndex = 44;
+            this.bt_Clear.Text = "Clear";
+            this.bt_Clear.UseVisualStyleBackColor = false;
+            // 
+            // bt_Refresh
+            // 
+            this.bt_Refresh.BackColor = System.Drawing.Color.White;
+            this.bt_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.bt_Refresh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_Refresh.FlatAppearance.BorderSize = 0;
+            this.bt_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Refresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Refresh.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_refresh_32px;
+            this.bt_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Refresh.Location = new System.Drawing.Point(1, 40);
+            this.bt_Refresh.Margin = new System.Windows.Forms.Padding(0);
+            this.bt_Refresh.Name = "bt_Refresh";
+            this.bt_Refresh.Size = new System.Drawing.Size(137, 39);
+            this.bt_Refresh.TabIndex = 42;
+            this.bt_Refresh.Text = "    Refresh";
+            this.bt_Refresh.UseVisualStyleBackColor = false;
+            this.bt_Refresh.Click += new System.EventHandler(this.bt_Refresh_Click);
+            // 
+            // bt_Add
+            // 
+            this.bt_Add.BackColor = System.Drawing.Color.White;
+            this.bt_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bt_Add.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_Add.FlatAppearance.BorderSize = 0;
+            this.bt_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Add.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Add.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_add_new_32px;
+            this.bt_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Add.Location = new System.Drawing.Point(1, 1);
+            this.bt_Add.Margin = new System.Windows.Forms.Padding(0);
+            this.bt_Add.Name = "bt_Add";
+            this.bt_Add.Size = new System.Drawing.Size(137, 39);
+            this.bt_Add.TabIndex = 41;
+            this.bt_Add.Text = "Add";
+            this.bt_Add.UseVisualStyleBackColor = false;
+            this.bt_Add.Click += new System.EventHandler(this.bt_Add_Click);
             // 
             // label1
             // 
@@ -235,61 +291,6 @@
             this.dtp_Requested.Size = new System.Drawing.Size(309, 25);
             this.dtp_Requested.TabIndex = 72;
             this.dtp_Requested.Value = new System.DateTime(2020, 7, 15, 0, 0, 0, 0);
-            // 
-            // bt_Clear
-            // 
-            this.bt_Clear.BackColor = System.Drawing.Color.White;
-            this.bt_Clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.bt_Clear.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_Clear.FlatAppearance.BorderSize = 0;
-            this.bt_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Clear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Clear.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_clear_symbol_32px;
-            this.bt_Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Clear.Location = new System.Drawing.Point(1, 79);
-            this.bt_Clear.Margin = new System.Windows.Forms.Padding(0);
-            this.bt_Clear.Name = "bt_Clear";
-            this.bt_Clear.Size = new System.Drawing.Size(137, 39);
-            this.bt_Clear.TabIndex = 44;
-            this.bt_Clear.Text = "Clear";
-            this.bt_Clear.UseVisualStyleBackColor = false;
-            // 
-            // bt_Refresh
-            // 
-            this.bt_Refresh.BackColor = System.Drawing.Color.White;
-            this.bt_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.bt_Refresh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_Refresh.FlatAppearance.BorderSize = 0;
-            this.bt_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Refresh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Refresh.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_refresh_32px;
-            this.bt_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Refresh.Location = new System.Drawing.Point(1, 40);
-            this.bt_Refresh.Margin = new System.Windows.Forms.Padding(0);
-            this.bt_Refresh.Name = "bt_Refresh";
-            this.bt_Refresh.Size = new System.Drawing.Size(137, 39);
-            this.bt_Refresh.TabIndex = 42;
-            this.bt_Refresh.Text = "    Refresh";
-            this.bt_Refresh.UseVisualStyleBackColor = false;
-            // 
-            // bt_Add
-            // 
-            this.bt_Add.BackColor = System.Drawing.Color.White;
-            this.bt_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.bt_Add.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_Add.FlatAppearance.BorderSize = 0;
-            this.bt_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Add.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Add.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_add_new_32px;
-            this.bt_Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Add.Location = new System.Drawing.Point(1, 1);
-            this.bt_Add.Margin = new System.Windows.Forms.Padding(0);
-            this.bt_Add.Name = "bt_Add";
-            this.bt_Add.Size = new System.Drawing.Size(137, 39);
-            this.bt_Add.TabIndex = 41;
-            this.bt_Add.Text = "Add";
-            this.bt_Add.UseVisualStyleBackColor = false;
-            this.bt_Add.Click += new System.EventHandler(this.bt_Add_Click);
             // 
             // bt_MultipleTechinician
             // 
