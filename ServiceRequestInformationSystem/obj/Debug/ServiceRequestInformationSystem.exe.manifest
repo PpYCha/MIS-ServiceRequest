@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="ServiceRequestInformationSystem.exe" version="1.0.0.14" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="ServiceRequestInformationSystem.exe" version="1.0.0.26" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="icons8_maintenance.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -343,14 +343,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ServiceRequestInformationSystem.exe" size="16352768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ServiceRequestInformationSystem.exe" size="16383488">
       <assemblyIdentity name="ServiceRequestInformationSystem" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qCIXkKIQANB14WYwzby+ofrw/F2RZL3yP5sSagUcAmc=</dsig:DigestValue>
+        <dsig:DigestValue>nH+hXRo7ROW4F9LzbgenlvQHTlXKhDrVzB/8dNJs/J8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -387,13 +387,13 @@
       <dsig:DigestValue>7nXdZ6oHqM0HypqGSeiWJvuL77p0h2cC+fjGCYQ7uNU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ServiceRequestInformationSystem.exe.config" size="1435">
+  <file name="ServiceRequestInformationSystem.exe.config" size="1858">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>LyhpqjS5aWYC+S6tO2RRA7sovZzUftuNkXyhYZsc3s8=</dsig:DigestValue>
+      <dsig:DigestValue>n/ikL3IEGDc2FcZIImbVp7Rlgj0OcvkdFj5RVeY6+rI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

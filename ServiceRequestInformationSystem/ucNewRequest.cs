@@ -36,15 +36,31 @@ namespace ServiceRequestInformationSystem
 
         private void PopulateComboBox_Infoes()
         {
-            PopulateComboBox("TypeOfServices", "TS_ID", "TypeOfServiceProvided", cb_Service);
-            PopulateComboBox("OfficeDepartments", "OD_ID", "OfficeDepartmentName", cb_Office);
+            PopulateComboBox("ServiceRequestInfoes", "SR_ID", "TypeOfServiceProvided", cb_Service);
+            PopulateComboBox("ServiceRequestInfoes", "SR_ID", "RemarkDeatails", cb_Remarks);
+            PopulateComboBox("ServiceRequestInfoes", "SR_ID", "OfficeDepartmentName", cb_Office);
 
-            PopulateComboBox("RemarkInfoes", "Remark_ID", "Remars", cb_Remarks);
+        }
+
+        public void PopulateComboBox(string tableName, string valueName, string displayName, ComboBox cb_Name)
+        {
+            SQLCon.DbCon();
+            SQLCon.sqlDataApater = new SqlDataAdapter("SELECT DISTINCT "+ displayName +" FROM " + tableName + " ORDER BY " + displayName, SQLCon.sqlConnection);
+            SQLCon.dataTable = new DataTable();
+            SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
+               cb_Name.DataSource = SQLCon.dataTable;
+         //   cb_Name.ValueMember = valueName;
+            cb_Name.DisplayMember = displayName;
+            cb_Name.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_Name.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cb_Name.SelectedIndex = -1;
         }
 
         public  void RefreshList() 
         {
-            PopulateComboBox("TypeOfServices", "TS_ID", "TypeOfServiceProvided", cb_Service);
+            PopulateComboBox("ServiceRequestInfoes", "SR_ID", "TypeOfServiceProvided", cb_Service);
+            PopulateComboBox("ServiceRequestInfoes", "SR_ID", "RemarkDeatails", cb_Remarks);
+            PopulateComboBox("ServiceRequestInfoes", "SR_ID", "OfficeDepartmentName", cb_Office);
         }
 
         private static ucNewRequest _instance;
@@ -73,78 +89,83 @@ namespace ServiceRequestInformationSystem
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 //SQL
-                try
-                {
+                //try
+                //{
 
 
                     TechnicianForm technicianForm = new TechnicianForm();
                 SQLCon.DbCon();
-             
 
-                    SQLCon.sqlCommand = new SqlCommand("INSERT INTO ServiceRequestInfoes VALUES(@1, @2, @3, @4, @5, @6, @7, @8, @9);SELECT SCOPE_IDENTITY();", SQLCon.sqlConnection);
+
+                    SQLCon.sqlCommand = new SqlCommand(@"INSERT INTO ServiceRequestInfoes (TypeOfServiceProvided, RequestedBy, OfficeDepartmentName, DateRequested, TimeLeft, DateAccomplished, Status, Techinicians, RemarkDeatails, DateEntered)  VALUES(
+                        @TypeOfServiceProvided, 
+                        @RequestedBy, 
+                        @OfficeDepartmentName, 
+                        @DateRequested,
+                        @TimeLeft, 
+                        @DateAccomplished, 
+                        @Status, 
+                        @Techinicians, 
+                        @RemarkDeatails,
+                        @DateEntered);SELECT SCOPE_IDENTITY();", SQLCon.sqlConnection);
+
                     SQLCon.sqlCommand.CommandType = CommandType.Text;
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@1", cb_Service.SelectedValue);
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@2", tb_RequestedBy.Text);
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@3", cb_Office.SelectedValue);
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@4", DateTime.Now);
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@5", DBNull.Value); //Time Left Column
-
-
-                    if (cb_Remarks.SelectedIndex == -1)
-                    {
-                        SQLCon.sqlCommand.Parameters.AddWithValue("@7", cb_Remarks.Text);
-                    }
-                    else
-                    {
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@7", cb_Remarks.SelectedValue);
-                    }
-
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@9", tb_ServiceProvided.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@TypeOfServiceProvided", cb_Service.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@RequestedBy", tb_RequestedBy.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@OfficeDepartmentName", cb_Office.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateRequested", DateTime.Now);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@TimeLeft", DBNull.Value); //Time Left Column
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@RemarkDeatails", cb_Remarks.Text);
+                   
+                  
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@Techinicians", tb_ServiceProvided.Text);
                     if (cb_Status.Checked == true)
                     {
-                        SQLCon.sqlCommand.Parameters.AddWithValue("@6", dtp_Accomplished.Value);
-                        SQLCon.sqlCommand.Parameters.AddWithValue("@8", 1);
-                    }
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplished", dtp_Accomplished.Value);
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@Status", true);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateEntered", DateTime.Now.ToShortDateString());
+                }
                     else
                     {
-                        SQLCon.sqlCommand.Parameters.AddWithValue("@6", DBNull.Value);
-                        SQLCon.sqlCommand.Parameters.AddWithValue("@8", 0);
-                    }
-           
-
-
-                int insertedID = Convert.ToInt32(SQLCon.sqlCommand.ExecuteScalar());
-
-                string strValue = tb_Ids.Text;
-                string[] strArray = strValue.Split(',');
-
-                foreach (object obj in strArray)
-                {
-                
-                        string tempSP_ID = new string(tb_Ids.Text.ToArray());
-
-
-                        SQLCon.sqlCommand = new SqlCommand("INSERT INTO TechnicianRequests VALUES(@1, @2);", SQLCon.sqlConnection);
-                        SQLCon.sqlCommand.CommandType = CommandType.Text;
-                        SQLCon.sqlCommand.Parameters.AddWithValue("@1", obj);
-                        SQLCon.sqlCommand.Parameters.AddWithValue("@2", insertedID);
-                    SQLCon.sqlCommand.ExecuteNonQuery();
-
-
-
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplished", DBNull.Value);
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@Status", false);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateEntered", DBNull.Value);
                 }
+                SQLCon.sqlCommand.ExecuteNonQuery();
+
+
+                //int insertedID = Convert.ToInt32(SQLCon.sqlCommand.ExecuteScalar());
+
+                //string strValue = tb_Ids.Text;
+                //string[] strArray = strValue.Split(',');
+
+                //foreach (object obj in strArray)
+                //{
+                
+                //        string tempSP_ID = new string(tb_Ids.Text.ToArray());
+
+
+                //        SQLCon.sqlCommand = new SqlCommand("INSERT INTO TechnicianRequests VALUES(@1, @2);", SQLCon.sqlConnection);
+                //        SQLCon.sqlCommand.CommandType = CommandType.Text;
+                //        SQLCon.sqlCommand.Parameters.AddWithValue("@1", obj);
+                //        SQLCon.sqlCommand.Parameters.AddWithValue("@2", insertedID);
+                //    SQLCon.sqlCommand.ExecuteNonQuery();
+
+
+
+                //}
                
                 
-                LoadRequest();
-
-                MetroFramework.MetroMessageBox.Show(this, "New Request Added Succesfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearTextbox();
-                }
-                catch (Exception e)
-                {
+                LoadRequest();
+                PopulateComboBox_Infoes();
+                MetroFramework.MetroMessageBox.Show(this, "New Request Added Succesfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //catch (Exception e)
+                //{
 
-                    MetroFramework.MetroMessageBox.Show(this, "" + e, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                //    MetroFramework.MetroMessageBox.Show(this, "" + e, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
 
             }
 
@@ -155,10 +176,12 @@ namespace ServiceRequestInformationSystem
         {
             errorProvider.Clear();
             cb_Service.SelectedIndex = -1;
-            tb_RequestedBy.Clear();
-            cb_Office.SelectedIndex = -1;
-            //cb_Technician.SelectedIndex = -1;
             cb_Remarks.SelectedIndex = -1;
+            cb_Office.SelectedIndex = -1;
+            tb_RequestedBy.Clear();
+            //cb_Technician.SelectedIndex = -1;
+
+            bt_Add.Enabled = true;
             cb_Status.Checked = false;
             tb_ServiceProvided.Clear();
             tb_Ids.Clear();
@@ -174,27 +197,22 @@ namespace ServiceRequestInformationSystem
             SQLCon.sqlDataApater = new SqlDataAdapter(
                @"SELECT   
                     T1.SR_ID, 
-                    T2.TypeOfServiceProvided AS [Type Of Service Provided], 
+                    T1.TypeOfServiceProvided AS [Type Of Service Provided], 
                     T1.RequestedBy AS [Requested By],  
-                    T3.OfficeDepartmentName AS [Office], 
+                    T1.OfficeDepartmentName AS [Office], 
                     T1.DateRequested AS [Date Requested],
                     T1.TimeLeft AS [Time Left],
                     T1.DateAccomplished AS [Date Accomplished],
-                    Remars AS [Remarks], 
+             
                     Status AS [Status:],
-                    Techinicians AS [Technicians]
+                    Techinicians AS [Technicians],
+                    RemarkDeatails AS [Remarks] 
                 FROM 
-                    ServiceRequestInfoes AS T1, 
-                    TypeOfServices AS T2, 
-                    OfficeDepartments AS T3, 
-                    
-                    RemarkInfoes AS T5
-                 
+                    ServiceRequestInfoes AS T1
+
                 WHERE 
-                    T1.Status = 0     AND
-                    T1.TS_ID=T2.TS_ID AND 
-                    T1.OD_ID=T3.OD_ID AND 
-                    T1.Remark_ID=T5.Remark_ID", SQLCon.sqlConnection);
+                    T1.Status = 0
+                  ", SQLCon.sqlConnection);
             SQLCon.dataTable = new DataTable();
             SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
             dataGridView_ListOfRequest.DataSource = SQLCon.dataTable;
@@ -262,7 +280,7 @@ namespace ServiceRequestInformationSystem
             this.dataGridView_ListOfRequest.Columns["Time Left"].Width = 223;
             this.dataGridView_ListOfRequest.Columns["Date Accomplished"].Width = 109;
             this.dataGridView_ListOfRequest.Columns["Technicians"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridView_ListOfRequest.Columns["Remarks"].Width = 200;
+            this.dataGridView_ListOfRequest.Columns["Remarks"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             dataGridView_ListOfRequest.Columns["Type Of Service Provided"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView_ListOfRequest.Columns["Requested By"].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -272,6 +290,7 @@ namespace ServiceRequestInformationSystem
             dataGridView_ListOfRequest.Columns["Date Accomplished"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView_ListOfRequest.Columns["Technicians"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView_ListOfRequest.Columns["Remarks"].SortMode = DataGridViewColumnSortMode.NotSortable;
+
 
 
             dataGridView_ListOfRequest.BorderStyle = BorderStyle.None;
@@ -288,19 +307,7 @@ namespace ServiceRequestInformationSystem
 
         }
 
-        public void PopulateComboBox(string tableName ,string valueName, string displayName, ComboBox cb_Name)
-        {
-            SQLCon.DbCon();
-            SQLCon.sqlDataApater = new SqlDataAdapter("SELECT * FROM " + tableName + " ORDER BY " + displayName, SQLCon.sqlConnection);
-            SQLCon.dataTable = new DataTable();
-            SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
-            cb_Name.DataSource = SQLCon.dataTable;
-            cb_Name.ValueMember = valueName;
-            cb_Name.DisplayMember = displayName;
-            cb_Name.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cb_Name.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cb_Name.SelectedIndex = -1;
-        }
+   
 
 
 
@@ -312,9 +319,9 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Refresh_Click(object sender, EventArgs e)
         {
+            ClearTextbox();
             LoadRequest();
             PopulateComboBox_Infoes();
-            ClearTextbox();
 
         }
 
@@ -322,6 +329,7 @@ namespace ServiceRequestInformationSystem
         {
             try
             {
+                bt_Add.Enabled = false;
                 cb_Status.Enabled = true;
                 dtp_Accomplished.Enabled = true;
                 bt_Update.Enabled = true;
@@ -331,10 +339,10 @@ namespace ServiceRequestInformationSystem
                 cb_Office.Text = dataGridView_ListOfRequest.SelectedRows[0].Cells[3].Value.ToString();
                 dtp_Requested.Text = dataGridView_ListOfRequest.SelectedRows[0].Cells[4].Value.ToString();
                 dtp_Accomplished.Text = dataGridView_ListOfRequest.SelectedRows[0].Cells[6].Value.ToString();
-                //cb_Technician.Text = dataGridView_ListOfRequest.SelectedRows[0].Cells[7].Value.ToString();
-                cb_Remarks.Text = dataGridView_ListOfRequest.SelectedRows[0].Cells[7].Value.ToString();
-                tb_ServiceProvided.Text = dataGridView_ListOfRequest.SelectedRows[0].Cells[9].Value.ToString();
-                string check = dataGridView_ListOfRequest.SelectedRows[0].Cells[8].Value.ToString();
+       
+                cb_Remarks.Text = dataGridView_ListOfRequest.SelectedRows[0].Cells[9].Value.ToString();
+                tb_ServiceProvided.Text = dataGridView_ListOfRequest.SelectedRows[0].Cells[8].Value.ToString();
+                string check = dataGridView_ListOfRequest.SelectedRows[0].Cells[7].Value.ToString();
                 if (check == "True")
                 {
                     cb_Status.Checked = true;
@@ -354,84 +362,91 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Update_Click(object sender, EventArgs e)
         {
-                int tempID = int.Parse(dataGridView_ListOfRequest.SelectedRows[0].Cells[0].Value.ToString());
+
+
+
+
+            int tempID = int.Parse(dataGridView_ListOfRequest.SelectedRows[0].Cells[0].Value.ToString());
                 SQLCon.DbCon();
                 SQLCon.sqlCommand = new SqlCommand(
                     @"UPDATE ServiceRequestInfoes SET 
                     
-                      TS_ID = @1,
+                      TypeOfServiceProvided = @1,
                       RequestedBy = @2,
-                      OD_ID = @3,
+                      OfficeDepartmentName = @3,
                       DateRequested = @4,
                       TimeLeft = @5,
                       DateAccomplished = @6,
                       
-                      Remark_ID = @7,
+                      RemarkDeatails = @7,
                       Status = @8,
-                      Techinicians = @9
+                      Techinicians = @9,
+                      DateEntered = @11
                   WHERE
                        SR_ID=@10"
                     , SQLCon.sqlConnection);
                 SQLCon.sqlCommand.CommandType = CommandType.Text;
 
                 SQLCon.sqlCommand.Parameters.AddWithValue("@0", tempID);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@1", cb_Service.SelectedValue);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@1", cb_Service.Text);
                 SQLCon.sqlCommand.Parameters.AddWithValue("@2", tb_RequestedBy.Text);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@3", cb_Office.SelectedValue);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@3", cb_Office.Text);
             SQLCon.sqlCommand.Parameters.AddWithValue("@4", dtp_Requested.Value);
                 SQLCon.sqlCommand.Parameters.AddWithValue("@5", DBNull.Value); //Time Left Column
            
                 SQLCon.sqlCommand.Parameters.AddWithValue("@6", dtp_Accomplished.Value.Date);
 
-                SQLCon.sqlCommand.Parameters.AddWithValue("@7", cb_Remarks.SelectedValue);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@7", cb_Remarks.Text);
                 SQLCon.sqlCommand.Parameters.AddWithValue("@9", tb_ServiceProvided.Text);
                 SQLCon.sqlCommand.Parameters.AddWithValue("@10", tempID);
 
             if (cb_Status.Checked == true)
                 {
                     SQLCon.sqlCommand.Parameters.AddWithValue("@8", 1);
-                }
+                SQLCon.sqlCommand.Parameters.AddWithValue("@11", DateTime.Now);
+            }
                 else
                 {
                     SQLCon.sqlCommand.Parameters.AddWithValue("@8", 0);
-                }
+                SQLCon.sqlCommand.Parameters.AddWithValue("@11", DBNull.Value);
+            }
                 SQLCon.sqlCommand.ExecuteNonQuery();
 
 
 
-            if (tb_Ids.Text != "")
-            {
+            //if (tb_Ids.Text != "")
+            //{
 
-            int sr_tempID = int.Parse(dataGridView_ListOfRequest.SelectedRows[0].Cells[0].Value.ToString());
-            SQLCon.sqlCommand = new SqlCommand(
-              @"DELETE TechnicianRequests WHERE SR_ID = '" + sr_tempID + "'"
-              , SQLCon.sqlConnection);
+            //int sr_tempID = int.Parse(dataGridView_ListOfRequest.SelectedRows[0].Cells[0].Value.ToString());
+            //SQLCon.sqlCommand = new SqlCommand(
+            //  @"DELETE TechnicianRequests WHERE SR_ID = '" + sr_tempID + "'"
+            //  , SQLCon.sqlConnection);
 
-            SQLCon.sqlCommand.CommandType = CommandType.Text;
-            SQLCon.sqlCommand.ExecuteNonQuery();
-
-
-            string strValue = tb_Ids.Text;
-            string[] strArray = strValue.Split(',');
+            //SQLCon.sqlCommand.CommandType = CommandType.Text;
+            //SQLCon.sqlCommand.ExecuteNonQuery();
 
 
-            foreach (object obj in strArray)
-            {
-
-                string tempSP_ID = new string(tb_Ids.Text.ToArray());
+            //string strValue = tb_Ids.Text;
+            //string[] strArray = strValue.Split(',');
 
 
-                SQLCon.sqlCommand = new SqlCommand("INSERT INTO TechnicianRequests VALUES(@1, @2);", SQLCon.sqlConnection);
-                SQLCon.sqlCommand.CommandType = CommandType.Text;
-                SQLCon.sqlCommand.Parameters.AddWithValue("@1", obj);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@2", sr_tempID);
-                SQLCon.sqlCommand.ExecuteNonQuery();
+            //foreach (object obj in strArray)
+            //{
+
+            //    string tempSP_ID = new string(tb_Ids.Text.ToArray());
+
+
+            //    SQLCon.sqlCommand = new SqlCommand("INSERT INTO TechnicianRequests VALUES(@1, @2);", SQLCon.sqlConnection);
+            //    SQLCon.sqlCommand.CommandType = CommandType.Text;
+            //    SQLCon.sqlCommand.Parameters.AddWithValue("@1", obj);
+            //    SQLCon.sqlCommand.Parameters.AddWithValue("@2", sr_tempID);
+            //    SQLCon.sqlCommand.ExecuteNonQuery();
 
 
 
-            }
+            //}
 
-            }
+            //}
         
             MessageBox.Show("Update Succesfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadRequest();
@@ -466,10 +481,10 @@ namespace ServiceRequestInformationSystem
 
         private void cb_Service_Validating(object sender, CancelEventArgs e)
         {
-            if (cb_Service.SelectedIndex == -1)
+            if (cb_Service.Text == "")
             {
                 e.Cancel = true;
-                errorProvider.SetError(cb_Service, "Please select a Service! Before you add..");
+                errorProvider.SetError(cb_Service, "Please enter a Service! Before you add..");
             }
             else
             {
@@ -480,10 +495,10 @@ namespace ServiceRequestInformationSystem
 
         private void cb_Office_Validating(object sender, CancelEventArgs e)
         {
-            if (cb_Office.SelectedIndex == -1)
+            if (cb_Office.Text == "")
             {
                 e.Cancel = true;
-                errorProvider.SetError(cb_Office, "Please select a Office! Before you add..");
+                errorProvider.SetError(cb_Office, "Please enter a Office! Before you add..");
             }
             else
             {
@@ -566,8 +581,33 @@ namespace ServiceRequestInformationSystem
 
         private void cb_Service_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsLetter(e.KeyChar))
-                e.KeyChar = Char.ToUpper(e.KeyChar);
+            custom_ToUpper.ToUpper(e);
+
+           
+        }
+
+        private void cb_Office_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            custom_ToUpper.ToUpper(e);
+        }
+
+        private void cb_Remarks_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            custom_ToUpper.ToUpper(e);
+        }
+
+        private void cb_Remarks_Validating_1(object sender, CancelEventArgs e)
+        {
+            if (cb_Remarks.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider.SetError(cb_Remarks, "Please enter a Office! Before you add..");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cb_Remarks, null);
+            }
         }
     }
 }

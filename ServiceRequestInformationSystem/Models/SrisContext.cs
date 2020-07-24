@@ -42,15 +42,15 @@ namespace ServiceRequestInformationSystem.Models
             modelBuilder.Entity<Account>().HasKey(k => k.USER_ID)
           .Property(p => p.USER_ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            modelBuilder.Entity<ServiceRequestInfo>()
-              .HasRequired<TypeOfService>(k => k.TypeOfService)
-              .WithMany(p => p.ServiceRequestInfo)
-              .HasForeignKey<int>(k => k.TS_ID);
+            //modelBuilder.Entity<ServiceRequestInfo>()
+            //  .HasRequired<TypeOfService>(k => k.TypeOfService)
+            //  .WithMany(p => p.ServiceRequestInfo)
+            //  .HasForeignKey<int>(k => k.TS_ID);
 
-            modelBuilder.Entity<ServiceRequestInfo>()
-              .HasRequired<OfficeDepartment>(k => k.OfficeDepartment)
-              .WithMany(p => p.ServiceRequestInfo)
-              .HasForeignKey<int>(k => k.OD_ID);
+            //modelBuilder.Entity<ServiceRequestInfo>()
+            //  .HasRequired<OfficeDepartment>(k => k.OfficeDepartment)
+            //  .WithMany(p => p.ServiceRequestInfo)
+            //  .HasForeignKey<int>(k => k.OD_ID);
 
 
             modelBuilder.Entity<TechnicianRequest>()
@@ -63,10 +63,10 @@ namespace ServiceRequestInformationSystem.Models
                 .WithMany(p => p.TechnicianRequest)
                 .HasForeignKey<int>(k => k.SR_ID);
 
-            modelBuilder.Entity<ServiceRequestInfo>()          
-            .HasRequired<RemarkInfo>(k => k.RemarkInfo)
-            .WithMany(p => p.ServiceRequestInfo)
-            .HasForeignKey<int>(k => k.Remark_ID);
+            //modelBuilder.Entity<ServiceRequestInfo>()          
+            //.HasRequired<RemarkInfo>(k => k.RemarkInfo)
+            //.WithMany(p => p.ServiceRequestInfo)
+            //.HasForeignKey<int>(k => k.Remark_ID);
         }
     }
 

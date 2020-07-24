@@ -22,7 +22,7 @@ namespace ServiceRequestInformationSystem
           
             customizeDesign();
 
-            LoadAllUserControll();
+            //LoadAllUserControll();
 
            // Opacity = 0;
             LoginForm loginForm = new LoginForm();
@@ -38,11 +38,20 @@ namespace ServiceRequestInformationSystem
             if (accessLevel == "Admin")
             {
                 bt_Menu_Accounts.Visible = true;
+                bt_ImportExcel.Visible = true;
+                bt_Menu_Import.Visible = true;
+                bt_Menu_Reports.Visible = true;
+                bt_Menu_BackUp.Visible = true;
+                LoaducAddRequest();
             }
             else
             {
-
+                LoaducAddRequest();
                 bt_Menu_Accounts.Visible = false;
+                bt_ImportExcel.Visible = false;
+                bt_Menu_Import.Visible = false;
+                bt_Menu_Reports.Visible = false;
+                bt_Menu_BackUp.Visible = false;
             }
         }
 
@@ -205,13 +214,13 @@ namespace ServiceRequestInformationSystem
             LoaducAddRequest();
         }
 
-        private void bt_Libraries_Click(object sender, EventArgs e)
-        {
-            hideSubMenu();
-            DataForm dataForm = new DataForm();
-            dataForm.ShowDialog();
+        //private void bt_Libraries_Click(object sender, EventArgs e)
+        //{
+        //    hideSubMenu();
+        //    DataForm dataForm = new DataForm();
+        //    dataForm.ShowDialog();
 
-        }
+        //}
 
        
 
@@ -323,13 +332,28 @@ namespace ServiceRequestInformationSystem
 
             if (accessLevel == "Admin")
             {
+                bt_Menu_BackUp.Visible = true;
                 bt_Menu_Accounts.Visible = true;
+                bt_ImportExcel.Visible = true;
+                bt_Menu_Import.Visible = true;
+                bt_Menu_Reports.Visible = true;
+                LoaducAddRequest();
             }
             else
             {
-
                 bt_Menu_Accounts.Visible = false;
+                bt_ImportExcel.Visible = false;
+                bt_Menu_Import.Visible = false;
+                bt_Menu_Reports.Visible = false;
+                bt_Menu_BackUp.Visible = false;
+                LoaducAddRequest();
             }
+        }
+
+        private void bt_Menu_BackUp_Click(object sender, EventArgs e)
+        {
+            BackUpForm backUpForm = new BackUpForm();
+            backUpForm.ShowDialog();
         }
     }
 }

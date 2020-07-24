@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView_ListOfRequest = new MetroFramework.Controls.MetroGrid();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cb_Remarks = new System.Windows.Forms.ComboBox();
             this.cb_Office = new System.Windows.Forms.ComboBox();
             this.cb_Service = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,6 +58,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tb_RequestedBy = new System.Windows.Forms.TextBox();
             this.bt_MultipleTechinician = new System.Windows.Forms.Button();
+            this.cb_Remarks = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListOfRequest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -127,15 +127,6 @@
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
-            // cb_Remarks
-            // 
-            this.cb_Remarks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_Remarks.FormattingEnabled = true;
-            this.cb_Remarks.Location = new System.Drawing.Point(14, 248);
-            this.cb_Remarks.Name = "cb_Remarks";
-            this.cb_Remarks.Size = new System.Drawing.Size(309, 29);
-            this.cb_Remarks.TabIndex = 65;
-            // 
             // cb_Office
             // 
             this.cb_Office.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,7 +134,8 @@
             this.cb_Office.Location = new System.Drawing.Point(14, 195);
             this.cb_Office.Name = "cb_Office";
             this.cb_Office.Size = new System.Drawing.Size(309, 29);
-            this.cb_Office.TabIndex = 64;
+            this.cb_Office.TabIndex = 2;
+            this.cb_Office.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_Office_KeyPress);
             this.cb_Office.Validating += new System.ComponentModel.CancelEventHandler(this.cb_Office_Validating);
             // 
             // cb_Service
@@ -153,7 +145,7 @@
             this.cb_Service.Location = new System.Drawing.Point(14, 83);
             this.cb_Service.Name = "cb_Service";
             this.cb_Service.Size = new System.Drawing.Size(309, 29);
-            this.cb_Service.TabIndex = 63;
+            this.cb_Service.TabIndex = 0;
             this.cb_Service.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_Service_KeyPress);
             this.cb_Service.Validating += new System.ComponentModel.CancelEventHandler(this.cb_Service_Validating);
             // 
@@ -187,6 +179,7 @@
             this.bt_Update.Name = "bt_Update";
             this.bt_Update.Size = new System.Drawing.Size(137, 39);
             this.bt_Update.TabIndex = 45;
+            this.bt_Update.TabStop = false;
             this.bt_Update.Text = "Update";
             this.bt_Update.UseVisualStyleBackColor = false;
             this.bt_Update.Click += new System.EventHandler(this.bt_Update_Click);
@@ -221,6 +214,7 @@
             this.bt_Clear.Name = "bt_Clear";
             this.bt_Clear.Size = new System.Drawing.Size(137, 39);
             this.bt_Clear.TabIndex = 44;
+            this.bt_Clear.TabStop = false;
             this.bt_Clear.Text = "Clear";
             this.bt_Clear.UseVisualStyleBackColor = false;
             this.bt_Clear.Click += new System.EventHandler(this.bt_Clear_Click);
@@ -240,6 +234,7 @@
             this.bt_Refresh.Name = "bt_Refresh";
             this.bt_Refresh.Size = new System.Drawing.Size(137, 39);
             this.bt_Refresh.TabIndex = 42;
+            this.bt_Refresh.TabStop = false;
             this.bt_Refresh.Text = "Refresh";
             this.bt_Refresh.UseVisualStyleBackColor = false;
             this.bt_Refresh.Click += new System.EventHandler(this.bt_Refresh_Click);
@@ -259,6 +254,7 @@
             this.bt_Add.Name = "bt_Add";
             this.bt_Add.Size = new System.Drawing.Size(137, 39);
             this.bt_Add.TabIndex = 41;
+            this.bt_Add.TabStop = false;
             this.bt_Add.Text = "Add";
             this.bt_Add.UseVisualStyleBackColor = false;
             this.bt_Add.Click += new System.EventHandler(this.bt_Add_Click);
@@ -291,6 +287,7 @@
             this.tb_Ids.Name = "tb_Ids";
             this.tb_Ids.Size = new System.Drawing.Size(101, 21);
             this.tb_Ids.TabIndex = 60;
+            this.tb_Ids.TabStop = false;
             this.tb_Ids.Visible = false;
             // 
             // label3
@@ -324,7 +321,7 @@
             this.tb_ServiceProvided.ReadOnly = true;
             this.tb_ServiceProvided.ShortcutsEnabled = false;
             this.tb_ServiceProvided.Size = new System.Drawing.Size(309, 29);
-            this.tb_ServiceProvided.TabIndex = 59;
+            this.tb_ServiceProvided.TabIndex = 6;
             this.tb_ServiceProvided.TabStop = false;
             // 
             // label5
@@ -370,6 +367,7 @@
             this.cb_Status.Name = "cb_Status";
             this.cb_Status.Size = new System.Drawing.Size(68, 25);
             this.cb_Status.TabIndex = 58;
+            this.cb_Status.TabStop = false;
             this.cb_Status.Text = "Status";
             this.cb_Status.UseVisualStyleBackColor = true;
             // 
@@ -381,7 +379,7 @@
             this.dtp_Accomplished.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtp_Accomplished.Name = "dtp_Accomplished";
             this.dtp_Accomplished.Size = new System.Drawing.Size(309, 25);
-            this.dtp_Accomplished.TabIndex = 53;
+            this.dtp_Accomplished.TabIndex = 5;
             // 
             // dtp_Requested
             // 
@@ -391,7 +389,7 @@
             this.dtp_Requested.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtp_Requested.Name = "dtp_Requested";
             this.dtp_Requested.Size = new System.Drawing.Size(309, 25);
-            this.dtp_Requested.TabIndex = 52;
+            this.dtp_Requested.TabIndex = 4;
             this.dtp_Requested.Visible = false;
             // 
             // label8
@@ -411,7 +409,7 @@
             this.tb_RequestedBy.Location = new System.Drawing.Point(14, 139);
             this.tb_RequestedBy.Name = "tb_RequestedBy";
             this.tb_RequestedBy.Size = new System.Drawing.Size(309, 29);
-            this.tb_RequestedBy.TabIndex = 67;
+            this.tb_RequestedBy.TabIndex = 1;
             this.tb_RequestedBy.Validating += new System.ComponentModel.CancelEventHandler(this.tb_RequestedBy_Validating);
             // 
             // bt_MultipleTechinician
@@ -427,6 +425,17 @@
             this.bt_MultipleTechinician.UseVisualStyleBackColor = true;
             this.bt_MultipleTechinician.Click += new System.EventHandler(this.bt_MultipleTechinician_Click);
             // 
+            // cb_Remarks
+            // 
+            this.cb_Remarks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_Remarks.FormattingEnabled = true;
+            this.cb_Remarks.Location = new System.Drawing.Point(14, 251);
+            this.cb_Remarks.Name = "cb_Remarks";
+            this.cb_Remarks.Size = new System.Drawing.Size(309, 29);
+            this.cb_Remarks.TabIndex = 3;
+            this.cb_Remarks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cb_Remarks_KeyPress);
+            this.cb_Remarks.Validating += new System.ComponentModel.CancelEventHandler(this.cb_Remarks_Validating_1);
+            // 
             // ucNewRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -434,9 +443,9 @@
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cb_Remarks);
             this.Controls.Add(this.tb_RequestedBy);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.cb_Remarks);
             this.Controls.Add(this.cb_Office);
             this.Controls.Add(this.cb_Service);
             this.Controls.Add(this.panel1);
@@ -470,7 +479,6 @@
         #endregion
         private System.Windows.Forms.ErrorProvider errorProvider;
         private MetroFramework.Controls.MetroGrid dataGridView_ListOfRequest;
-        private System.Windows.Forms.ComboBox cb_Remarks;
         private System.Windows.Forms.ComboBox cb_Office;
         private System.Windows.Forms.ComboBox cb_Service;
         private System.Windows.Forms.Panel panel1;
@@ -494,5 +502,6 @@
         private MetroFramework.Controls.MetroDateTime dtp_Requested;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_RequestedBy;
+        private System.Windows.Forms.ComboBox cb_Remarks;
     }
 }

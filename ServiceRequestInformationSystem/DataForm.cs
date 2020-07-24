@@ -97,7 +97,7 @@ namespace ServiceRequestInformationSystem
             {
                 SQLCon.DbCon();
                 SQLCon.sqlCommand = new SqlCommand("INSERT INTO " + tableName + " VALUES (@1, @2)", SQLCon.sqlConnection);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@1", tbName.Text);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@1", tbName.Text.ToUpper());
                 SQLCon.sqlCommand.Parameters.AddWithValue("@2", 1);
                 SQLCon.sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("New " + message + " Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -109,7 +109,7 @@ namespace ServiceRequestInformationSystem
                 SQLCon.sqlCommand = new SqlCommand("UPDATE " + tableName + " SET " + columnName + " = @1 WHERE " + id + " = @0", SQLCon.sqlConnection);
                 SQLCon.sqlCommand.CommandType = CommandType.Text;
                 SQLCon.sqlCommand.Parameters.AddWithValue("@0", tempId);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@1", tbName.Text);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@1", tbName.Text.ToUpper());
                 SQLCon.sqlCommand.ExecuteNonQuery();
                 MetroFramework.MetroMessageBox.Show(this, message + " Successfully Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

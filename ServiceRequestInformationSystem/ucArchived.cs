@@ -51,33 +51,34 @@ namespace ServiceRequestInformationSystem
 
         public void LoadRequestList()
         {
+            try
+            {
+
+          
+
             SQLCon.DbCon();
             SQLCon.sqlDataApater = new SqlDataAdapter(
          @"SELECT DISTINCT
                     T1.SR_ID, 
-                    T2.TypeOfServiceProvided AS [Type Of Service Provided], 
+                    T1.TypeOfServiceProvided AS [Type Of Service Provided], 
                     T1.RequestedBy AS [Requested By],  
-                    T3.OfficeDepartmentName AS [Office], 
+                    T1.OfficeDepartmentName AS [Office], 
                     T1.DateRequested AS [Date Requested],
               
                     T1.DateAccomplished AS [Date Accomplished],
-                    Remars AS [Remarks],
+                    RemarkDeatails AS [Remarks],
                     T1.Techinicians AS [Technicians]
                    
                 FROM 
-                    ServiceRequestInfoes AS T1, 
-                    TypeOfServices AS T2, 
-                    OfficeDepartments AS T3, 
-                    ServiceProvidedBies AS T4, 
-                    RemarkInfoes AS T5
+                    ServiceRequestInfoes AS T1            
+                  
+       
                 WHERE 
                     T1.Status = 1  AND
-                    T1.TS_ID=T2.TS_ID AND 
-                    T1.OD_ID=T3.OD_ID AND 
-                    T1.Remark_ID=T5.Remark_ID AND
+                
                     (
                     T1.RequestedBy LIKE @1 OR
-                    T3.OfficeDepartmentName LIKE @2
+                    T1.OfficeDepartmentName LIKE @2
                     )", SQLCon.sqlConnection);
             SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@1", "%" + tb_Search.Text + "%");
             SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@2", "%" + tb_Search.Text + "%");
@@ -95,6 +96,13 @@ namespace ServiceRequestInformationSystem
                 i++;
             }
             label_Counter.Text = i.ToString();
+
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("" + e);
+            }
         }
 
         private static ucArchived _instance;
@@ -114,7 +122,10 @@ namespace ServiceRequestInformationSystem
             if (e.KeyCode == Keys.Enter)
             {
                 LoadRequestList();
-
+            
+            
+                tb_Search.ForeColor = Color.LightGray;
+                
             }
         }
 
@@ -123,20 +134,30 @@ namespace ServiceRequestInformationSystem
             LoadRequestList();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            label2.Focus();
-        }
+       
 
         private void tb_Search_TextChanged(object sender, EventArgs e)
         {
-            if (tb_Search.TextLength > 0)
+
+        }
+
+        private void tb_Search_Enter(object sender, EventArgs e)
+        {
+            if (tb_Search.Text == "SEARCH NAME OR OFFICE")
             {
-                label2.Hide();
+                tb_Search.Text = "";
+                tb_Search.ForeColor = Color.Black;
+              
             }
-            else
+        }
+
+        private void tb_Search_Leave(object sender, EventArgs e)
+        {
+            if (tb_Search.Text == "")
             {
-                label2.Show();
+                tb_Search.Text = "SEARCH NAME OR OFFICE";
+                tb_Search.ForeColor = Color.LightGray;
+              
             }
         }
     }

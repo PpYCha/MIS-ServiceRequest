@@ -207,3 +207,8 @@ C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.csproj.CopyComplete
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.exe
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.pdb
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.RegisterForm.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.Feasa.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.DateEntered.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.BackUpForm.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.csprojAssemblyReference.cache

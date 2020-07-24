@@ -61,7 +61,11 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Enter_Click(object sender, EventArgs e)
         {
-            
+            LoginValidation();
+        }
+
+        private void LoginValidation()
+        {
             SQLCon.DbCon();
             SQLCon.sql = "SELECT USER_ID, Username, Password, FirstName, LastName , AccessLevel, IsActive FROM Accounts WHERE Username=@1 AND Password=@2";
             SQLCon.sqlCommand = new SqlCommand(SQLCon.sql, SQLCon.sqlConnection);
@@ -80,10 +84,10 @@ namespace ServiceRequestInformationSystem
             }
 
 
-                if (WelcomeForm.Username == tb_Username.Text && WelcomeForm.Password == tb_Password.Text && accountValidation == "True")
-                {
-                   
-              
+            if (WelcomeForm.Username == tb_Username.Text && WelcomeForm.Password == tb_Password.Text && accountValidation == "True")
+            {
+
+
                 if (role == "Admin")
                 {
                     MainForm.accessLevel = "Admin";
@@ -96,19 +100,16 @@ namespace ServiceRequestInformationSystem
                 WelcomeForm welcomeForm = new WelcomeForm();
                 welcomeForm.ShowDialog();
             }
-                else if (accountValidation == "False" && WelcomeForm.Username == tb_Username.Text && WelcomeForm.Password == tb_Password.Text)
-                {
-                    MessageBox.Show("Your account has been suspended. Please contact the Administrator");
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect username or password");
-               
-                
-                 }
+            else if (accountValidation == "False" && WelcomeForm.Username == tb_Username.Text && WelcomeForm.Password == tb_Password.Text)
+            {
+                MessageBox.Show("Your account has been suspended. Please contact the Administrator");
+            }
+            else
+            {
+                MessageBox.Show("Incorrect username or password");
 
-           
-          
+
+            }
         }
 
         private void Pb_Close_Click(object sender, EventArgs e)
@@ -119,6 +120,22 @@ namespace ServiceRequestInformationSystem
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void lb_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.ShowDialog();
+        }
+
+    
+
+        private void tb_Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginValidation();
+            }
         }
     }
 }
