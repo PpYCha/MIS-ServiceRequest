@@ -58,7 +58,7 @@ namespace ServiceRequestInformationSystem
 
             SQLCon.DbCon();
             SQLCon.sqlDataApater = new SqlDataAdapter(
-         @"SELECT DISTINCT
+         @"SELECT
                     T1.SR_ID, 
                     T1.TypeOfServiceProvided AS [Type Of Service Provided], 
                     T1.RequestedBy AS [Requested By],  
@@ -79,7 +79,7 @@ namespace ServiceRequestInformationSystem
                     (
                     T1.RequestedBy LIKE @1 OR
                     T1.OfficeDepartmentName LIKE @2
-                    )", SQLCon.sqlConnection);
+                    ) ORDER BY DateEntered Desc", SQLCon.sqlConnection);
             SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@1", "%" + tb_Search.Text + "%");
             SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@2", "%" + tb_Search.Text + "%");
             SQLCon.dataTable = new DataTable();
@@ -159,6 +159,20 @@ namespace ServiceRequestInformationSystem
                 tb_Search.ForeColor = Color.LightGray;
               
             }
+        }
+
+        private void bt_Search_Click(object sender, EventArgs e)
+        {
+            tb_Search.Text = "";
+            LoadRequestList();
+            tb_Search.Text = "SEARCH NAME OR OFFICE ";
+        }
+
+        private void dataGridView_ListOfRequest_DoubleClick(object sender, EventArgs e)
+        {
+            UpdateArchivedRequest updateArchivedRequest = new UpdateArchivedRequest();
+            UpdateArchivedRequest.dgvr_UpdateArchiveRequest = dataGridView_ListOfRequest.SelectedRows[0];
+            updateArchivedRequest.ShowDialog();
         }
     }
 }

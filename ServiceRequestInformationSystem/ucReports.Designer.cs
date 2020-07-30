@@ -155,6 +155,6 @@
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private rpt_Monthly rpt_Monthly;
+      
     }
 }

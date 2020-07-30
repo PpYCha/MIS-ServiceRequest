@@ -54,16 +54,21 @@ namespace ServiceRequestInformationSystem.Models
 
 
             modelBuilder.Entity<TechnicianRequest>()
-             .HasRequired<ServiceProvidedBy>(k => k.ServiceProvidedBy)
+             .HasRequired<Account>(k => k.Account)
              .WithMany(p => p.TechnicianRequest)
-             .HasForeignKey<int>(k => k.SP_ID);
+             .HasForeignKey<int>(k => k.USER_ID);
 
             modelBuilder.Entity<TechnicianRequest>()
                 .HasRequired<ServiceRequestInfo>(k => k.ServiceRequestInfo)
                 .WithMany(p => p.TechnicianRequest)
                 .HasForeignKey<int>(k => k.SR_ID);
 
-            //modelBuilder.Entity<ServiceRequestInfo>()          
+            modelBuilder.Entity<TypeOfService>()
+                .HasRequired<ServiceRequestInfo>(k => k.ServiceRequestInfo)
+                .WithMany(p => p.TypeOfServices)
+                .HasForeignKey<int>(k => k.SR_ID);
+
+            //modelBuilder.Entity<ServiceRequestInfo>()
             //.HasRequired<RemarkInfo>(k => k.RemarkInfo)
             //.WithMany(p => p.ServiceRequestInfo)
             //.HasForeignKey<int>(k => k.Remark_ID);

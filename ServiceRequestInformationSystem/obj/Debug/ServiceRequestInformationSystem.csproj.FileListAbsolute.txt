@@ -211,5 +211,8 @@ C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.csproj.CopyComplete
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.exe
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.pdb
-C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.csprojAssemblyReference.cache
 C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.IsLOgon.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.FIXConnection.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.UpdateArchivedRequest.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.csprojAssemblyReference.cache
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\ServiceRequestInformationSystem\obj\Debug\ServiceRequestInformationSystem.Migrations.FIxxx.resources

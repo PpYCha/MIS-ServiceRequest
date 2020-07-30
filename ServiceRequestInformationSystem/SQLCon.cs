@@ -19,7 +19,7 @@ namespace ServiceRequestInformationSystem
         //  static string databaseName = "TestSrisDb";
          static string dataSource = "tcp:192.168.0.100,49172";
       
-        static string databaseName = "SrisDb";
+        static string databaseName = "TestSrisDb";
         //mycon = new SqlConnection(@"Data Source = tcp:desktop-neljd6c,1433; Initial Catalog = PAO-Information-System; Persist Security Info=True; User ID=emmaPC; Password='corona_2020'");
         public static void DbCon()
 

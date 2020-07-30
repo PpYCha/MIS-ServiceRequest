@@ -17,23 +17,23 @@ namespace ServiceRequestInformationSystem
         public static string accessLevel;
 
         public MainForm()
-        {           
+        {
             InitializeComponent();
-          
+
             customizeDesign();
 
             //LoadAllUserControll();
 
-           // Opacity = 0;
+            // Opacity = 0;
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
 
             DialogResult = DialogResult.OK;
 
-           
 
 
-          //  Opacity = 100;
+
+            //  Opacity = 100;
 
             if (accessLevel == "Admin")
             {
@@ -55,19 +55,19 @@ namespace ServiceRequestInformationSystem
             }
         }
 
-   
+
 
         private void LoadAllUserControll()
         {
-            
-           //   LoaducArchive();
+
+            //   LoaducArchive();
             LoaducReports();
             LoaducAddRequest();
             LoaducAccounts();
             LoaducCompletedRequest();
 
             panel_Body.Visible = false;
-          
+
         }
 
         private void customizeDesign()
@@ -77,7 +77,6 @@ namespace ServiceRequestInformationSystem
             panel_SubMenu_Request.Visible = false;
             panel_SubMenu_Accounts.Visible = false;
             panel_SubMenu_Import.Visible = false;
-           
         }
 
         private void hideSubMenu()
@@ -91,14 +90,13 @@ namespace ServiceRequestInformationSystem
             if (panel_SubMenu_Request.Visible == true)
                 panel_SubMenu_Request.Visible = false;
 
-            if (panel_SubMenu_Accounts.Visible = true)           
+            if (panel_SubMenu_Accounts.Visible == true)
                 panel_SubMenu_Accounts.Visible = false;
 
             if (panel_SubMenu_Import.Visible == true)
             {
                 panel_SubMenu_Import.Visible = false;
             }
-            
         }
 
         private void showSubMenu(Panel subMenu)
@@ -133,6 +131,8 @@ namespace ServiceRequestInformationSystem
             {
                 panel_Body.Controls.Add(ucNewRequest.Intance);
                 ucNewRequest.Intance.Dock = DockStyle.Fill;
+
+
             }
             else
             {
@@ -193,7 +193,7 @@ namespace ServiceRequestInformationSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         private void bt_RequestArchived_Click(object sender, EventArgs e)
@@ -222,7 +222,7 @@ namespace ServiceRequestInformationSystem
 
         //}
 
-       
+
 
         private void Bt_Menu_Accounts_Click(object sender, EventArgs e)
         {
@@ -238,7 +238,7 @@ namespace ServiceRequestInformationSystem
 
         private void LoaducAccounts()
         {
-            //hideSubMenu(); 
+            //hideSubMenu();
             Cursor.Current = Cursors.WaitCursor;
             if (!panel_Body.Controls.Contains(ucAccounts.Instance))
             {
@@ -265,15 +265,15 @@ namespace ServiceRequestInformationSystem
         {
             WelcomeForm welcomeForm = new WelcomeForm();
             welcomeForm.ShowDialog();
-           
+
 
 
         }
 
         private void BackgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-          
-           
+
+
         }
 
         private void Bt_Menu_Import_Click(object sender, EventArgs e)
@@ -324,10 +324,10 @@ namespace ServiceRequestInformationSystem
 
             DialogResult = DialogResult.OK;
 
-             customizeDesign();
+            customizeDesign();
 
             LoadAllUserControll();
-           
+
             Opacity = 100;
 
             if (accessLevel == "Admin")

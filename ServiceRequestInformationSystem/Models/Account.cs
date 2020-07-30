@@ -1,4 +1,6 @@
-﻿namespace ServiceRequestInformationSystem.Models
+﻿using System.Collections.Generic;
+
+namespace ServiceRequestInformationSystem.Models
 {
     public class Account
     {
@@ -10,5 +12,8 @@
         public string AccessLevel { get; set; }
         public bool IsActive { get; set; }
         public bool IsLogOn { get; set; }
+
+        public ICollection<TechnicianRequest> TechnicianRequest { get; set; }
+        public ICollection<TypeOfService> TypeOfServices { get; set; }
     }
 }
