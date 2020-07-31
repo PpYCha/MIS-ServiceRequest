@@ -39,7 +39,6 @@ namespace ServiceRequestInformationSystem
             opd.Filter = "PDF files (*.xlsx |*.xlsx;)";
             opd.Multiselect = false;
 
-            string excelPath = "";
 
             if (opd.ShowDialog() == DialogResult.OK)
             {
@@ -49,12 +48,6 @@ namespace ServiceRequestInformationSystem
                     ImportTOS(fi);
                     ImportOffices(fi);
                     ImportRemarks(fi);
-
-
-
-
-              
-
 
                     ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                     using (ExcelPackage excelPackage = new ExcelPackage(fi))
@@ -217,7 +210,7 @@ namespace ServiceRequestInformationSystem
                 string rowValue = "";
                 var start = firstWorkSheet.Dimension.Start;
                 var end = firstWorkSheet.Dimension.End;
-                int i = 0;
+             
 
                 int rowStart = Convert.ToInt32(tb_Start.Text);
                 int rowEnd = Convert.ToInt32(tb_End.Text);
@@ -272,7 +265,7 @@ namespace ServiceRequestInformationSystem
                 string rowValue = "";
                 var start = firstWorkSheet.Dimension.Start;
                 var end = firstWorkSheet.Dimension.End;
-                int i = 0;
+              
 
                 //rowValue[0] = "1";
                 //rowValue[1] = "Rosalie D. Poblete";
@@ -332,9 +325,6 @@ namespace ServiceRequestInformationSystem
         private void ImportTOS(FileInfo filename)
         {
 
-
-            string excelPath = "";
-
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             using (ExcelPackage excelPackage = new ExcelPackage(filename))
             {
@@ -346,7 +336,6 @@ namespace ServiceRequestInformationSystem
                 string rowValue = "";
                 var start = firstWorkSheet.Dimension.Start;
                 var end = firstWorkSheet.Dimension.End;
-                int i = 0;
 
                 //rowValue[0] = "1";
                 //rowValue[1] = "Rosalie D. Poblete";

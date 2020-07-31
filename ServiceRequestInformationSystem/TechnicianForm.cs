@@ -18,20 +18,19 @@ namespace ServiceRequestInformationSystem
     {
 
         private string[] techId;
-     
+
         public DataGridViewRow dgvr;
         public static string Choice;
 
         public TechnicianForm()
         {
             InitializeComponent();
-           
+
         }
 
         private void TechnicianForm_Load(object sender, EventArgs e)
         {
             LoadTechinicianList();
-            
         }
 
 
@@ -44,9 +43,8 @@ namespace ServiceRequestInformationSystem
                @"SELECT DISTINCT
                 USER_ID,
                 CONCAT(FirstName, ' ', LastName) AS Technician
-                  
-                FROM 
-                   Accounts 
+                FROM
+                   Accounts
                 WHERE
                     AccessLevel = 'TECHNICIAN' AND
                     IsActive = 1
@@ -54,14 +52,14 @@ namespace ServiceRequestInformationSystem
             SQLCon.dataTable = new DataTable();
             SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
             metroGrid1.DataSource = SQLCon.dataTable;
-      
+
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
             checkColumn.Name = "X";
             checkColumn.HeaderText = "Assign";
             checkColumn.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             checkColumn.Width = 50;
             checkColumn.ReadOnly = false;
-            
+
             checkColumn.FillWeight = 10; //if the datagridview is resized (on form resize) the checkbox won't take up too much; value is relative to the other columns' fill values
             metroGrid1.Columns.Add(checkColumn);
             if (Choice == "ucNewRequest")
@@ -72,9 +70,13 @@ namespace ServiceRequestInformationSystem
             {
                 techId = ucCompletedRequest.PopulateCheckTechId.ToString().Split(',');
             }
-       
+            else if (Choice == "updateCompletedRequest")
+            {
+                techId = UpdateArchivedRequest.PopulateCheckTechId.ToString().Split(',');
+            }
 
-            
+
+
 
             foreach (DataGridViewRow row in metroGrid1.Rows)
             {
@@ -87,24 +89,23 @@ namespace ServiceRequestInformationSystem
 
                         row.Cells[2].Value = true;
                     }
-                    
-                   
+
+
                 }
-                
             }
 
             metroGrid1.Columns[0].Visible = false;
             metroGrid1.Columns[1].HeaderText = "Technicians";
             metroGrid1.Columns[1].ReadOnly = true;
-         
-          
+
+
             metroGrid1.Columns[1].Width = 300;
 
         }
 
         private void metroGridDesign()
         {
-         
+
         }
 
         private void bt_AssignTechnician_Click(object sender, EventArgs e)

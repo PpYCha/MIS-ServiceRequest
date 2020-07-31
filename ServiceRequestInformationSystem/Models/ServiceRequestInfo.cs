@@ -15,7 +15,7 @@ namespace ServiceRequestInformationSystem.Models
         public string TimeLeft { get; set; }
         public DateTime? DateAccomplished { get; set; }
 
-      //  public int Remark_ID { get; set; }
+        //  public int Remark_ID { get; set; }
         public Boolean Status { get; set; }
         public string Techinicians { get; set; }
         public string RemarkDeatails { get; set; }
@@ -27,6 +27,7 @@ namespace ServiceRequestInformationSystem.Models
 
 
         //  public RemarkInfo RemarkInfo { get; internal set; }
-        public ICollection<TechnicianRequest> TechnicianRequest { get; internal set; }
+        public ICollection<TechnicianRequest> TechnicianRequest { get; set; }
+        public ICollection<TypeOfService> TypeOfServices { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace ServiceRequestInformationSystem
     {
 
         private string[] techId  ;
-      
+
 
         public ucNewRequest()
         {
@@ -29,7 +29,7 @@ namespace ServiceRequestInformationSystem
 
         public void ucRequest_Load(object sender, EventArgs e)
         {
-          
+
             LoadRequest();
             PopulateComboBox_Infoes();
         }
@@ -56,7 +56,7 @@ namespace ServiceRequestInformationSystem
             cb_Name.SelectedIndex = -1;
         }
 
-        public  void RefreshList() 
+        public  void RefreshList()
         {
             PopulateComboBox("ServiceRequestInfoes", "SR_ID", "TypeOfServiceProvided", cb_Service);
             PopulateComboBox("ServiceRequestInfoes", "SR_ID", "RemarkDeatails", cb_Remarks);
@@ -98,14 +98,14 @@ namespace ServiceRequestInformationSystem
 
 
                     SQLCon.sqlCommand = new SqlCommand(@"INSERT INTO ServiceRequestInfoes (TypeOfServiceProvided, RequestedBy, OfficeDepartmentName, DateRequested, TimeLeft, DateAccomplished, Status, Techinicians, RemarkDeatails, DateEntered)  VALUES(
-                        @TypeOfServiceProvided, 
-                        @RequestedBy, 
-                        @OfficeDepartmentName, 
+                        @TypeOfServiceProvided,
+                        @RequestedBy,
+                        @OfficeDepartmentName,
                         @DateRequested,
-                        @TimeLeft, 
-                        @DateAccomplished, 
-                        @Status, 
-                        @Techinicians, 
+                        @TimeLeft,
+                        @DateAccomplished,
+                        @Status,
+                        @Techinicians,
                         @RemarkDeatails,
                         @DateEntered);SELECT SCOPE_IDENTITY();", SQLCon.sqlConnection);
 
@@ -116,8 +116,8 @@ namespace ServiceRequestInformationSystem
                     SQLCon.sqlCommand.Parameters.AddWithValue("@DateRequested", DateTime.Now);
                     SQLCon.sqlCommand.Parameters.AddWithValue("@TimeLeft", DBNull.Value); //Time Left Column
                     SQLCon.sqlCommand.Parameters.AddWithValue("@RemarkDeatails", cb_Remarks.Text);
-                   
-                  
+
+
                     SQLCon.sqlCommand.Parameters.AddWithValue("@Techinicians", tb_ServiceProvided.Text);
                     if (cb_Status.Checked == true)
                     {
@@ -141,7 +141,7 @@ namespace ServiceRequestInformationSystem
 
                 //foreach (object obj in strArray)
                 //{
-                
+
                 //        string tempSP_ID = new string(tb_Ids.Text.ToArray());
 
 
@@ -153,9 +153,7 @@ namespace ServiceRequestInformationSystem
 
 
 
-                //}
-               
-                
+                //}         
                 ClearTextbox();
                 LoadRequest();
                 PopulateComboBox_Infoes();
@@ -195,22 +193,22 @@ namespace ServiceRequestInformationSystem
             bt_Update.BackColor = Color.DimGray;
             SQLCon.DbCon();
             SQLCon.sqlDataApater = new SqlDataAdapter(
-               @"SELECT   
-                    T1.SR_ID, 
-                    T1.TypeOfServiceProvided AS [Type Of Service Provided], 
-                    T1.RequestedBy AS [Requested By],  
-                    T1.OfficeDepartmentName AS [Office], 
+               @"SELECT
+                    T1.SR_ID,
+                    T1.TypeOfServiceProvided AS [Type Of Service Provided],
+                    T1.RequestedBy AS [Requested By],
+                    T1.OfficeDepartmentName AS [Office],
                     T1.DateRequested AS [Date Requested],
                     T1.TimeLeft AS [Time Left],
                     T1.DateAccomplished AS [Date Accomplished],
-             
+
                     Status AS [Status:],
                     Techinicians AS [Technicians],
-                    RemarkDeatails AS [Remarks] 
-                FROM 
+                    RemarkDeatails AS [Remarks]
+                FROM
                     ServiceRequestInfoes AS T1
 
-                WHERE 
+                WHERE
                     T1.Status = 0
                   ", SQLCon.sqlConnection);
             SQLCon.dataTable = new DataTable();
@@ -218,7 +216,7 @@ namespace ServiceRequestInformationSystem
             dataGridView_ListOfRequest.DataSource = SQLCon.dataTable;
             dataGridView_ListOfRequest.Sort(dataGridView_ListOfRequest.Columns["Date Requested"], ListSortDirection.Ascending);
             DesignTable();
-          
+
             foreach (DataGridViewRow row in dataGridView_ListOfRequest.Rows)
             {
 
@@ -257,7 +255,7 @@ namespace ServiceRequestInformationSystem
                 }
             }
 
-          
+
             dataGridView_ListOfRequest.ClearSelection();
 
         }

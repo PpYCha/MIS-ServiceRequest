@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using OfficeOpenXml.FormulaParsing.ExpressionGraph.FunctionCompilers;
 
 namespace ServiceRequestInformationSystem
 {
@@ -22,7 +23,8 @@ namespace ServiceRequestInformationSystem
 
         private static ucCompletedRequest _instance;
         public static ucCompletedRequest Instance
-        { get
+        {
+            get
             {
                 if (_instance == null)
                     _instance = new ucCompletedRequest();
@@ -99,62 +101,105 @@ namespace ServiceRequestInformationSystem
                 //try
                 //{
 
+                if (tb_ServiceProvided.Text.Contains(","))
+                {
+                    TechnicianForm technicianForm = new TechnicianForm();
+                    SQLCon.DbCon();
 
-                TechnicianForm technicianForm = new TechnicianForm();
-                SQLCon.DbCon();
 
-
-                SQLCon.sqlCommand = new SqlCommand(@"INSERT INTO ServiceRequestInfoes (TypeOfServiceProvided, RequestedBy, OfficeDepartmentName, DateRequested, TimeLeft, DateAccomplished, Status, Techinicians, RemarkDeatails, DateEntered)  VALUES(
-                        @TypeOfServiceProvided, 
-                        @RequestedBy, 
-                        @OfficeDepartmentName, 
+                    SQLCon.sqlCommand = new SqlCommand(@"INSERT INTO ServiceRequestInfoes (TypeOfServiceProvided, RequestedBy, OfficeDepartmentName, DateRequested, TimeLeft, DateAccomplished, Status, Techinicians, RemarkDeatails, DateEntered)  VALUES(
+                        @TypeOfServiceProvided,
+                        @RequestedBy,
+                        @OfficeDepartmentName,
                         @DateRequested,
-                        @TimeLeft, 
-                        @DateAccomplished, 
-                        @Status, 
-                        @Techinicians, 
+                        @TimeLeft,
+                        @DateAccomplished,
+                        @Status,
+                        @Techinicians,
                         @RemarkDeatails,
                         @DateEntered);SELECT SCOPE_IDENTITY();", SQLCon.sqlConnection);
 
-                SQLCon.sqlCommand.CommandType = CommandType.Text;
-                SQLCon.sqlCommand.Parameters.AddWithValue("@TypeOfServiceProvided", cb_Service.Text);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@RequestedBy", tb_RequestedBy.Text);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@OfficeDepartmentName", cb_Office.Text);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@DateRequested", dtp_Requested.Value);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@TimeLeft", DBNull.Value); //Time Left Column
-                SQLCon.sqlCommand.Parameters.AddWithValue("@RemarkDeatails", cb_Remarks.Text);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@Techinicians", tb_ServiceProvided.Text);
+                    SQLCon.sqlCommand.CommandType = CommandType.Text;
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@TypeOfServiceProvided", cb_Service.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@RequestedBy", tb_RequestedBy.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@OfficeDepartmentName", cb_Office.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateRequested", dtp_Requested.Value);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@TimeLeft", DBNull.Value); //Time Left Column
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@RemarkDeatails", cb_Remarks.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@Techinicians", tb_ServiceProvided.Text);
                     SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplished", dtp_Accomplished.Value);
                     SQLCon.sqlCommand.Parameters.AddWithValue("@Status", true);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@DateEntered", DateTime.Now);
-                SQLCon.sqlCommand.ExecuteNonQuery();
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateEntered", DateTime.Now);
+                    SQLCon.sqlCommand.ExecuteNonQuery();
 
-                //int insertedID = Convert.ToInt32(SQLCon.sqlCommand.ExecuteScalar());
+                    //   SQLCon.sqlCommand = new SqlCommand
 
-                //string strValue = tb_Ids.Text;
-                //string[] strArray = strValue.Split(',');
-
-                //foreach (object obj in strArray)
-                //{
-
-                //    string tempSP_ID = new string(tb_Ids.Text.ToArray());
+                }
+                else
+                {
 
 
-                //    SQLCon.sqlCommand = new SqlCommand("INSERT INTO TechnicianRequests VALUES(@1, @2);", SQLCon.sqlConnection);
-                //    SQLCon.sqlCommand.CommandType = CommandType.Text;
-                //    SQLCon.sqlCommand.Parameters.AddWithValue("@1", obj);
-                //    SQLCon.sqlCommand.Parameters.AddWithValue("@2", insertedID);
-                //    SQLCon.sqlCommand.ExecuteNonQuery();
+                    TechnicianForm technicianForm = new TechnicianForm();
+                    SQLCon.DbCon();
+
+
+                    SQLCon.sqlCommand = new SqlCommand(@"INSERT INTO ServiceRequestInfoes (TypeOfServiceProvided, RequestedBy, OfficeDepartmentName, DateRequested, TimeLeft, DateAccomplished, Status, Techinicians, RemarkDeatails, DateEntered)  VALUES(
+                        @TypeOfServiceProvided,
+                        @RequestedBy,
+                        @OfficeDepartmentName,
+                        @DateRequested,
+                        @TimeLeft,
+                        @DateAccomplished,
+                        @Status,
+                        @Techinicians,
+                        @RemarkDeatails,
+                        @DateEntered);SELECT SCOPE_IDENTITY();", SQLCon.sqlConnection);
+
+                    SQLCon.sqlCommand.CommandType = CommandType.Text;
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@TypeOfServiceProvided", cb_Service.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@RequestedBy", tb_RequestedBy.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@OfficeDepartmentName", cb_Office.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateRequested", dtp_Requested.Value);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@TimeLeft", DBNull.Value); //Time Left Column
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@RemarkDeatails", cb_Remarks.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@Techinicians", tb_ServiceProvided.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplished", dtp_Accomplished.Value);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@Status", true);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateEntered", DateTime.Now);
+                    SQLCon.sqlCommand.ExecuteNonQuery();
+
+                    ClearTextbox();
+
+                    PopulateComboBox_Infoes();
+                    MetroFramework.MetroMessageBox.Show(this, "New Request Added Succesfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //int insertedID = Convert.ToInt32(SQLCon.sqlCommand.ExecuteScalar());
+
+                    //string strValue = tb_Ids.Text;
+                    //string[] strArray = strValue.Split(',');
+
+                    //foreach (object obj in strArray)
+                    //{
+
+                    //    string tempSP_ID = new string(tb_Ids.Text.ToArray());
+
+
+                    //    SQLCon.sqlCommand = new SqlCommand("INSERT INTO TechnicianRequests VALUES(@1, @2);", SQLCon.sqlConnection);
+                    //    SQLCon.sqlCommand.CommandType = CommandType.Text;
+                    //    SQLCon.sqlCommand.Parameters.AddWithValue("@1", obj);
+                    //    SQLCon.sqlCommand.Parameters.AddWithValue("@2", insertedID);
+                    //    SQLCon.sqlCommand.ExecuteNonQuery();
 
 
 
-                //}
+                    //}
 
 
-                ClearTextbox();
-              
-                PopulateComboBox_Infoes();
-                MetroFramework.MetroMessageBox.Show(this, "New Request Added Succesfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearTextbox();
+
+                    PopulateComboBox_Infoes();
+                    MetroFramework.MetroMessageBox.Show(this, "New Request Added Succesfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 //}
                 //catch (Exception e)
                 //{
@@ -177,7 +222,7 @@ namespace ServiceRequestInformationSystem
             tb_RequestedBy.Clear();
             //cb_Technician.SelectedIndex = -1;
 
-         
+
             tb_ServiceProvided.Clear();
             tb_Ids.Clear();
         }
@@ -215,6 +260,6 @@ namespace ServiceRequestInformationSystem
             ClearTextbox();
         }
 
-       
+
     }
-    }
+}

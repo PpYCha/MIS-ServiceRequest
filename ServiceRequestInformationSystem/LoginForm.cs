@@ -66,6 +66,7 @@ namespace ServiceRequestInformationSystem
 
         private void LoginValidation()
         {
+            Cursor.Current = Cursors.WaitCursor;
             SQLCon.DbCon();
             SQLCon.sql = "SELECT USER_ID, Username, Password, FirstName, LastName , AccessLevel, IsActive FROM Accounts WHERE Username=@1 AND Password=@2";
             SQLCon.sqlCommand = new SqlCommand(SQLCon.sql, SQLCon.sqlConnection);
@@ -110,6 +111,7 @@ namespace ServiceRequestInformationSystem
 
 
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void Pb_Close_Click(object sender, EventArgs e)
