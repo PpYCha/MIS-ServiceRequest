@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ppycha\update\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>37</ApplicationRevision>
+    <ApplicationRevision>50</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -68,6 +68,30 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icons8_maintenance.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -126,13 +150,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackUpForm.cs">
+    <Compile Include="Migrations\202008040211188_AssignTech.cs" />
+    <Compile Include="Migrations\202008040211188_AssignTech.Designer.cs">
+      <DependentUpon>202008040211188_AssignTech.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008040800044_SystemDev.cs" />
+    <Compile Include="Migrations\202008040800044_SystemDev.Designer.cs">
+      <DependentUpon>202008040800044_SystemDev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008040838385_SSSS.cs" />
+    <Compile Include="Migrations\202008040838385_SSSS.Designer.cs">
+      <DependentUpon>202008040838385_SSSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008050235083_Reada.cs" />
+    <Compile Include="Migrations\202008050235083_Reada.Designer.cs">
+      <DependentUpon>202008050235083_Reada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008060029111_WeeklyMonthly.cs" />
+    <Compile Include="Migrations\202008060029111_WeeklyMonthly.Designer.cs">
+      <DependentUpon>202008060029111_WeeklyMonthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008070030588_Title.cs" />
+    <Compile Include="Migrations\202008070030588_Title.Designer.cs">
+      <DependentUpon>202008070030588_Title.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008120101443_MiddleName.cs" />
+    <Compile Include="Migrations\202008120101443_MiddleName.Designer.cs">
+      <DependentUpon>202008120101443_MiddleName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemDevelopment.cs" />
+    <Compile Include="UserControl\ucSystemDevWeekly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucSystemDevWeekly.Designer.cs">
+      <DependentUpon>ucSystemDevWeekly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\BackUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BackUpForm.Designer.cs">
+    <Compile Include="UserForm\BackUpForm.Designer.cs">
       <DependentUpon>BackUpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="custom_ToUpper.cs" />
+    <Compile Include="custom_Class.cs" />
     <Compile Include="Migrations\202007210355334_Feasa.cs" />
     <Compile Include="Migrations\202007210355334_Feasa.Designer.cs">
       <DependentUpon>202007210355334_Feasa.cs</DependentUpon>
@@ -153,22 +212,22 @@
     <Compile Include="Migrations\202007290209194_FIxxx.Designer.cs">
       <DependentUpon>202007290209194_FIxxx.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegisterForm.cs">
+    <Compile Include="UserForm\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterForm.Designer.cs">
+    <Compile Include="UserForm\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="rpt_Monthly.cs">
+    <Compile Include="Report\rpt_Monthly.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rpt_Monthly.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DataForm.cs">
+    <Compile Include="UserForm\DataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataForm.Designer.cs">
+    <Compile Include="UserForm\DataForm.Designer.cs">
       <DependentUpon>DataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
@@ -193,71 +252,95 @@
     <Compile Include="Models\SrisDbInitializer.cs" />
     <Compile Include="Models\TechnicianRequest.cs" />
     <Compile Include="Models\TypeOfService.cs" />
-    <Compile Include="rpt_Test.cs">
+    <Compile Include="Report\rpt_Programmer_Weekly.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>rpt_Test.rpt</DependentUpon>
+      <DependentUpon>rpt_Programmer_Weekly.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SQLCon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Technician.cs" />
-    <Compile Include="TechnicianForm.cs">
+    <Compile Include="UserForm\TechnicianForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TechnicianForm.Designer.cs">
+    <Compile Include="UserForm\TechnicianForm.Designer.cs">
       <DependentUpon>TechnicianForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucAccounts.cs">
+    <Compile Include="UserControl\ucAccounts.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucAccounts.Designer.cs">
+    <Compile Include="UserControl\ucAccounts.Designer.cs">
       <DependentUpon>ucAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucArchived.cs">
+    <Compile Include="UserControl\ucArchived.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucArchived.Designer.cs">
+    <Compile Include="UserControl\ucArchived.Designer.cs">
       <DependentUpon>ucArchived.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucCompletedRequest.cs">
+    <Compile Include="UserControl\ucCompletedRequest.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucCompletedRequest.Designer.cs">
+    <Compile Include="UserControl\ucCompletedRequest.Designer.cs">
       <DependentUpon>ucCompletedRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucImportExcel.cs">
+    <Compile Include="UserControl\ucImportExcel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucImportExcel.Designer.cs">
+    <Compile Include="UserControl\ucImportExcel.Designer.cs">
       <DependentUpon>ucImportExcel.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucReports.cs">
+    <Compile Include="UserControl\ucReports.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucReports.Designer.cs">
+    <Compile Include="UserControl\ucReports.Designer.cs">
       <DependentUpon>ucReports.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucNewRequest.cs">
+    <Compile Include="UserControl\ucNewRequest.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucNewRequest.Designer.cs">
+    <Compile Include="UserControl\ucNewRequest.Designer.cs">
       <DependentUpon>ucNewRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateArchivedRequest.cs">
+    <Compile Include="UserForm\UpdateArchivedRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateArchivedRequest.Designer.cs">
+    <Compile Include="UserForm\UpdateArchivedRequest.Designer.cs">
       <DependentUpon>UpdateArchivedRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="WelcomeForm.cs">
+    <Compile Include="UserForm\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WelcomeForm.Designer.cs">
+    <Compile Include="UserForm\WelcomeForm.Designer.cs">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BackUpForm.resx">
+    <EmbeddedResource Include="Migrations\202008040211188_AssignTech.resx">
+      <DependentUpon>202008040211188_AssignTech.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008040800044_SystemDev.resx">
+      <DependentUpon>202008040800044_SystemDev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008040838385_SSSS.resx">
+      <DependentUpon>202008040838385_SSSS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008050235083_Reada.resx">
+      <DependentUpon>202008050235083_Reada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008060029111_WeeklyMonthly.resx">
+      <DependentUpon>202008060029111_WeeklyMonthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008070030588_Title.resx">
+      <DependentUpon>202008070030588_Title.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008120101443_MiddleName.resx">
+      <DependentUpon>202008120101443_MiddleName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ucSystemDevWeekly.resx">
+      <DependentUpon>ucSystemDevWeekly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\BackUpForm.resx">
       <DependentUpon>BackUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007210355334_Feasa.resx">
@@ -275,14 +358,14 @@
     <EmbeddedResource Include="Migrations\202007290209194_FIxxx.resx">
       <DependentUpon>202007290209194_FIxxx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegisterForm.resx">
+    <EmbeddedResource Include="UserForm\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rpt_Monthly.rpt">
+    <EmbeddedResource Include="Report\rpt_Monthly.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rpt_Monthly.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataForm.resx">
+    <EmbeddedResource Include="UserForm\DataForm.resx">
       <DependentUpon>DataForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -302,35 +385,35 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="rpt_Test.rpt">
+    <EmbeddedResource Include="Report\rpt_Programmer_Weekly.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rpt_Test.cs</LastGenOutput>
+      <LastGenOutput>rpt_Programmer_Weekly.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TechnicianForm.resx">
+    <EmbeddedResource Include="UserForm\TechnicianForm.resx">
       <DependentUpon>TechnicianForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucAccounts.resx">
+    <EmbeddedResource Include="UserControl\ucAccounts.resx">
       <DependentUpon>ucAccounts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucArchived.resx">
+    <EmbeddedResource Include="UserControl\ucArchived.resx">
       <DependentUpon>ucArchived.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucCompletedRequest.resx">
+    <EmbeddedResource Include="UserControl\ucCompletedRequest.resx">
       <DependentUpon>ucCompletedRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucImportExcel.resx">
+    <EmbeddedResource Include="UserControl\ucImportExcel.resx">
       <DependentUpon>ucImportExcel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucReports.resx">
+    <EmbeddedResource Include="UserControl\ucReports.resx">
       <DependentUpon>ucReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucNewRequest.resx">
+    <EmbeddedResource Include="UserControl\ucNewRequest.resx">
       <DependentUpon>ucNewRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateArchivedRequest.resx">
+    <EmbeddedResource Include="UserForm\UpdateArchivedRequest.resx">
       <DependentUpon>UpdateArchivedRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WelcomeForm.resx">
+    <EmbeddedResource Include="UserForm\WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\.editorconfig">
@@ -435,6 +518,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_maintenance.ico" />
+    <None Include="Resources\icons8_developer_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

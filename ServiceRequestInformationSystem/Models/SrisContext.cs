@@ -16,6 +16,7 @@ namespace ServiceRequestInformationSystem.Models
         public DbSet<ServiceRequestInfo> ServiceRequestInfo { get; set; }
         public DbSet<ServiceProvidedBy> ServiceProvidedBy { get; set; }
         public DbSet<TechnicianRequest> TechnicianRequest { get; set; }
+        public DbSet<SystemDevelopment> SystemDevelopment { get; set; }
         public DbSet<Account> Account { get; set; }
 
 
@@ -41,6 +42,9 @@ namespace ServiceRequestInformationSystem.Models
 
             modelBuilder.Entity<Account>().HasKey(k => k.USER_ID)
           .Property(p => p.USER_ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<SystemDevelopment>().HasKey(k => k.SD_ID)
+         .Property(p => p.SD_ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             //modelBuilder.Entity<ServiceRequestInfo>()
             //  .HasRequired<TypeOfService>(k => k.TypeOfService)
@@ -68,10 +72,10 @@ namespace ServiceRequestInformationSystem.Models
                 .WithMany(p => p.TypeOfServices)
                 .HasForeignKey<int>(k => k.SR_ID);
 
-            //modelBuilder.Entity<ServiceRequestInfo>()
-            //.HasRequired<RemarkInfo>(k => k.RemarkInfo)
-            //.WithMany(p => p.ServiceRequestInfo)
-            //.HasForeignKey<int>(k => k.Remark_ID);
+            modelBuilder.Entity<SystemDevelopment>()
+                .HasRequired<Account>(k => k.Account)
+                .WithMany(p => p.SystemDevelopment)
+                .HasForeignKey<int>(k => k.USER_ID);
         }
     }
 

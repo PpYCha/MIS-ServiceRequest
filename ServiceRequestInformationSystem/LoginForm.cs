@@ -35,7 +35,7 @@ namespace ServiceRequestInformationSystem
             if (tb_Username.Text == "")
             {
                 tb_Username.Text = "USERNAME";
-                tb_Username.ForeColor = Color.DimGray; 
+                tb_Username.ForeColor = Color.DimGray;
             }
         }
 
@@ -76,6 +76,7 @@ namespace ServiceRequestInformationSystem
 
             while (SQLCon.sqlDataReader.Read())
             {
+                WelcomeForm.AccountID = Convert.ToInt32((SQLCon.sqlDataReader["USER_ID"].ToString()));
                 WelcomeForm.Username = (SQLCon.sqlDataReader["Username"].ToString());
                 WelcomeForm.Password = (SQLCon.sqlDataReader["Password"].ToString());
                 WelcomeForm.FirstName = (SQLCon.sqlDataReader["FirstName"].ToString());
@@ -89,13 +90,17 @@ namespace ServiceRequestInformationSystem
             {
 
 
-                if (role == "Admin")
+                if (role == "ADMIN")
                 {
-                    MainForm.accessLevel = "Admin";
+                    MainForm.accessLevel = "ADMIN";
                 }
-                else
+                else if (role == "TECHNICIAN")
                 {
-                    MainForm.accessLevel = "Encoder";
+                    MainForm.accessLevel = "TECHNICIAN";
+                }
+                else if (role == "PROGRAMMER")
+                {
+                    MainForm.accessLevel = "PROGRAMMER";
                 }
                 this.Close();
                 WelcomeForm welcomeForm = new WelcomeForm();
@@ -104,11 +109,14 @@ namespace ServiceRequestInformationSystem
             else if (accountValidation == "False" && WelcomeForm.Username == tb_Username.Text && WelcomeForm.Password == tb_Password.Text)
             {
                 MessageBox.Show("Your account has been suspended. Please contact the Administrator");
+                tb_Password.Clear();
+                tb_Username.Clear();
             }
             else
             {
                 MessageBox.Show("Incorrect username or password");
-
+                tb_Password.Clear();
+                tb_Username.Clear();
 
             }
             Cursor.Current = Cursors.Default;
@@ -116,6 +124,7 @@ namespace ServiceRequestInformationSystem
 
         private void Pb_Close_Click(object sender, EventArgs e)
         {
+
             Environment.Exit(0);
         }
 
@@ -130,7 +139,7 @@ namespace ServiceRequestInformationSystem
             registerForm.ShowDialog();
         }
 
-    
+
 
         private void tb_Password_KeyDown(object sender, KeyEventArgs e)
         {

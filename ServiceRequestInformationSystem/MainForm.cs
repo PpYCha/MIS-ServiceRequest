@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,67 +21,62 @@ namespace ServiceRequestInformationSystem
         {
             InitializeComponent();
 
-            customizeDesign();
+            CustomizeDesign();
 
-            //LoadAllUserControll();
-
-            // Opacity = 0;
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
 
             DialogResult = DialogResult.OK;
 
 
-
-
-            //  Opacity = 100;
-
-            if (accessLevel == "Admin")
+            if (accessLevel == "ADMIN")
             {
                 bt_Menu_Accounts.Visible = true;
                 bt_ImportExcel.Visible = true;
                 bt_Menu_Import.Visible = true;
                 bt_Menu_Reports.Visible = true;
                 bt_Menu_BackUp.Visible = true;
+                bt_Menu_SystemDevelopment.Visible = true;
                 LoaducAddRequest();
             }
-            else
+            else if (accessLevel == "TECHNICIAN")
             {
-                LoaducAddRequest();
                 bt_Menu_Accounts.Visible = false;
                 bt_ImportExcel.Visible = false;
                 bt_Menu_Import.Visible = false;
                 bt_Menu_Reports.Visible = false;
                 bt_Menu_BackUp.Visible = false;
+                bt_Menu_SystemDevelopment.Visible = false;
+                LoaducAddRequest();
+
+            }
+            else if (accessLevel == "PROGRAMMER")
+            {
+                bt_Menu_Accounts.Visible = false;
+                bt_ImportExcel.Visible = false;
+                bt_Menu_Import.Visible = false;
+                bt_Menu_Reports.Visible = false;
+                bt_Menu_BackUp.Visible = false;
+                bt_Menu_SystemDevelopment.Visible = true;
+                LoaducAddRequest();
             }
         }
 
 
-
-        private void LoadAllUserControll()
-        {
-
-            //   LoaducArchive();
-            LoaducReports();
-            LoaducAddRequest();
-            LoaducAccounts();
-            LoaducCompletedRequest();
-
-            panel_Body.Visible = false;
-
-        }
-
-        private void customizeDesign()
+        private void CustomizeDesign()
         {
             panel_SubMenu_Archived.Visible = false;
             panel_SubeMenu_Reports.Visible = false;
             panel_SubMenu_Request.Visible = false;
             panel_SubMenu_Accounts.Visible = false;
             panel_SubMenu_Import.Visible = false;
+            panel_SubeMenu_SystemDevelopment.Visible = false;
         }
 
-        private void hideSubMenu()
+        private void HideSubMenu()
         {
+
+
             if (panel_SubMenu_Archived.Visible == true)
                 panel_SubMenu_Archived.Visible = false;
 
@@ -90,20 +86,22 @@ namespace ServiceRequestInformationSystem
             if (panel_SubMenu_Request.Visible == true)
                 panel_SubMenu_Request.Visible = false;
 
+
             if (panel_SubMenu_Accounts.Visible == true)
                 panel_SubMenu_Accounts.Visible = false;
 
             if (panel_SubMenu_Import.Visible == true)
-            {
                 panel_SubMenu_Import.Visible = false;
-            }
+
+            if (panel_SubeMenu_SystemDevelopment.Visible == true)
+                panel_SubeMenu_SystemDevelopment.Visible = false;
         }
 
-        private void showSubMenu(Panel subMenu)
+        private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
             {
-                hideSubMenu();
+                HideSubMenu();
                 subMenu.Visible = true;
             }
             else
@@ -115,14 +113,18 @@ namespace ServiceRequestInformationSystem
 
         private void bt_AddRequest_Click_1(object sender, EventArgs e)
         {
-
-            showSubMenu(panel_SubMenu_Request);
-        }
-
-        public void test(Panel panel)
-        {
+            HideSubMenu();
             LoaducAddRequest();
+            ButtonInActive(bt_Menu_SystemDevelopment);
+            ButtonInActive(bt_Menu_Accounts);
+            ButtonActive(bt_Menu_AddRequest);
+            ButtonInActive(bt_Menu_Archived);
+            ButtonInActive(bt_Menu_BackUp);
+            ButtonInActive(bt_Menu_Import);
+            ButtonInActive(bt_Menu_Reports);
         }
+
+
 
         private void LoaducAddRequest()
         {
@@ -146,9 +148,27 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Archived_Click(object sender, EventArgs e)
         {
+            //  ShowSubMenu(panel_SubMenu_Archived);
 
-            showSubMenu(panel_SubMenu_Archived);
+            Cursor.Current = Cursors.WaitCursor;
+            if (!panel_Body.Controls.Contains(ucArchived.Instance))
+            {
+                panel_Body.Controls.Add(ucArchived.Instance);
+                ucArchived.Instance.Dock = DockStyle.Fill;
+            }
+            ucArchived.Instance.BringToFront();
+            ucArchived archived = new ucArchived();
+            archived.dataGridView_ListOfRequest.Refresh();
+            panel_Body.Visible = true;
+            Cursor.Current = Cursors.Default;
 
+            ButtonInActive(bt_Menu_SystemDevelopment);
+            ButtonInActive(bt_Menu_Accounts);
+            ButtonInActive(bt_Menu_AddRequest);
+            ButtonActive(bt_Menu_Archived);
+            ButtonInActive(bt_Menu_BackUp);
+            ButtonInActive(bt_Menu_Import);
+            ButtonInActive(bt_Menu_Reports);
         }
 
         private void LoaducArchive()
@@ -174,7 +194,14 @@ namespace ServiceRequestInformationSystem
         private void bt_Reports_Click(object sender, EventArgs e)
         {
 
-            showSubMenu(panel_SubeMenu_Reports);
+            ShowSubMenu(panel_SubeMenu_Reports);
+            ButtonInActive(bt_Menu_SystemDevelopment);
+            ButtonInActive(bt_Menu_Accounts);
+            ButtonInActive(bt_Menu_AddRequest);
+            ButtonInActive(bt_Menu_Archived);
+            ButtonInActive(bt_Menu_BackUp);
+            ButtonInActive(bt_Menu_Import);
+            ButtonActive(bt_Menu_Reports);
         }
 
         private void LoaducReports()
@@ -199,24 +226,24 @@ namespace ServiceRequestInformationSystem
         private void bt_RequestArchived_Click(object sender, EventArgs e)
         {
             LoaducArchive();
-            hideSubMenu();
+            HideSubMenu();
         }
 
         private void bt_rpt_Monthly_Click(object sender, EventArgs e)
         {
             LoaducReports();
-            hideSubMenu();
+            HideSubMenu();
         }
 
         private void bt_AddRequest_Click(object sender, EventArgs e)
         {
-            hideSubMenu();
+            HideSubMenu();
             LoaducAddRequest();
         }
 
         //private void bt_Libraries_Click(object sender, EventArgs e)
         //{
-        //    hideSubMenu();
+        //    HideSubMenu();
         //    DataForm dataForm = new DataForm();
         //    dataForm.ShowDialog();
 
@@ -226,8 +253,14 @@ namespace ServiceRequestInformationSystem
 
         private void Bt_Menu_Accounts_Click(object sender, EventArgs e)
         {
-            //showSubMenu(panel_SubMenu_Accounts);
-
+            //ShowSubMenu(panel_SubMenu_Accounts);
+            ButtonInActive(bt_Menu_SystemDevelopment);
+            ButtonActive(bt_Menu_Accounts);
+            ButtonInActive(bt_Menu_AddRequest);
+            ButtonInActive(bt_Menu_Archived);
+            ButtonInActive(bt_Menu_BackUp);
+            ButtonInActive(bt_Menu_Import);
+            ButtonInActive(bt_Menu_Reports);
             LoaducAccounts();
         }
 
@@ -238,7 +271,7 @@ namespace ServiceRequestInformationSystem
 
         private void LoaducAccounts()
         {
-            //hideSubMenu();
+            //HideSubMenu();
             Cursor.Current = Cursors.WaitCursor;
             if (!panel_Body.Controls.Contains(ucAccounts.Instance))
             {
@@ -278,7 +311,14 @@ namespace ServiceRequestInformationSystem
 
         private void Bt_Menu_Import_Click(object sender, EventArgs e)
         {
-            showSubMenu(panel_SubMenu_Import);
+            ButtonInActive(bt_Menu_SystemDevelopment);
+            ButtonInActive(bt_Menu_Accounts);
+            ButtonInActive(bt_Menu_AddRequest);
+            ButtonInActive(bt_Menu_Archived);
+            ButtonInActive(bt_Menu_BackUp);
+            ButtonActive(bt_Menu_Import);
+            ButtonInActive(bt_Menu_Reports);
+            ShowSubMenu(panel_SubMenu_Import);
         }
 
         private void bt_CompletedRequest_Click(object sender, EventArgs e)
@@ -288,7 +328,7 @@ namespace ServiceRequestInformationSystem
 
         private void LoaducCompletedRequest()
         {
-            hideSubMenu();
+            HideSubMenu();
             Cursor.Current = Cursors.WaitCursor;
             if (!panel_Body.Controls.Contains(ucCompletedRequest.Instance))
             {
@@ -303,7 +343,7 @@ namespace ServiceRequestInformationSystem
 
         private void bt_ImportExcel_Click(object sender, EventArgs e)
         {
-            hideSubMenu();
+            HideSubMenu();
             Cursor.Current = Cursors.WaitCursor;
             if (!panel_Body.Controls.Contains(ucImportExcel.Instance))
             {
@@ -318,42 +358,138 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Logout_Click(object sender, EventArgs e)
         {
-            Opacity = 0;
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
+            Environment.Exit(0);
 
-            DialogResult = DialogResult.OK;
+            //Opacity = 0;
 
-            customizeDesign();
 
-            LoadAllUserControll();
+            //LoginForm loginForm = new LoginForm();
+            //loginForm.ShowDialog();
 
-            Opacity = 100;
+            //DialogResult = DialogResult.OK;
 
-            if (accessLevel == "Admin")
-            {
-                bt_Menu_BackUp.Visible = true;
-                bt_Menu_Accounts.Visible = true;
-                bt_ImportExcel.Visible = true;
-                bt_Menu_Import.Visible = true;
-                bt_Menu_Reports.Visible = true;
-                LoaducAddRequest();
-            }
-            else
-            {
-                bt_Menu_Accounts.Visible = false;
-                bt_ImportExcel.Visible = false;
-                bt_Menu_Import.Visible = false;
-                bt_Menu_Reports.Visible = false;
-                bt_Menu_BackUp.Visible = false;
-                LoaducAddRequest();
-            }
+            //CustomizeDesign();
+            //Opacity = 100;
+
+
+
+            //if (accessLevel == "ADMIN")
+            //{
+            //    bt_Menu_Accounts.Visible = true;
+            //    bt_ImportExcel.Visible = true;
+            //    bt_Menu_Import.Visible = true;
+            //    bt_Menu_Reports.Visible = true;
+            //    bt_Menu_BackUp.Visible = true;
+            //    bt_Menu_SystemDevelopment.Visible = true;
+            //    LoaducAddRequest();
+            //}
+            //else if (accessLevel == "TECHNICIAN")
+            //{
+            //    bt_Menu_Accounts.Visible = false;
+            //    bt_ImportExcel.Visible = false;
+            //    bt_Menu_Import.Visible = false;
+            //    bt_Menu_Reports.Visible = false;
+            //    bt_Menu_BackUp.Visible = false;
+            //    bt_Menu_SystemDevelopment.Visible = false;
+            //    LoaducAddRequest();
+
+            //}
+            //else if (accessLevel == "PROGRAMMER")
+            //{
+            //    bt_Menu_Accounts.Visible = false;
+            //    bt_ImportExcel.Visible = false;
+            //    bt_Menu_Import.Visible = false;
+            //    bt_Menu_Reports.Visible = false;
+            //    bt_Menu_BackUp.Visible = false;
+            //    bt_Menu_SystemDevelopment.Visible = true;
+            //    LoaducAddRequest();
+            //}
         }
 
         private void bt_Menu_BackUp_Click(object sender, EventArgs e)
         {
             BackUpForm backUpForm = new BackUpForm();
             backUpForm.ShowDialog();
+        }
+
+        private void bt_Menu_SystemDevelopment_Click(object sender, EventArgs e)
+        {
+            //ShowSubMenu(panel_SubeMenu_SystemDevelopment);
+            ButtonActive(bt_Menu_SystemDevelopment);
+            ButtonInActive(bt_Menu_Accounts);
+            ButtonInActive(bt_Menu_AddRequest);
+            ButtonInActive(bt_Menu_Archived);
+            ButtonInActive(bt_Menu_BackUp);
+            ButtonInActive(bt_Menu_Import);
+            ButtonInActive(bt_Menu_Reports);
+
+            Cursor.Current = Cursors.WaitCursor;
+            if (!panel_Body.Controls.Contains(ucSystemDevWeekly.Instance))
+            {
+                panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
+                ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
+                ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+            }
+
+            ucSystemDevWeekly.Instance.BringToFront();
+            Cursor.Current = Cursors.Default;
+            panel_Body.Visible = true;
+        }
+
+        private void ButtonActive(Button button)
+        {
+            button.BackColor = Color.White;
+            button.ForeColor = Color.Black;
+        }
+
+        private void ButtonInActive(Button button)
+        {
+            button.BackColor = Color.FromArgb(0, 90, 160);
+            button.ForeColor = Color.White;
+        }
+
+        private void bt_WeeklyAccomlishment_Click(object sender, EventArgs e)
+        {
+            HideSubMenu();
+            Cursor.Current = Cursors.WaitCursor;
+            if (!panel_Body.Controls.Contains(ucSystemDevWeekly.Instance))
+            {
+                panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
+                ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
+                ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+            }
+
+            ucSystemDevWeekly.Instance.BringToFront();
+            Cursor.Current = Cursors.Default;
+            panel_Body.Visible = true;
+        }
+
+        private void bt_MonthlyAccomplishment_Click(object sender, EventArgs e)
+        {
+            HideSubMenu();
+            Cursor.Current = Cursors.WaitCursor;
+            if (!panel_Body.Controls.Contains(ucImportExcel.Instance))
+            {
+                panel_Body.Controls.Add(ucImportExcel.Instance);
+                ucImportExcel.Instance.Dock = DockStyle.Fill;
+            }
+
+            ucImportExcel.Instance.BringToFront();
+            Cursor.Current = Cursors.Default;
+            panel_Body.Visible = true;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

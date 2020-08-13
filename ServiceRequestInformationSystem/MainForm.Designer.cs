@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panel_MainMenu = new System.Windows.Forms.Panel();
             this.bt_Logout = new System.Windows.Forms.Button();
+            this.panel_SubeMenu_SystemDevelopment = new System.Windows.Forms.Panel();
+            this.bt_MonthlyAccomplishment = new System.Windows.Forms.Button();
+            this.bt_WeeklyAccomlishment = new System.Windows.Forms.Button();
+            this.bt_Menu_SystemDevelopment = new System.Windows.Forms.Button();
             this.bt_Menu_BackUp = new System.Windows.Forms.Button();
             this.panel_SubMenu_Import = new System.Windows.Forms.Panel();
             this.bt_ImportExcel = new System.Windows.Forms.Button();
@@ -56,8 +61,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel_Body = new System.Windows.Forms.Panel();
+            this.notifyIcon_Tech = new System.Windows.Forms.NotifyIcon(this.components);
             this.panelSideMenu.SuspendLayout();
             this.panel_MainMenu.SuspendLayout();
+            this.panel_SubeMenu_SystemDevelopment.SuspendLayout();
             this.panel_SubMenu_Import.SuspendLayout();
             this.panel_SubMenu_Accounts.SuspendLayout();
             this.panel_SubeMenu_Reports.SuspendLayout();
@@ -82,6 +89,8 @@
             // 
             this.panel_MainMenu.AutoScroll = true;
             this.panel_MainMenu.Controls.Add(this.bt_Logout);
+            this.panel_MainMenu.Controls.Add(this.panel_SubeMenu_SystemDevelopment);
+            this.panel_MainMenu.Controls.Add(this.bt_Menu_SystemDevelopment);
             this.panel_MainMenu.Controls.Add(this.bt_Menu_BackUp);
             this.panel_MainMenu.Controls.Add(this.panel_SubMenu_Import);
             this.panel_MainMenu.Controls.Add(this.bt_Menu_Import);
@@ -95,8 +104,10 @@
             this.panel_MainMenu.Controls.Add(this.bt_Menu_AddRequest);
             this.panel_MainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_MainMenu.Location = new System.Drawing.Point(0, 189);
+            this.panel_MainMenu.Margin = new System.Windows.Forms.Padding(0);
             this.panel_MainMenu.Name = "panel_MainMenu";
             this.panel_MainMenu.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel_MainMenu.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel_MainMenu.Size = new System.Drawing.Size(205, 337);
             this.panel_MainMenu.TabIndex = 5;
             // 
@@ -111,14 +122,89 @@
             this.bt_Logout.ForeColor = System.Drawing.Color.White;
             this.bt_Logout.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_shutdown_25px;
             this.bt_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Logout.Location = new System.Drawing.Point(0, 711);
+            this.bt_Logout.Location = new System.Drawing.Point(0, 858);
             this.bt_Logout.Name = "bt_Logout";
             this.bt_Logout.Size = new System.Drawing.Size(188, 55);
             this.bt_Logout.TabIndex = 9;
             this.bt_Logout.TabStop = false;
-            this.bt_Logout.Text = "Logout                   ";
+            this.bt_Logout.Text = "Logout";
+            this.bt_Logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Logout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Logout.UseVisualStyleBackColor = false;
             this.bt_Logout.Click += new System.EventHandler(this.bt_Logout_Click);
+            // 
+            // panel_SubeMenu_SystemDevelopment
+            // 
+            this.panel_SubeMenu_SystemDevelopment.Controls.Add(this.bt_MonthlyAccomplishment);
+            this.panel_SubeMenu_SystemDevelopment.Controls.Add(this.bt_WeeklyAccomlishment);
+            this.panel_SubeMenu_SystemDevelopment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_SubeMenu_SystemDevelopment.Location = new System.Drawing.Point(0, 766);
+            this.panel_SubeMenu_SystemDevelopment.Name = "panel_SubeMenu_SystemDevelopment";
+            this.panel_SubeMenu_SystemDevelopment.Size = new System.Drawing.Size(188, 92);
+            this.panel_SubeMenu_SystemDevelopment.TabIndex = 12;
+            // 
+            // bt_MonthlyAccomplishment
+            // 
+            this.bt_MonthlyAccomplishment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_MonthlyAccomplishment.FlatAppearance.BorderSize = 0;
+            this.bt_MonthlyAccomplishment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_MonthlyAccomplishment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.bt_MonthlyAccomplishment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_MonthlyAccomplishment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_MonthlyAccomplishment.ForeColor = System.Drawing.Color.White;
+            this.bt_MonthlyAccomplishment.Location = new System.Drawing.Point(0, 46);
+            this.bt_MonthlyAccomplishment.Name = "bt_MonthlyAccomplishment";
+            this.bt_MonthlyAccomplishment.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.bt_MonthlyAccomplishment.Size = new System.Drawing.Size(188, 46);
+            this.bt_MonthlyAccomplishment.TabIndex = 1;
+            this.bt_MonthlyAccomplishment.TabStop = false;
+            this.bt_MonthlyAccomplishment.Text = "Montly Accomplishment";
+            this.bt_MonthlyAccomplishment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_MonthlyAccomplishment.UseVisualStyleBackColor = true;
+            this.bt_MonthlyAccomplishment.Click += new System.EventHandler(this.bt_MonthlyAccomplishment_Click);
+            // 
+            // bt_WeeklyAccomlishment
+            // 
+            this.bt_WeeklyAccomlishment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_WeeklyAccomlishment.FlatAppearance.BorderSize = 0;
+            this.bt_WeeklyAccomlishment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_WeeklyAccomlishment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.bt_WeeklyAccomlishment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_WeeklyAccomlishment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_WeeklyAccomlishment.ForeColor = System.Drawing.Color.White;
+            this.bt_WeeklyAccomlishment.Location = new System.Drawing.Point(0, 0);
+            this.bt_WeeklyAccomlishment.Name = "bt_WeeklyAccomlishment";
+            this.bt_WeeklyAccomlishment.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.bt_WeeklyAccomlishment.Size = new System.Drawing.Size(188, 46);
+            this.bt_WeeklyAccomlishment.TabIndex = 0;
+            this.bt_WeeklyAccomlishment.TabStop = false;
+            this.bt_WeeklyAccomlishment.Text = "Weekly Accomplishment";
+            this.bt_WeeklyAccomlishment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_WeeklyAccomlishment.UseVisualStyleBackColor = true;
+            this.bt_WeeklyAccomlishment.Click += new System.EventHandler(this.bt_WeeklyAccomlishment_Click);
+            // 
+            // bt_Menu_SystemDevelopment
+            // 
+            this.bt_Menu_SystemDevelopment.BackColor = System.Drawing.Color.Transparent;
+            this.bt_Menu_SystemDevelopment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_Menu_SystemDevelopment.FlatAppearance.BorderSize = 0;
+            this.bt_Menu_SystemDevelopment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_Menu_SystemDevelopment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.bt_Menu_SystemDevelopment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Menu_SystemDevelopment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Menu_SystemDevelopment.ForeColor = System.Drawing.Color.White;
+            this.bt_Menu_SystemDevelopment.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_developer_24px;
+            this.bt_Menu_SystemDevelopment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_SystemDevelopment.Location = new System.Drawing.Point(0, 711);
+            this.bt_Menu_SystemDevelopment.Name = "bt_Menu_SystemDevelopment";
+            this.bt_Menu_SystemDevelopment.Size = new System.Drawing.Size(188, 55);
+            this.bt_Menu_SystemDevelopment.TabIndex = 11;
+            this.bt_Menu_SystemDevelopment.TabStop = false;
+            this.bt_Menu_SystemDevelopment.Text = "System Development";
+            this.bt_Menu_SystemDevelopment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_SystemDevelopment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bt_Menu_SystemDevelopment.UseVisualStyleBackColor = false;
+            this.bt_Menu_SystemDevelopment.Click += new System.EventHandler(this.bt_Menu_SystemDevelopment_Click);
             // 
             // bt_Menu_BackUp
             // 
@@ -128,6 +214,7 @@
             this.bt_Menu_BackUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.bt_Menu_BackUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.bt_Menu_BackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Menu_BackUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Menu_BackUp.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_BackUp.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_database_backup_24px;
             this.bt_Menu_BackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -136,7 +223,9 @@
             this.bt_Menu_BackUp.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_BackUp.TabIndex = 10;
             this.bt_Menu_BackUp.TabStop = false;
-            this.bt_Menu_BackUp.Text = "Backup Database";
+            this.bt_Menu_BackUp.Text = "Manage Database";
+            this.bt_Menu_BackUp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_BackUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Menu_BackUp.UseVisualStyleBackColor = false;
             this.bt_Menu_BackUp.Click += new System.EventHandler(this.bt_Menu_BackUp_Click);
             // 
@@ -177,6 +266,7 @@
             this.bt_Menu_Import.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.bt_Menu_Import.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.bt_Menu_Import.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Menu_Import.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Menu_Import.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Import.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Import.Image")));
             this.bt_Menu_Import.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,6 +276,8 @@
             this.bt_Menu_Import.TabIndex = 8;
             this.bt_Menu_Import.TabStop = false;
             this.bt_Menu_Import.Text = "Import                      ";
+            this.bt_Menu_Import.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_Import.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Menu_Import.UseVisualStyleBackColor = false;
             this.bt_Menu_Import.Click += new System.EventHandler(this.Bt_Menu_Import_Click);
             // 
@@ -266,6 +358,7 @@
             this.bt_Menu_Accounts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.bt_Menu_Accounts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.bt_Menu_Accounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Menu_Accounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Menu_Accounts.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Accounts.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Accounts.Image")));
             this.bt_Menu_Accounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -275,6 +368,8 @@
             this.bt_Menu_Accounts.TabIndex = 7;
             this.bt_Menu_Accounts.TabStop = false;
             this.bt_Menu_Accounts.Text = "Accounts                      ";
+            this.bt_Menu_Accounts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_Accounts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Menu_Accounts.UseVisualStyleBackColor = false;
             this.bt_Menu_Accounts.Click += new System.EventHandler(this.Bt_Menu_Accounts_Click);
             // 
@@ -335,6 +430,7 @@
             this.bt_Menu_Reports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.bt_Menu_Reports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.bt_Menu_Reports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Menu_Reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Menu_Reports.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Reports.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Reports.Image")));
             this.bt_Menu_Reports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -344,6 +440,8 @@
             this.bt_Menu_Reports.TabIndex = 3;
             this.bt_Menu_Reports.TabStop = false;
             this.bt_Menu_Reports.Text = "Reports                      ";
+            this.bt_Menu_Reports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_Reports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Menu_Reports.UseVisualStyleBackColor = false;
             this.bt_Menu_Reports.Click += new System.EventHandler(this.bt_Reports_Click);
             // 
@@ -384,6 +482,7 @@
             this.bt_Menu_Archived.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.bt_Menu_Archived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.bt_Menu_Archived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Menu_Archived.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Menu_Archived.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Archived.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Archived.Image")));
             this.bt_Menu_Archived.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -393,6 +492,8 @@
             this.bt_Menu_Archived.TabIndex = 2;
             this.bt_Menu_Archived.TabStop = false;
             this.bt_Menu_Archived.Text = "Archived                      ";
+            this.bt_Menu_Archived.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_Archived.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Menu_Archived.UseVisualStyleBackColor = false;
             this.bt_Menu_Archived.Click += new System.EventHandler(this.bt_Archived_Click);
             // 
@@ -448,14 +549,15 @@
             // 
             // bt_Menu_AddRequest
             // 
-            this.bt_Menu_AddRequest.BackColor = System.Drawing.Color.Transparent;
+            this.bt_Menu_AddRequest.BackColor = System.Drawing.Color.White;
             this.bt_Menu_AddRequest.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bt_Menu_AddRequest.Dock = System.Windows.Forms.DockStyle.Top;
             this.bt_Menu_AddRequest.FlatAppearance.BorderSize = 0;
             this.bt_Menu_AddRequest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.bt_Menu_AddRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.bt_Menu_AddRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Menu_AddRequest.ForeColor = System.Drawing.Color.White;
+            this.bt_Menu_AddRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Menu_AddRequest.ForeColor = System.Drawing.Color.Black;
             this.bt_Menu_AddRequest.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_AddRequest.Image")));
             this.bt_Menu_AddRequest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bt_Menu_AddRequest.Location = new System.Drawing.Point(0, 30);
@@ -463,7 +565,9 @@
             this.bt_Menu_AddRequest.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_AddRequest.TabIndex = 1;
             this.bt_Menu_AddRequest.TabStop = false;
-            this.bt_Menu_AddRequest.Text = "Repair Request             ";
+            this.bt_Menu_AddRequest.Text = "Service Request";
+            this.bt_Menu_AddRequest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_Menu_AddRequest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bt_Menu_AddRequest.UseVisualStyleBackColor = false;
             this.bt_Menu_AddRequest.Click += new System.EventHandler(this.bt_AddRequest_Click_1);
             // 
@@ -509,6 +613,11 @@
             this.panel_Body.Size = new System.Drawing.Size(1037, 526);
             this.panel_Body.TabIndex = 3;
             // 
+            // notifyIcon_Tech
+            // 
+            this.notifyIcon_Tech.Text = "notifyIcon1";
+            this.notifyIcon_Tech.Visible = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,8 +634,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MANAGEMENT INFOMATION SYSTEM";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panel_MainMenu.ResumeLayout(false);
+            this.panel_SubeMenu_SystemDevelopment.ResumeLayout(false);
             this.panel_SubMenu_Import.ResumeLayout(false);
             this.panel_SubMenu_Accounts.ResumeLayout(false);
             this.panel_SubeMenu_Reports.ResumeLayout(false);
@@ -567,5 +679,10 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button bt_Logout;
         private System.Windows.Forms.Button bt_Menu_BackUp;
+        private System.Windows.Forms.Button bt_Menu_SystemDevelopment;
+        private System.Windows.Forms.Panel panel_SubeMenu_SystemDevelopment;
+        private System.Windows.Forms.Button bt_MonthlyAccomplishment;
+        private System.Windows.Forms.Button bt_WeeklyAccomlishment;
+        private System.Windows.Forms.NotifyIcon notifyIcon_Tech;
     }
 }

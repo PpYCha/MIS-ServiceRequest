@@ -1,0 +1,9 @@
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\bin\Debug\SRIS-Notifier.exe.config
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\bin\Debug\SRIS-Notifier.exe
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\bin\Debug\SRIS-Notifier.pdb
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Debug\SRIS_Notifyer.Notifyer_MainForm.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Debug\SRIS_Notifyer.Properties.Resources.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Debug\SRIS_Notifyer.csproj.GenerateResource.cache
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Debug\SRIS_Notifyer.csproj.CoreCompileInputs.cache
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Debug\SRIS-Notifier.exe
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Debug\SRIS-Notifier.pdb
