@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
+using ServiceRequestInformationSystem.UserForm;
 
 namespace ServiceRequestInformationSystem
 {
@@ -19,23 +20,30 @@ namespace ServiceRequestInformationSystem
         {
             InitializeComponent();
 
-            label_Name.Text = WelcomeForm.FirstName + " " + WelcomeForm.LastName;
-            radioButton_Weekly.Checked = true;
-            LoadWeeklyRpt();
+            if (MainForm.accessLevel.Contains("ADMIN"))
+            {
+
+            }
+            else if (MainForm.accessLevel.Contains("PROGRAMMER"))
+            {
+                label_Name.Text = WelcomeForm.FirstName + " " + WelcomeForm.LastName;
+                radioButton_Weekly.Checked = true;
+                LoadWeeklyRpt();
 
 
-            cb_Month.DataSource = CultureInfo.InvariantCulture.DateTimeFormat
-                                                   .MonthNames.Take(12).ToList();
-            cb_Month.SelectedItem = CultureInfo.InvariantCulture.DateTimeFormat
-                                                    .MonthNames[DateTime.Now.AddMonths(-1).Month];
+                cb_Month.DataSource = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames.Take(12).ToList();
+                cb_Month.SelectedItem = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames[DateTime.Now.AddMonths(-1).Month];
 
-            //metroComboBox2.DataSource = Enumerable.Range(2000, DateTime.Now.Year - 2000 + 1).ToList();
-            //metroComboBox2.SelectedItem = DateTime.Now.Year;
+                cb_PrintMonth.DataSource = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames.Take(12).ToList();
+                cb_PrintMonth.SelectedItem = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames[DateTime.Now.AddMonths(-1).Month];
 
-            LoadListSystemTitle();
+                LoadListSystemTitle();
+            }
+
         }
 
         private static int tempUserID;
+        public static string printMonth;
         private static ucSystemDevWeekly _instance;
 
         public static ucSystemDevWeekly Instance
@@ -400,6 +408,13 @@ namespace ServiceRequestInformationSystem
         private void bt_Clear_Click(object sender, EventArgs e)
         {
             ClearText();
+        }
+
+        private void bt_Print_Click(object sender, EventArgs e)
+        {
+            DeveloperReportForm developerReportForm = new DeveloperReportForm();
+            printMonth = cb_PrintMonth.Text;
+            developerReportForm.ShowDialog();
         }
     }
 }

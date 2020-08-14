@@ -20,12 +20,13 @@ namespace SRIS_Notifier
     {
 
         public static string accessLevel { get; set; }
+        private string notifierStatus;
+        private string timeInterval;
 
         public Notifyer_MainForm()
         {
             InitializeComponent();
 
-           
 
 
             //LoginForm login = new LoginForm();
@@ -43,15 +44,12 @@ namespace SRIS_Notifier
 
         private void Notifyer_MainForm_Load(object sender, EventArgs e)
         {
-            //string notifierStatus = ConfigurationManager.AppSettings["notifierStatus"];
-            //string timeInterval = ConfigurationManager.AppSettings["timeInterval"];
 
 
 
 
-
-            var notifierStatus = ConfigurationManager.AppSettings["notifierStatus"].ToString();
-            var timeInterval = ConfigurationManager.AppSettings["timeInterval"].ToString();
+            notifierStatus = ConfigurationManager.AppSettings["notifierStatus"].ToString();
+            timeInterval = ConfigurationManager.AppSettings["timeInterval"].ToString();
 
             checkBox_Status.Checked = bool.Parse(notifierStatus);
             numericUpDown_TimeInterval.Value = decimal.Parse(timeInterval);
@@ -89,7 +87,7 @@ namespace SRIS_Notifier
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex + "");
             }
 
         }
@@ -100,44 +98,44 @@ namespace SRIS_Notifier
         private void StartNotifier()
         {
             LoadRequest();
-            var startTimeSpan = TimeSpan.Zero;
-            var periodTimeSpan = TimeSpan.FromMinutes(5);
 
-
-
-
-            var timer = new System.Threading.Timer((e) =>
+            if (notifierStatus.Contains("true"))
             {
-                SQLCon.DbCon();
-                SQLCon.sqlCommand = new SqlCommand(@"SELECT DISTINCT AssignedTechnician FROM ServiceRequestInfoes WHERE Status = 0", SQLCon.sqlConnection);
-                SQLCon.sqlDataReader = SQLCon.sqlCommand.ExecuteReader();
 
-                while (SQLCon.sqlDataReader.Read())
+
+                var startTimeSpan = TimeSpan.Zero;
+
+                var periodTimeSpan = TimeSpan.FromMinutes(double.Parse(timeInterval));
+
+                var timer = new System.Threading.Timer((e) =>
                 {
-                    techName += (SQLCon.sqlDataReader["AssignedTechnician"].ToString()) + ", \n";
-                }
+                    SQLCon.DbCon();
+                    SQLCon.sqlCommand = new SqlCommand(@"SELECT DISTINCT AssignedTechnician FROM ServiceRequestInfoes WHERE Status = 0", SQLCon.sqlConnection);
+                    SQLCon.sqlDataReader = SQLCon.sqlCommand.ExecuteReader();
 
-                notifyIcon1.Icon = new System.Drawing.Icon(Path.GetFullPath(@"image\icons8_maintenance.ico"));
-                notifyIcon1.Text = "URGENT REPAIR";
-                notifyIcon1.Visible = true;
+                    while (SQLCon.sqlDataReader.Read())
+                    {
+                        techName += (SQLCon.sqlDataReader["AssignedTechnician"].ToString()) + ", \n";
+                    }
 
-                notifyIcon1.BalloonTipTitle = "HAVE URGENT REPAIR";
-                notifyIcon1.BalloonTipText = "There is a pending request for: \n" + techName;
-                notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
-                notifyIcon1.ShowBalloonTip(100);
+                    notifyIcon1.Icon = new System.Drawing.Icon(Path.GetFullPath(@"image\icons8_maintenance.ico"));
+                    notifyIcon1.Text = "URGENT REPAIR";
+                    notifyIcon1.Visible = true;
 
-                techName = String.Empty;
+                    notifyIcon1.BalloonTipTitle = "HAVE URGENT REPAIR";
+                    notifyIcon1.BalloonTipText = "There is a pending request for: \n" + techName;
+                    notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
+                    notifyIcon1.ShowBalloonTip(100);
 
-            }, null, startTimeSpan, periodTimeSpan);
+                    techName = String.Empty;
 
+                }, null, startTimeSpan, periodTimeSpan);
+            }
 
         }
 
         private void LoadRequest()
         {
-
-
-
             SQLCon.DbCon();
             SQLCon.sqlDataApater = new SqlDataAdapter(
                @"SELECT
@@ -147,12 +145,10 @@ namespace SRIS_Notifier
                     T1.OfficeDepartmentName AS [Office],
                     T1.DateRequested AS [Date Requested],
                     T1.TimeLeft AS [Time Left],
-
                     T1.AssignedTechnician AS [Assigned Technician],
                     T1.RemarkDeatails AS [Remarks]
                 FROM
                     ServiceRequestInfoes AS T1
-
                 WHERE
                     T1.Status = 0
                   ", SQLCon.sqlConnection);
@@ -199,11 +195,7 @@ namespace SRIS_Notifier
                     row.Cells["Time Left"].Value = dateTime;
                     row.Cells["Time Left"].Style.BackColor = Color.Yellow;
                 }
-
             }
-
-
-
         }
 
 
@@ -216,29 +208,19 @@ namespace SRIS_Notifier
                 techName += item.Cells[6].Value.ToString() + ",";
 
             }
-
             notifyIcon1.Icon = new System.Drawing.Icon(@"D:\icons8_maintenance.ico");
             notifyIcon1.Text = "URGENT REPAIR";
             notifyIcon1.Visible = true;
-
             notifyIcon1.BalloonTipTitle = "HAVE URGENT REPAIR";
             notifyIcon1.BalloonTipText = techName;
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
-
-
-
-
-
-
         }
 
         private void DesignTable()
         {
             dataGridView_ListOfRequest.Columns["SR_ID"].Visible = false;
-
             //dataGridView_ListOfRequest.Columns["Remarks"].Visible = false;
             //dataGridView_ListOfRequest.Columns["Technicians"].Visible = false;
-
             dataGridView_ListOfRequest.ForeColor = Color.Black;
             dataGridView_ListOfRequest.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridView_ListOfRequest.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -261,8 +243,6 @@ namespace SRIS_Notifier
             dataGridView_ListOfRequest.Columns["Assigned Technician"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView_ListOfRequest.Columns["Remarks"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-
-
             dataGridView_ListOfRequest.BorderStyle = BorderStyle.None;
             dataGridView_ListOfRequest.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView_ListOfRequest.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -274,7 +254,6 @@ namespace SRIS_Notifier
             dataGridView_ListOfRequest.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridView_ListOfRequest.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             dataGridView_ListOfRequest.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
         }
 
         private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
@@ -285,7 +264,6 @@ namespace SRIS_Notifier
         private void Notifyer_MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Hide();
-            StartNotifier();
             e.Cancel = true;
         }
 
@@ -306,17 +284,49 @@ namespace SRIS_Notifier
 
         private void bt_SaveNotifierSettings_Click(object sender, EventArgs e)
         {
-            var notifierStatus = ConfigurationManager.AppSettings["notifierStatus"].ToString();
-            var timeInterval = ConfigurationManager.AppSettings["timeInterval"].ToString();
-            if (notifierStatus.Contains("on"))
+            notifierStatus = ConfigurationManager.AppSettings["notifierStatus"].ToString();
+            timeInterval = ConfigurationManager.AppSettings["timeInterval"].ToString();
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            if (checkBox_Status.Checked == true)
             {
-                checkBox_Status.Checked = true;
-                numericUpDown_TimeInterval.Value = Convert.ToDecimal(timeInterval);
+
+                config.AppSettings.Settings["notifierStatus"].Value = "true";
+                config.AppSettings.Settings["timeInterval"].Value = numericUpDown_TimeInterval.Value.ToString();
+                config.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");
+
             }
             else
             {
-                checkBox_Status.Checked = false;
-                numericUpDown_TimeInterval.Value = Convert.ToDecimal(timeInterval);
+                config.AppSettings.Settings["notifierStatus"].Value = "false";
+                config.AppSettings.Settings["timeInterval"].Value = numericUpDown_TimeInterval.Value.ToString();
+                config.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");
+
+
+            }
+
+            MessageBox.Show("Settings Saved");
+            StartNotifier();
+        }
+
+        private void rESTOREToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void Notifyer_MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex + "");
             }
         }
     }

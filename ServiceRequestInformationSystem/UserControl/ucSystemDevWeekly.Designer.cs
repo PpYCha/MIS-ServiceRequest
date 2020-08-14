@@ -46,6 +46,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cb_SystemTitle = new System.Windows.Forms.ComboBox();
             this.bt_Clear = new System.Windows.Forms.Button();
+            this.bt_Print = new System.Windows.Forms.Button();
+            this.cb_PrintMonth = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListWeek)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -249,11 +251,38 @@
             this.bt_Clear.UseVisualStyleBackColor = false;
             this.bt_Clear.Click += new System.EventHandler(this.bt_Clear_Click);
             // 
+            // bt_Print
+            // 
+            this.bt_Print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_Print.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.bt_Print.FlatAppearance.BorderSize = 0;
+            this.bt_Print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Print.Location = new System.Drawing.Point(934, 509);
+            this.bt_Print.Name = "bt_Print";
+            this.bt_Print.Size = new System.Drawing.Size(228, 50);
+            this.bt_Print.TabIndex = 95;
+            this.bt_Print.Text = "PRINT";
+            this.bt_Print.UseVisualStyleBackColor = false;
+            this.bt_Print.Click += new System.EventHandler(this.bt_Print_Click);
+            // 
+            // cb_PrintMonth
+            // 
+            this.cb_PrintMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_PrintMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_PrintMonth.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cb_PrintMonth.FormattingEnabled = true;
+            this.cb_PrintMonth.Location = new System.Drawing.Point(738, 521);
+            this.cb_PrintMonth.Name = "cb_PrintMonth";
+            this.cb_PrintMonth.Size = new System.Drawing.Size(190, 29);
+            this.cb_PrintMonth.TabIndex = 96;
+            // 
             // ucSystemDevWeekly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cb_PrintMonth);
+            this.Controls.Add(this.bt_Print);
             this.Controls.Add(this.bt_Clear);
             this.Controls.Add(this.cb_SystemTitle);
             this.Controls.Add(this.label5);
@@ -302,5 +331,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cb_SystemTitle;
         private System.Windows.Forms.Button bt_Clear;
+        private System.Windows.Forms.Button bt_Print;
+        private System.Windows.Forms.ComboBox cb_PrintMonth;
     }
 }

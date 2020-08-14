@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notifyer_MainForm));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.rESTOREToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView_ListOfRequest = new System.Windows.Forms.DataGridView();
             this.timer_Start = new System.Windows.Forms.Timer(this.components);
@@ -57,14 +58,22 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rESTOREToolStripMenuItem,
             this.eXITToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(97, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
+            // 
+            // rESTOREToolStripMenuItem
+            // 
+            this.rESTOREToolStripMenuItem.Name = "rESTOREToolStripMenuItem";
+            this.rESTOREToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.rESTOREToolStripMenuItem.Text = "RESTORE";
+            this.rESTOREToolStripMenuItem.Click += new System.EventHandler(this.rESTOREToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
@@ -173,6 +182,7 @@
             this.Text = "Request List";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Notifyer_MainForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Notifyer_MainForm_FormClosed);
             this.Load += new System.EventHandler(this.Notifyer_MainForm_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListOfRequest)).EndInit();
@@ -196,6 +206,7 @@
         private System.Windows.Forms.CheckBox checkBox_Status;
         private System.Windows.Forms.Button bt_SaveNotifierSettings;
         private System.Windows.Forms.NumericUpDown numericUpDown_TimeInterval;
+        private System.Windows.Forms.ToolStripMenuItem rESTOREToolStripMenuItem;
     }
 }
 

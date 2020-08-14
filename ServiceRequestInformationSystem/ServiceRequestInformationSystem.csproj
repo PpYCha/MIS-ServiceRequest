@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ppycha\update\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>50</ApplicationRevision>
+    <ApplicationRevision>52</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -212,6 +212,12 @@
     <Compile Include="Migrations\202007290209194_FIxxx.Designer.cs">
       <DependentUpon>202007290209194_FIxxx.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForm\DeveloperReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\DeveloperReportForm.Designer.cs">
+      <DependentUpon>DeveloperReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007290209194_FIxxx.resx">
       <DependentUpon>202007290209194_FIxxx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\DeveloperReportForm.resx">
+      <DependentUpon>DeveloperReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
