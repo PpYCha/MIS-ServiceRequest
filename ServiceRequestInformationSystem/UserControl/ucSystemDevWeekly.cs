@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
 using ServiceRequestInformationSystem.UserForm;
+using ServiceRequestInformationSystem.Models;
+using System.Data.Entity.Core.Metadata.Edm;
 
 namespace ServiceRequestInformationSystem
 {
@@ -22,7 +24,19 @@ namespace ServiceRequestInformationSystem
 
             if (MainForm.accessLevel.Contains("ADMIN"))
             {
+                label_Name.Text = WelcomeForm.FirstName + " " + WelcomeForm.LastName;
+                radioButton_Weekly.Checked = true;
 
+                LoadWeeklyRpt();
+
+
+                cb_Month.DataSource = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames.Take(12).ToList();
+                cb_Month.SelectedItem = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames[DateTime.Now.AddMonths(-1).Month];
+
+                cb_PrintMonth.DataSource = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames.Take(12).ToList();
+                cb_PrintMonth.SelectedItem = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames[DateTime.Now.AddMonths(-1).Month];
+
+                LoadListSystemTitle(cb_SystemTitle);
             }
             else if (MainForm.accessLevel.Contains("PROGRAMMER"))
             {
@@ -37,14 +51,24 @@ namespace ServiceRequestInformationSystem
                 cb_PrintMonth.DataSource = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames.Take(12).ToList();
                 cb_PrintMonth.SelectedItem = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames[DateTime.Now.AddMonths(-1).Month];
 
-                LoadListSystemTitle();
+                LoadListSystemTitle(cb_SystemTitle);
             }
+
+            cb_PrintMonth.DataSource = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames.Take(12).ToList();
+            cb_PrintMonth.SelectedItem = CultureInfo.InvariantCulture.DateTimeFormat.MonthNames[DateTime.Now.AddMonths(-1).Month];
+
+            cb_PrintYear.DataSource = Enumerable.Range(2000, DateTime.Now.Year - 2000 + 1).ToList();
+            cb_PrintYear.SelectedItem = DateTime.Now.Year;
 
         }
 
+
+        public static string PrintSystemTitle;
         private static int tempUserID;
         public static string printMonth;
+        public static string printYear;
         private static ucSystemDevWeekly _instance;
+
 
         public static ucSystemDevWeekly Instance
         {
@@ -56,6 +80,8 @@ namespace ServiceRequestInformationSystem
                 return _instance;
             }
         }
+
+
 
         private void bt_Save_Click(object sender, EventArgs e)
         {
@@ -77,33 +103,40 @@ namespace ServiceRequestInformationSystem
 
         }
 
+
+
         private void SaveWeekly()
         {
             try
             {
-
-
-                SQLCon.DbCon();
-                SQLCon.sqlCommand = new SqlCommand("INSERT INTO SystemDevelopments VALUES(@USER_ID,@DateAccomplish,@Accomplishment,@Remarks,@WeeklyMonthly,@SystemTitle)", SQLCon.sqlConnection);
-                SQLCon.sqlCommand.CommandType = CommandType.Text;
-                SQLCon.sqlCommand.Parameters.AddWithValue("@USER_ID", WelcomeForm.AccountID);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@Remarks", tb_Memo.Text);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@Accomplishment", tb_Accomplishment.Text);
-                SQLCon.sqlCommand.Parameters.AddWithValue("@SystemTitle", cb_SystemTitle.Text);
-
-                if (radioButton_Weekly.Checked == true)
+                using (SrisContext ctx = new SrisContext())
                 {
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplish", dateTimePicker_Date.Value.Date);
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@WeeklyMonthly", 1);
-                }
-                else
-                {
-                    string month = cb_Month.Text.ToString();
-                    string year = DateTime.Now.Year.ToString();
-                    string dateInput = month + " 1, " + year;
-                    var parsedDate = DateTime.Parse(dateInput);
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplish", Convert.ToDateTime(parsedDate));
-                    SQLCon.sqlCommand.Parameters.AddWithValue("@WeeklyMonthly", 0);
+
+
+
+                    SQLCon.DbCon();
+                    SQLCon.sqlCommand = new SqlCommand("INSERT INTO SystemDevelopments VALUES(@USER_ID,@DateAccomplish,@Accomplishment,@Remarks,@WeeklyMonthly,@SystemTitle)", SQLCon.sqlConnection);
+                    SQLCon.sqlCommand.CommandType = CommandType.Text;
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@USER_ID", WelcomeForm.AccountID);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@Remarks", tb_Memo.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@Accomplishment", tb_Accomplishment.Text);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@SystemTitle", cb_SystemTitle.Text);
+
+
+                    if (radioButton_Weekly.Checked == true)
+                    {
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplish", dateTimePicker_Date.Value.Date);
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@WeeklyMonthly", 1);
+                    }
+                    else
+                    {
+                        string month = cb_Month.Text.ToString();
+                        string year = DateTime.Now.Year.ToString();
+                        string dateInput = month + " 1, " + year;
+                        var parsedDate = DateTime.Parse(dateInput);
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplish", Convert.ToDateTime(parsedDate));
+                        SQLCon.sqlCommand.Parameters.AddWithValue("@WeeklyMonthly", 0);
+                    }
                 }
 
                 SQLCon.sqlCommand.ExecuteNonQuery();
@@ -111,7 +144,7 @@ namespace ServiceRequestInformationSystem
 
                 ClearText();
                 LoadWeeklyRpt();
-                LoadListSystemTitle();
+                LoadListSystemTitle(cb_SystemTitle);
                 DesignTable();
             }
             catch (Exception)
@@ -178,7 +211,7 @@ namespace ServiceRequestInformationSystem
 
                 ClearText();
                 LoadWeeklyRpt();
-                LoadListSystemTitle();
+                LoadListSystemTitle(cb_SystemTitle);
                 DesignTable();
             }
             catch (Exception)
@@ -250,7 +283,7 @@ namespace ServiceRequestInformationSystem
 
         }
 
-        private void LoadListSystemTitle()
+        private void LoadListSystemTitle(ComboBox cb)
         {
             try
             {
@@ -273,11 +306,11 @@ namespace ServiceRequestInformationSystem
                     SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@1", Convert.ToInt32(WelcomeForm.AccountID));
                     SQLCon.dataTable = new DataTable();
                     SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
-                    cb_SystemTitle.DataSource = SQLCon.dataTable;
-                    cb_SystemTitle.DisplayMember = "SystemTitle";
-                    cb_SystemTitle.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                    cb_SystemTitle.AutoCompleteSource = AutoCompleteSource.ListItems;
-                    cb_SystemTitle.SelectedIndex = -1;
+                    cb.DataSource = SQLCon.dataTable;
+                    cb.DisplayMember = "SystemTitle";
+                    cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    cb.AutoCompleteSource = AutoCompleteSource.ListItems;
+                    cb.SelectedIndex = -1;
                 }
                 else if (radioButtonMonthly.Checked == true)
                 {
@@ -295,11 +328,11 @@ namespace ServiceRequestInformationSystem
                     SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@1", Convert.ToInt32(WelcomeForm.AccountID));
                     SQLCon.dataTable = new DataTable();
                     SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
-                    cb_SystemTitle.DataSource = SQLCon.dataTable;
-                    cb_SystemTitle.DisplayMember = "SystemTitle";
-                    cb_SystemTitle.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                    cb_SystemTitle.AutoCompleteSource = AutoCompleteSource.ListItems;
-                    cb_SystemTitle.SelectedIndex = -1;
+                    cb.DataSource = SQLCon.dataTable;
+                    cb.DisplayMember = "SystemTitle";
+                    cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    cb.AutoCompleteSource = AutoCompleteSource.ListItems;
+                    cb.SelectedIndex = -1;
                 }
             }
             catch (Exception)
@@ -342,7 +375,7 @@ namespace ServiceRequestInformationSystem
                 radioButtonMonthly.Checked = false;
                 ClearText();
                 LoadWeeklyRpt();
-                LoadListSystemTitle();
+                LoadListSystemTitle(cb_SystemTitle);
                 labelTitle.Text = "System Daily Development";
                 dateTimePicker_Date.BringToFront();
             }
@@ -355,7 +388,8 @@ namespace ServiceRequestInformationSystem
                 radioButton_Weekly.Checked = false;
                 ClearText();
                 LoadWeeklyRpt();
-                LoadListSystemTitle();
+                LoadListSystemTitle(cb_SystemTitle);
+
                 labelTitle.Text = "System Monthly Development";
                 cb_Month.BringToFront();
             }
@@ -412,9 +446,34 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Print_Click(object sender, EventArgs e)
         {
+            LoadListSystemTitle(cb_PrintSystemTitle);
+            panel_Print.Visible = true;
+            panel_Print.BringToFront();
+
+
+        }
+
+        private void bt_PrintOk_Click(object sender, EventArgs e)
+        {
             DeveloperReportForm developerReportForm = new DeveloperReportForm();
+            PrintSystemTitle = cb_PrintSystemTitle.Text;
             printMonth = cb_PrintMonth.Text;
-            developerReportForm.ShowDialog();
+            printYear = cb_PrintYear.Text;
+
+            if (!(String.IsNullOrWhiteSpace(PrintSystemTitle)))
+            {
+                developerReportForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select system title");
+            }
+        }
+
+        private void bt_CancelPrint_Click(object sender, EventArgs e)
+        {
+            panel_Print.Visible = false;
+            panel_Print.SendToBack();
         }
     }
 }

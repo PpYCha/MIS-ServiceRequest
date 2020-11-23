@@ -101,7 +101,7 @@ namespace ServiceRequestInformationSystem
                         }
                     }
                 }
-                else
+                if (radioButton_No.Checked == true)
                 {
                     if (tempID == 0)
                     {

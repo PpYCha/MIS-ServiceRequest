@@ -4,7 +4,7 @@
   <description asmv2:iconFile="icons8_maintenance.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="SRIS-Notifier" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="SRIS-Notifier" version="1.0.1123.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="SRIS-Notifier.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SRIS-Notifier.exe" size="3664896">
-      <assemblyIdentity name="SRIS-Notifier" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="SRIS-Notifier" version="1.0.1123.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JQ0D15DCZSAyjkQFA5+iTiwkC6LsKzsbQcZswU/xcnY=</dsig:DigestValue>
+        <dsig:DigestValue>xXPweB8GP4EoRqKrOn8IoFmB3qoKGGssoEYCD3UrMIc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -6,11 +6,13 @@ namespace ServiceRequestInformationSystem.Models
     {
         public int SD_ID { get; set; }
         public int USER_ID { get; set; }
+        //public int? TT_ID { get; set; }
         public DateTime? DateAccomplishment { get; set; }
         public string Remarks { get; set; }
         public string Accomplishment { get; set; }
         public bool WeeklyMonthly { get; set; }
         public string SystemTitle { get; set; }
         public Account Account { get; set; }
+        //public SystemTitles SystemTitles { get; set; }
     }
 }

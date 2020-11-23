@@ -1,0 +1,16 @@
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\bin\Release\SRIS-Notifier.exe.config
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\bin\Release\SRIS-Notifier.exe.manifest
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\bin\Release\SRIS-Notifier.application
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\bin\Release\SRIS-Notifier.exe
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\bin\Release\SRIS-Notifier.pdb
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS_Notifier.csprojAssemblyReference.cache
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS_Notifier.LoginForm.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS_Notifier.Notifyer_MainForm.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS_Notifyer.Properties.Resources.resources
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS_Notifier.csproj.GenerateResource.cache
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS_Notifier.csproj.CoreCompileInputs.cache
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS-Notifier.TrustInfo.xml
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS-Notifier.exe.manifest
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS-Notifier.application
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS-Notifier.exe
+C:\Users\PpYCha\source\repos\MIS-ServiceRequest\SRIS_Notifyer\obj\Release\SRIS-Notifier.pdb

@@ -41,6 +41,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lb_Forgot = new System.Windows.Forms.LinkLabel();
             this.lb_Register = new System.Windows.Forms.LinkLabel();
+            this.label_Version = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -201,12 +202,23 @@
             this.lb_Register.Text = "Register";
             this.lb_Register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lb_Register_LinkClicked);
             // 
+            // label_Version
+            // 
+            this.label_Version.AutoSize = true;
+            this.label_Version.ForeColor = System.Drawing.Color.White;
+            this.label_Version.Location = new System.Drawing.Point(256, 308);
+            this.label_Version.Name = "label_Version";
+            this.label_Version.Size = new System.Drawing.Size(35, 13);
+            this.label_Version.TabIndex = 7;
+            this.label_Version.Text = "label2";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(780, 330);
+            this.Controls.Add(this.label_Version);
             this.Controls.Add(this.lb_Register);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.lb_Forgot);
@@ -223,6 +235,7 @@
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -246,5 +259,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel lb_Forgot;
         private System.Windows.Forms.LinkLabel lb_Register;
+        private System.Windows.Forms.Label label_Version;
     }
 }

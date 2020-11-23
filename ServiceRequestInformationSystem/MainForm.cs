@@ -410,6 +410,8 @@ namespace ServiceRequestInformationSystem
         {
             BackUpForm backUpForm = new BackUpForm();
             backUpForm.ShowDialog();
+            Cursor.Current = Cursors.WaitCursor;
+            Cursor.Current = Cursors.Default;
         }
 
         private void bt_Menu_SystemDevelopment_Click(object sender, EventArgs e)
@@ -422,22 +424,43 @@ namespace ServiceRequestInformationSystem
             ButtonInActive(bt_Menu_BackUp);
             ButtonInActive(bt_Menu_Import);
             ButtonInActive(bt_Menu_Reports);
-
-            Cursor.Current = Cursors.WaitCursor;
-            if (!panel_Body.Controls.Contains(ucSystemDevWeekly.Instance))
+            if (accessLevel.Contains("ADMIN"))
             {
-                panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
-                ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+                Cursor.Current = Cursors.WaitCursor;
+                if (!panel_Body.Controls.Contains(ucSystemDevAdmin.Instance))
+                {
+                    panel_Body.Controls.Add(ucSystemDevAdmin.Instance);
+                    ucSystemDevAdmin.Instance.Dock = DockStyle.Fill;
+                }
+                else
+                {
+                    panel_Body.Controls.Add(ucSystemDevAdmin.Instance);
+                    ucSystemDevAdmin.Instance.Dock = DockStyle.Fill;
+                }
+
+                ucSystemDevAdmin.Instance.BringToFront();
+                Cursor.Current = Cursors.Default;
+                panel_Body.Visible = true;
             }
-            else
+            if (accessLevel.Contains("PROGRAMMER"))
             {
-                panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
-                ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+                Cursor.Current = Cursors.WaitCursor;
+                if (!panel_Body.Controls.Contains(ucSystemDevWeekly.Instance))
+                {
+                    panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
+                    ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+                }
+                else
+                {
+                    panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
+                    ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+                }
+
+                ucSystemDevWeekly.Instance.BringToFront();
+                Cursor.Current = Cursors.Default;
+                panel_Body.Visible = true;
             }
 
-            ucSystemDevWeekly.Instance.BringToFront();
-            Cursor.Current = Cursors.Default;
-            panel_Body.Visible = true;
         }
 
         private void ButtonActive(Button button)

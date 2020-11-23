@@ -160,19 +160,13 @@ namespace ServiceRequestInformationSystem
         private void dataGridView_UserList_DoubleClick(object sender, EventArgs e)
         {
             tempId_UserList = dataGridView_UserList.SelectedRows[0].Cells[0].Value.ToString();
-            try
-            {
-                tb_Username.Text = dataGridView_UserList.SelectedRows[0].Cells[1].Value.ToString();
-                tb_Password.Text = dataGridView_UserList.SelectedRows[0].Cells[2].Value.ToString();
-                tb_FirstName.Text = dataGridView_UserList.SelectedRows[0].Cells[3].Value.ToString();
-                tb_MiddleName.Text = dataGridView_UserList.SelectedRows[0].Cells[4].Value.ToString();
-                tb_LastName.Text = dataGridView_UserList.SelectedRows[0].Cells[5].Value.ToString();
-            }
-            catch (Exception)
-            {
 
-                tb_MiddleName.Text = " ";
-            }
+            tb_Username.Text = dataGridView_UserList.SelectedRows[0].Cells[1].Value.ToString();
+            tb_Password.Text = dataGridView_UserList.SelectedRows[0].Cells[2].Value.ToString();
+            tb_FirstName.Text = dataGridView_UserList.SelectedRows[0].Cells[3].Value.ToString();
+            tb_MiddleName.Text = dataGridView_UserList.SelectedRows[0].Cells[4].Value.ToString();
+            tb_LastName.Text = dataGridView_UserList.SelectedRows[0].Cells[5].Value.ToString();
+
 
             cb_AccessLevel.SelectedItem = dataGridView_UserList.SelectedRows[0].Cells[6].Value.ToString();
             checkBox_Status.Checked = Convert.ToBoolean(dataGridView_UserList.SelectedRows[0].Cells[7].Value.ToString());

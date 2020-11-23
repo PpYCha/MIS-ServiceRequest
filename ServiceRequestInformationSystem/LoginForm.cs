@@ -61,7 +61,15 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Enter_Click(object sender, EventArgs e)
         {
-            LoginValidation();
+            try
+            {
+                LoginValidation();
+            }
+            catch (Exception)
+            {
+
+            }
+           
         }
 
         private void LoginValidation()
@@ -147,6 +155,13 @@ namespace ServiceRequestInformationSystem
             {
                 LoginValidation();
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+            label_Version.Text = "Current Version: " + fvi.FileVersion;
         }
     }
 }

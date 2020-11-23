@@ -14,6 +14,16 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyFileVersionSettings>
+    </AssemblyFileVersionSettings>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
     <PublishUrl>E:\MIS\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,8 +36,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ppycha\update\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>52</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>60</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -150,6 +160,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalReportConnection.cs" />
     <Compile Include="Migrations\202008040211188_AssignTech.cs" />
     <Compile Include="Migrations\202008040211188_AssignTech.Designer.cs">
       <DependentUpon>202008040211188_AssignTech.cs</DependentUpon>
@@ -178,7 +189,32 @@
     <Compile Include="Migrations\202008120101443_MiddleName.Designer.cs">
       <DependentUpon>202008120101443_MiddleName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008180258218_SystemTitlessssjk.cs" />
+    <Compile Include="Migrations\202008180258218_SystemTitlessssjk.Designer.cs">
+      <DependentUpon>202008180258218_SystemTitlessssjk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008200625351_202008180258218_SystemTitlessssjk.cs" />
+    <Compile Include="Migrations\202008200625351_202008180258218_SystemTitlessssjk.Designer.cs">
+      <DependentUpon>202008200625351_202008180258218_SystemTitlessssjk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008200628197_RemoveTIttleId.cs" />
+    <Compile Include="Migrations\202008200628197_RemoveTIttleId.Designer.cs">
+      <DependentUpon>202008200628197_RemoveTIttleId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\SystemDevelopment.cs" />
+    <Compile Include="Models\SystemTitles.cs" />
+    <Compile Include="Report\rpt_Monthly_Technicians.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Monthly_Technicians.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucSystemDevAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucSystemDevAdmin.Designer.cs">
+      <DependentUpon>ucSystemDevAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ucSystemDevWeekly.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -342,6 +378,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008120101443_MiddleName.resx">
       <DependentUpon>202008120101443_MiddleName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008180258218_SystemTitlessssjk.resx">
+      <DependentUpon>202008180258218_SystemTitlessssjk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008200625351_202008180258218_SystemTitlessssjk.resx">
+      <DependentUpon>202008200625351_202008180258218_SystemTitlessssjk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008200628197_RemoveTIttleId.resx">
+      <DependentUpon>202008200628197_RemoveTIttleId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpt_Monthly_Technicians.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Monthly_Technicians.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ucSystemDevAdmin.resx">
+      <DependentUpon>ucSystemDevAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucSystemDevWeekly.resx">
       <DependentUpon>ucSystemDevWeekly.cs</DependentUpon>

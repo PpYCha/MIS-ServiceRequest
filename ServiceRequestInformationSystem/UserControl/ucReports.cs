@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using ServiceRequestInformationSystem.Report;
+using CrystalDecisions.Shared;
 
 namespace ServiceRequestInformationSystem
 {
@@ -76,7 +77,7 @@ namespace ServiceRequestInformationSystem
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            string strServer = "tcp:192.168.0.100,49172";
+            string strServer = "tcp:192.168.1.100,49172";
             string strDatabase = "SrisDb";
             string strUserId = "miso_server";
             string strPwd = "miso4321";
@@ -84,12 +85,15 @@ namespace ServiceRequestInformationSystem
             var month = metroComboBox1.GetItemText(metroComboBox1.SelectedItem);
             var year = metroComboBox2.GetItemText(metroComboBox2.SelectedItem);
 
-            crystalReportViewer1.SelectionFormula = "({SystemDevelopments.USER_ID}) Like '6'";
-            //crystalReportViewer1.SelectionFormula = "monthname(month({ServiceRequestInfoes.DateAccomplished})) Like '*" + month + "*'";
-            rpt_Programmer_Weekly report1 = new rpt_Programmer_Weekly();
+
+            crystalReportViewer1.SelectionFormula = "monthname(month({ServiceRequestInfoes.DateAccomplished})) Like '*" + month + "*'" + " AND " +
+                                                    "Year({ServiceRequestInfoes.DateAccomplished})= " + year +
+                                                    " AND {ServiceRequestInfoes.Status} = True";
+
+            rpt_Monthly report1 = new rpt_Monthly();
             report1.DataSourceConnections[0].SetConnection(strServer, strDatabase, strUserId, strPwd);
-            report1.SetParameterValue("param_Month", month);
-            report1.SetParameterValue("param_year", year);
+            report1.SetParameterValue("MonthLabel", month);
+            // report1.SetParameterValue("param_year", year);
 
             crystalReportViewer1.ShowPrintButton = true;
             crystalReportViewer1.ShowExportButton = true;
