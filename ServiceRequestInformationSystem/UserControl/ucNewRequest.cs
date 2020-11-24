@@ -90,24 +90,16 @@ namespace ServiceRequestInformationSystem
                 {
                     if (!(string.IsNullOrEmpty(tb_ServiceProvided.Text)))
                     {
-
-                        if (tempID == 0)
-                        {
-                            SaveRequest();
-                        }
-                        if (tempID != 0)
-                        {
-                            UpdateRequest();
-                        }
+                        SaveRequest();
                     }
                 }
-                if (radioButton_No.Checked == true)
+                else if (radioButton_No.Checked == true)
                 {
                     if (tempID == 0)
                     {
                         SaveRequest();
                     }
-                    if (tempID != 0)
+                    else if (tempID != 0)
                     {
                         UpdateRequest();
                     }
@@ -153,9 +145,20 @@ namespace ServiceRequestInformationSystem
             SQLCon.sqlCommand.Parameters.AddWithValue("@RemarkDeatails", cb_Remarks.Text);
             SQLCon.sqlCommand.Parameters.AddWithValue("@Techinicians", tb_ServiceProvided.Text);
             SQLCon.sqlCommand.Parameters.AddWithValue("@AssignedTechnician", tb_ToBeServiceProvided.Text);
-            SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplished", DBNull.Value);
-            SQLCon.sqlCommand.Parameters.AddWithValue("@Status", false);
-            SQLCon.sqlCommand.Parameters.AddWithValue("@DateEntered", DBNull.Value);
+
+            if (radioButton_Yes.Checked == true)
+            {
+                SQLCon.sqlCommand.Parameters.AddWithValue("@Status", true);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplished", dtp_Accomplished.Value.Date);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@DateEntered", dtp_Accomplished.Value.Date);
+            }
+            else
+            {
+                SQLCon.sqlCommand.Parameters.AddWithValue("@Status", false);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@DateAccomplished", DBNull.Value);
+                SQLCon.sqlCommand.Parameters.AddWithValue("@DateEntered", DBNull.Value);
+            }
+
             SQLCon.sqlCommand.ExecuteNonQuery();
 
             ClearTextbox();
