@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceRequestInformationSystem.UserForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -416,7 +417,7 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Menu_SystemDevelopment_Click(object sender, EventArgs e)
         {
-            //ShowSubMenu(panel_SubeMenu_SystemDevelopment);
+            ShowSubMenu(panel_SubeMenu_SystemDevelopment);
             ButtonActive(bt_Menu_SystemDevelopment);
             ButtonInActive(bt_Menu_Accounts);
             ButtonInActive(bt_Menu_AddRequest);
@@ -445,18 +446,18 @@ namespace ServiceRequestInformationSystem
             if (accessLevel.Contains("PROGRAMMER"))
             {
                 Cursor.Current = Cursors.WaitCursor;
-                if (!panel_Body.Controls.Contains(ucSystemDevWeekly.Instance))
+                if (!panel_Body.Controls.Contains(ucProgrammerWeeklyRpt.Instance))
                 {
-                    panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
-                    ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+                    panel_Body.Controls.Add(ucProgrammerWeeklyRpt.Instance);
+                    ucProgrammerWeeklyRpt.Instance.Dock = DockStyle.Fill;
                 }
                 else
                 {
-                    panel_Body.Controls.Add(ucSystemDevWeekly.Instance);
-                    ucSystemDevWeekly.Instance.Dock = DockStyle.Fill;
+                    panel_Body.Controls.Add(ucProgrammerWeeklyRpt.Instance);
+                    ucProgrammerWeeklyRpt.Instance.Dock = DockStyle.Fill;
                 }
 
-                ucSystemDevWeekly.Instance.BringToFront();
+                ucProgrammerWeeklyRpt.Instance.BringToFront();
                 Cursor.Current = Cursors.Default;
                 panel_Body.Visible = true;
             }
@@ -513,6 +514,12 @@ namespace ServiceRequestInformationSystem
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void bt_rpt_Yearly_Click(object sender, EventArgs e)
+        {
+            RptYearlyForm rptYearlyForm = new RptYearlyForm();
+            rptYearlyForm.Show();
         }
     }
 }

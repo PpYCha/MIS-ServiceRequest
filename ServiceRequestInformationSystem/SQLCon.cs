@@ -15,7 +15,8 @@ namespace ServiceRequestInformationSystem
         public static DataTable dataTable = new DataTable();
         public static string sql;
 
-        static string dataSource = "tcp:PPYCHA,49172";
+        //static string dataSource = "tcp:PPYCHA,49172";
+        static string dataSource = "Mew";
         //  static string databaseName = "TestSrisDb";
         //static string dataSource = "tcp:192.168.254.102,49172";
 
@@ -28,8 +29,8 @@ namespace ServiceRequestInformationSystem
             {
                 if (sqlConnection?.State == ConnectionState.Open)
                     sqlConnection.Close();
-                // sqlConnection = new SqlConnection("Data Source='" + dataSource + "'; Initial Catalog='" + databaseName + "'; Integrated Security=true");
-                sqlConnection = new SqlConnection("Data Source='" + dataSource + "'; Initial Catalog='" + databaseName + "'; Persist Security Info=True; User ID=miso_server; Password='miso4321'");
+                sqlConnection = new SqlConnection("Data Source='" + dataSource + "'; Initial Catalog='" + databaseName + "'; Integrated Security=true");
+                // sqlConnection = new SqlConnection("Data Source='" + dataSource + "'; Initial Catalog='" + databaseName + "'; Persist Security Info=True; User ID=miso_server; Password='miso4321'");
                 sqlConnection.Open();
 
 

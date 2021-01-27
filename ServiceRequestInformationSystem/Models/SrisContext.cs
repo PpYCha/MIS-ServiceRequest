@@ -81,10 +81,10 @@ namespace ServiceRequestInformationSystem.Models
                 .WithMany(p => p.SystemDevelopment)
                 .HasForeignKey<int>(k => k.USER_ID);
 
-            //modelBuilder.Entity<SystemDevelopment>()
-            // .HasOptional<SystemTitles>(k => k.SystemTitles)
-            // .WithMany(p => p.SystemDevelopment)
-            // .HasForeignKey<int?>(k => k.TT_ID);
+            modelBuilder.Entity<SystemDevelopment>()
+             .HasOptional<SystemTitles>(k => k.SystemTitles)
+             .WithMany(p => p.SystemDevelopment)
+             .HasForeignKey<int?>(k => k.TT_ID);
         }
     }
 

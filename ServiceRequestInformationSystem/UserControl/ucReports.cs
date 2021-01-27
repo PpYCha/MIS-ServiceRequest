@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using ServiceRequestInformationSystem.Report;
 using CrystalDecisions.Shared;
+using System.Data.SqlClient;
 
 namespace ServiceRequestInformationSystem
 {
@@ -70,7 +71,117 @@ namespace ServiceRequestInformationSystem
             //crystalReportViewer1.ReportSource = report1;
             //Cursor.Current = Cursors.Default;
 
-            CrystalReport2();
+            CrystalReport1();
+        }
+
+        private void CrystalReport1()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            string strServer = "Mew";
+            string strDatabase = "SrisDb";
+            string strUserId = "miso_server";
+            string strPwd = "miso4321";
+            bool useIntegratedSecurity = true;
+
+            var month = metroComboBox1.GetItemText(metroComboBox1.SelectedItem);
+            var year = metroComboBox2.GetItemText(metroComboBox2.SelectedItem);
+            string desktopRepairCount = "DESKTOP";
+            string laptopRepairCount = "LAPTOP";
+            string printerRepairCount = "PRINTER";
+            string netWorkConnectivityRepairCount = "NETWORK";
+            string othersRepair = string.Empty;
+
+
+            crystalReportViewer1.SelectionFormula = "monthname(month({ServiceRequestInfoes.DateAccomplished})) Like '*" + month + "*'" + " AND " +
+                                                    "Year({ServiceRequestInfoes.DateAccomplished})= " + year +
+                                                    " AND {ServiceRequestInfoes.Status} = True";
+
+
+
+            string drCount = GetCount(desktopRepairCount, month, year);
+            string lrCount = GetCount(laptopRepairCount, month, year);
+            string prCount = GetCount(printerRepairCount, month, year);
+            string nrCOunt = GetCount(netWorkConnectivityRepairCount, month, year);
+            string orCOunt = GetOthers(othersRepair, month, year);
+
+
+            rpt_Monthly_Technicians report1 = new rpt_Monthly_Technicians();
+            report1.DataSourceConnections[0].SetConnection(strServer, strDatabase, useIntegratedSecurity);
+            report1.SetParameterValue("MonthLabel", month + ", " + year);
+            report1.SetParameterValue("DesktopRepair", drCount);
+            report1.SetParameterValue("LaptopRepair", lrCount);
+            report1.SetParameterValue("PrinterRepair", prCount);
+            report1.SetParameterValue("NetWorkConnectivityRepairCount", nrCOunt);
+            report1.SetParameterValue("OthersRepair", orCOunt);
+            // report1.SetParameterValue("param_year", year);
+
+            crystalReportViewer1.ShowPrintButton = true;
+            crystalReportViewer1.ShowExportButton = true;
+            crystalReportViewer1.ReportSource = report1;
+            Cursor.Current = Cursors.Default;
+        }
+
+        private string GetCount(string count, string month, string year)
+        {
+            SQLCon.DbCon();
+            SQLCon.dataTable = new DataTable();
+            SQLCon.sqlDataApater = new SqlDataAdapter(
+         @"SELECT * from ServiceRequestInfoes where TypeOfServiceProvided like @1 and MONTH(DateAccomplished) = @2 and YEAR(DateAccomplished) = @3 ", SQLCon.sqlConnection);
+            SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@1", "%" + count + "%");
+            int a = (Convert.ToDateTime(month + " 01, 1900").Month);
+            SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@2", a);
+            SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@3", Int32.Parse(year));
+
+
+
+            SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
+
+            int i = 0;
+            foreach (DataRow row in SQLCon.dataTable.Rows)
+            {
+                i++;
+            }
+
+            string number;
+            number = i.ToString();
+
+            return number;
+
+
+        }
+
+        private string GetOthers(string count, string month, string year)
+        {
+            SQLCon.DbCon();
+            SQLCon.dataTable = new DataTable();
+            SQLCon.sqlDataApater = new SqlDataAdapter(
+         @"SELECT * from ServiceRequestInfoes where NOT TypeOfServiceProvided like '%DESKTOP%' and 
+                                                    NOT TypeOfServiceProvided like '%LAPTOP%' and 
+                                                    NOT TypeOfServiceProvided like '%PRINTER%' and 
+                                                    NOT TypeOfServiceProvided like '%NETWORK%' and 
+                                                    MONTH(DateAccomplished) = @2 and YEAR(DateAccomplished) = @3 ", SQLCon.sqlConnection);
+
+            int a = (Convert.ToDateTime(month + " 01, 1900").Month);
+            SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@2", a);
+            SQLCon.sqlDataApater.SelectCommand.Parameters.AddWithValue("@3", Int32.Parse(year));
+
+
+
+            SQLCon.sqlDataApater.Fill(SQLCon.dataTable);
+
+            int i = 0;
+            foreach (DataRow row in SQLCon.dataTable.Rows)
+            {
+                i++;
+            }
+
+            string number;
+            number = i.ToString();
+
+            return number;
+
+
         }
 
         private void CrystalReport2()

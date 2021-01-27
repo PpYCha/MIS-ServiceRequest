@@ -47,7 +47,7 @@
             this.bt_YourInfo = new System.Windows.Forms.Button();
             this.bt_Menu_Accounts = new System.Windows.Forms.Button();
             this.panel_SubeMenu_Reports = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.bt_rpt_Yearly = new System.Windows.Forms.Button();
             this.bt_rpt_Monthly = new System.Windows.Forms.Button();
             this.bt_Menu_Reports = new System.Windows.Forms.Button();
             this.panel_SubMenu_Archived = new System.Windows.Forms.Panel();
@@ -375,7 +375,7 @@
             // 
             // panel_SubeMenu_Reports
             // 
-            this.panel_SubeMenu_Reports.Controls.Add(this.button6);
+            this.panel_SubeMenu_Reports.Controls.Add(this.bt_rpt_Yearly);
             this.panel_SubeMenu_Reports.Controls.Add(this.bt_rpt_Monthly);
             this.panel_SubeMenu_Reports.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_SubeMenu_Reports.Location = new System.Drawing.Point(0, 312);
@@ -383,24 +383,25 @@
             this.panel_SubeMenu_Reports.Size = new System.Drawing.Size(188, 78);
             this.panel_SubeMenu_Reports.TabIndex = 5;
             // 
-            // button6
+            // bt_rpt_Yearly
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(0, 39);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(188, 39);
-            this.button6.TabIndex = 1;
-            this.button6.TabStop = false;
-            this.button6.Text = "Yearly report";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
+            this.bt_rpt_Yearly.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_rpt_Yearly.FlatAppearance.BorderSize = 0;
+            this.bt_rpt_Yearly.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_rpt_Yearly.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.bt_rpt_Yearly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_rpt_Yearly.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_rpt_Yearly.ForeColor = System.Drawing.Color.White;
+            this.bt_rpt_Yearly.Location = new System.Drawing.Point(0, 39);
+            this.bt_rpt_Yearly.Name = "bt_rpt_Yearly";
+            this.bt_rpt_Yearly.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.bt_rpt_Yearly.Size = new System.Drawing.Size(188, 39);
+            this.bt_rpt_Yearly.TabIndex = 1;
+            this.bt_rpt_Yearly.TabStop = false;
+            this.bt_rpt_Yearly.Text = "Yearly report";
+            this.bt_rpt_Yearly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_rpt_Yearly.UseVisualStyleBackColor = true;
+            this.bt_rpt_Yearly.Click += new System.EventHandler(this.bt_rpt_Yearly_Click);
             // 
             // bt_rpt_Monthly
             // 
@@ -655,7 +656,7 @@
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Panel panel_MainMenu;
         private System.Windows.Forms.Panel panel_SubeMenu_Reports;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button bt_rpt_Yearly;
         private System.Windows.Forms.Button bt_rpt_Monthly;
         private System.Windows.Forms.Button bt_Menu_Reports;
         private System.Windows.Forms.Panel panel_SubMenu_Archived;

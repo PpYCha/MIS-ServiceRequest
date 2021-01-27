@@ -403,8 +403,8 @@ namespace ServiceRequestInformationSystem
 
             tb_ToBeServiceProvided.Clear();
             tb_Ids.Clear();
-            dtp_Requested_Time.Value = DateTime.Now;
-            dtp_Requested_Date.Value = DateTime.Now;
+            //dtp_Requested_Time.Value = DateTime.Now;
+            //dtp_Requested_Date.Value = DateTime.Now;
         }
 
         private void bt_Refresh_Click(object sender, EventArgs e)

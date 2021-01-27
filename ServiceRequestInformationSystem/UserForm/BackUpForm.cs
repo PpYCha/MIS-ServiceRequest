@@ -21,7 +21,7 @@ namespace ServiceRequestInformationSystem
         SqlConnection con;
         SqlCommand cmd;
 
-        private string serverName = "DESKTOP-AMNVG75";
+        private string serverName = "Mew";
         private string dataBasefileNameBackUp = "SrisDb" + ".bak";
         private string dataBaseFileName = "SrisDb";
 

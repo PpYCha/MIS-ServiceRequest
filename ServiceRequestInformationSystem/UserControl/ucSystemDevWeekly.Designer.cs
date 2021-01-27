@@ -50,12 +50,12 @@
             this.cb_PrintMonth = new System.Windows.Forms.ComboBox();
             this.cb_PrintYear = new System.Windows.Forms.ComboBox();
             this.panel_Print = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cb_PrintSystemTitle = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.bt_CancelPrint = new System.Windows.Forms.Button();
+            this.cb_PrintSystemTitle = new System.Windows.Forms.ComboBox();
             this.bt_PrintOk = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListWeek)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel_Print.SuspendLayout();
@@ -222,7 +222,7 @@
             this.cb_Month.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Month.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cb_Month.FormattingEnabled = true;
-            this.cb_Month.Location = new System.Drawing.Point(167, 178);
+            this.cb_Month.Location = new System.Drawing.Point(167, 211);
             this.cb_Month.Name = "cb_Month";
             this.cb_Month.Size = new System.Drawing.Size(315, 29);
             this.cb_Month.TabIndex = 91;
@@ -314,47 +314,6 @@
             this.panel_Print.TabIndex = 98;
             this.panel_Print.Visible = false;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(18, 61);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 21);
-            this.label6.TabIndex = 99;
-            this.label6.Text = "Year:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 109);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 21);
-            this.label7.TabIndex = 100;
-            this.label7.Text = "Month:";
-            // 
-            // cb_PrintSystemTitle
-            // 
-            this.cb_PrintSystemTitle.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cb_PrintSystemTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_PrintSystemTitle.FormattingEnabled = true;
-            this.cb_PrintSystemTitle.Location = new System.Drawing.Point(133, 12);
-            this.cb_PrintSystemTitle.Name = "cb_PrintSystemTitle";
-            this.cb_PrintSystemTitle.Size = new System.Drawing.Size(211, 29);
-            this.cb_PrintSystemTitle.TabIndex = 100;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 21);
-            this.label8.TabIndex = 99;
-            this.label8.Text = "System Title:";
-            // 
             // bt_CancelPrint
             // 
             this.bt_CancelPrint.BackColor = System.Drawing.Color.Maroon;
@@ -367,6 +326,16 @@
             this.bt_CancelPrint.Text = "CANCEL";
             this.bt_CancelPrint.UseVisualStyleBackColor = false;
             this.bt_CancelPrint.Click += new System.EventHandler(this.bt_CancelPrint_Click);
+            // 
+            // cb_PrintSystemTitle
+            // 
+            this.cb_PrintSystemTitle.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cb_PrintSystemTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_PrintSystemTitle.FormattingEnabled = true;
+            this.cb_PrintSystemTitle.Location = new System.Drawing.Point(133, 12);
+            this.cb_PrintSystemTitle.Name = "cb_PrintSystemTitle";
+            this.cb_PrintSystemTitle.Size = new System.Drawing.Size(211, 29);
+            this.cb_PrintSystemTitle.TabIndex = 100;
             // 
             // bt_PrintOk
             // 
@@ -381,11 +350,43 @@
             this.bt_PrintOk.UseVisualStyleBackColor = false;
             this.bt_PrintOk.Click += new System.EventHandler(this.bt_PrintOk_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(18, 109);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 21);
+            this.label7.TabIndex = 100;
+            this.label7.Text = "Month:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 21);
+            this.label8.TabIndex = 99;
+            this.label8.Text = "System Title:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(18, 61);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 21);
+            this.label6.TabIndex = 99;
+            this.label6.Text = "Year:";
+            // 
             // ucSystemDevWeekly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panel_Print);
             this.Controls.Add(this.bt_Print);
             this.Controls.Add(this.bt_Clear);
             this.Controls.Add(this.cb_SystemTitle);
@@ -403,7 +404,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cb_Month);
             this.Controls.Add(this.dateTimePicker_Date);
-            this.Controls.Add(this.panel_Print);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucSystemDevWeekly";

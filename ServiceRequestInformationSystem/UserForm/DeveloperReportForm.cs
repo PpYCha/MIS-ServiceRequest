@@ -53,7 +53,8 @@ namespace ServiceRequestInformationSystem.UserForm
             if (MainForm.accessLevel.Contains("PROGRAMMER"))
             {
                 rpt_Programmer_Weekly rpt_Programmer_Weekly = new rpt_Programmer_Weekly();
-                rpt_Programmer_Weekly.DataSourceConnections[0].SetConnection(CrystalReportConnection.strServer, CrystalReportConnection.strDatabase, CrystalReportConnection.strUserId, CrystalReportConnection.strPwd);
+                // rpt_Programmer_Weekly.DataSourceConnections[0].SetConnection(CrystalReportConnection.strServer, CrystalReportConnection.strDatabase, CrystalReportConnection.strUserId, CrystalReportConnection.strPwd, true);
+                rpt_Programmer_Weekly.DataSourceConnections[0].SetConnection(CrystalReportConnection.strServer, CrystalReportConnection.strDatabase, true);
 
                 rpt_Programmer_Weekly.SetParameterValue("UserID", WelcomeForm.AccountID);
                 rpt_Programmer_Weekly.SetParameterValue("monthName", ucSystemDevWeekly.printMonth);
