@@ -112,7 +112,16 @@ namespace ServiceRequestInformationSystem
                 SQLCon.sqlCommand.Parameters.AddWithValue("@1", tbName.Text.ToUpper());
                 SQLCon.sqlCommand.ExecuteNonQuery();
                 MetroFramework.MetroMessageBox.Show(this, message + " Successfully Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                if (tableName == "ServiceProvidedBies")
+                {
+                    string tempName = dataGridView_ListData.SelectedRows[0].Cells[1].Value.ToString();
+                    SQLCon.DbCon();
+                    SQLCon.sqlCommand = new SqlCommand("UPDATE ServiceRequestInfoes SET Techinicians = @1 WHERE Techinicians = @0", SQLCon.sqlConnection);
+                    SQLCon.sqlCommand.CommandType = CommandType.Text;
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@0", tempName);
+                    SQLCon.sqlCommand.Parameters.AddWithValue("@1", tbName.Text.ToUpper());
+                    SQLCon.sqlCommand.ExecuteNonQuery();
+                }
             }
             ClearText();
         }

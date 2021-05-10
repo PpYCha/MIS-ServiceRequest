@@ -13,6 +13,7 @@ namespace ServiceRequestInformationSystem.Models
         public string AccessLevel { get; set; }
         public bool IsActive { get; set; }
         public bool IsLogOn { get; set; }
+        public string Position { get; set; }
 
         public ICollection<TechnicianRequest> TechnicianRequest { get; set; }
         public ICollection<TypeOfService> TypeOfServices { get; set; }

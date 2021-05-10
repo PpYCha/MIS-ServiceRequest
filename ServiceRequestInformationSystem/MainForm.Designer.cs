@@ -47,10 +47,12 @@
             this.bt_YourInfo = new System.Windows.Forms.Button();
             this.bt_Menu_Accounts = new System.Windows.Forms.Button();
             this.panel_SubeMenu_Reports = new System.Windows.Forms.Panel();
+            this.bt_rpt_Inspection = new System.Windows.Forms.Button();
             this.bt_rpt_Yearly = new System.Windows.Forms.Button();
             this.bt_rpt_Monthly = new System.Windows.Forms.Button();
             this.bt_Menu_Reports = new System.Windows.Forms.Button();
             this.panel_SubMenu_Archived = new System.Windows.Forms.Panel();
+            this.bt_InspectionArchived = new System.Windows.Forms.Button();
             this.bt_RequestArchived = new System.Windows.Forms.Button();
             this.bt_Menu_Archived = new System.Windows.Forms.Button();
             this.panel_SubMenu_Request = new System.Windows.Forms.Panel();
@@ -122,7 +124,7 @@
             this.bt_Logout.ForeColor = System.Drawing.Color.White;
             this.bt_Logout.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_shutdown_25px;
             this.bt_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Logout.Location = new System.Drawing.Point(0, 858);
+            this.bt_Logout.Location = new System.Drawing.Point(0, 936);
             this.bt_Logout.Name = "bt_Logout";
             this.bt_Logout.Size = new System.Drawing.Size(188, 55);
             this.bt_Logout.TabIndex = 9;
@@ -138,7 +140,7 @@
             this.panel_SubeMenu_SystemDevelopment.Controls.Add(this.bt_MonthlyAccomplishment);
             this.panel_SubeMenu_SystemDevelopment.Controls.Add(this.bt_WeeklyAccomlishment);
             this.panel_SubeMenu_SystemDevelopment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_SubeMenu_SystemDevelopment.Location = new System.Drawing.Point(0, 766);
+            this.panel_SubeMenu_SystemDevelopment.Location = new System.Drawing.Point(0, 844);
             this.panel_SubeMenu_SystemDevelopment.Name = "panel_SubeMenu_SystemDevelopment";
             this.panel_SubeMenu_SystemDevelopment.Size = new System.Drawing.Size(188, 92);
             this.panel_SubeMenu_SystemDevelopment.TabIndex = 12;
@@ -195,7 +197,7 @@
             this.bt_Menu_SystemDevelopment.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_SystemDevelopment.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_developer_24px;
             this.bt_Menu_SystemDevelopment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_SystemDevelopment.Location = new System.Drawing.Point(0, 711);
+            this.bt_Menu_SystemDevelopment.Location = new System.Drawing.Point(0, 789);
             this.bt_Menu_SystemDevelopment.Name = "bt_Menu_SystemDevelopment";
             this.bt_Menu_SystemDevelopment.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_SystemDevelopment.TabIndex = 11;
@@ -218,7 +220,7 @@
             this.bt_Menu_BackUp.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_BackUp.Image = global::ServiceRequestInformationSystem.Properties.Resources.icons8_database_backup_24px;
             this.bt_Menu_BackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_BackUp.Location = new System.Drawing.Point(0, 656);
+            this.bt_Menu_BackUp.Location = new System.Drawing.Point(0, 734);
             this.bt_Menu_BackUp.Name = "bt_Menu_BackUp";
             this.bt_Menu_BackUp.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_BackUp.TabIndex = 10;
@@ -233,7 +235,7 @@
             // 
             this.panel_SubMenu_Import.Controls.Add(this.bt_ImportExcel);
             this.panel_SubMenu_Import.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_SubMenu_Import.Location = new System.Drawing.Point(0, 617);
+            this.panel_SubMenu_Import.Location = new System.Drawing.Point(0, 695);
             this.panel_SubMenu_Import.Name = "panel_SubMenu_Import";
             this.panel_SubMenu_Import.Size = new System.Drawing.Size(188, 39);
             this.panel_SubMenu_Import.TabIndex = 7;
@@ -270,7 +272,7 @@
             this.bt_Menu_Import.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Import.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Import.Image")));
             this.bt_Menu_Import.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_Import.Location = new System.Drawing.Point(0, 562);
+            this.bt_Menu_Import.Location = new System.Drawing.Point(0, 640);
             this.bt_Menu_Import.Name = "bt_Menu_Import";
             this.bt_Menu_Import.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_Import.TabIndex = 8;
@@ -287,7 +289,7 @@
             this.panel_SubMenu_Accounts.Controls.Add(this.bt_AddAccounts);
             this.panel_SubMenu_Accounts.Controls.Add(this.bt_YourInfo);
             this.panel_SubMenu_Accounts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_SubMenu_Accounts.Location = new System.Drawing.Point(0, 445);
+            this.panel_SubMenu_Accounts.Location = new System.Drawing.Point(0, 523);
             this.panel_SubMenu_Accounts.Name = "panel_SubMenu_Accounts";
             this.panel_SubMenu_Accounts.Size = new System.Drawing.Size(188, 117);
             this.panel_SubMenu_Accounts.TabIndex = 6;
@@ -362,7 +364,7 @@
             this.bt_Menu_Accounts.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Accounts.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Accounts.Image")));
             this.bt_Menu_Accounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_Accounts.Location = new System.Drawing.Point(0, 390);
+            this.bt_Menu_Accounts.Location = new System.Drawing.Point(0, 468);
             this.bt_Menu_Accounts.Name = "bt_Menu_Accounts";
             this.bt_Menu_Accounts.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_Accounts.TabIndex = 7;
@@ -375,13 +377,34 @@
             // 
             // panel_SubeMenu_Reports
             // 
+            this.panel_SubeMenu_Reports.Controls.Add(this.bt_rpt_Inspection);
             this.panel_SubeMenu_Reports.Controls.Add(this.bt_rpt_Yearly);
             this.panel_SubeMenu_Reports.Controls.Add(this.bt_rpt_Monthly);
             this.panel_SubeMenu_Reports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_SubeMenu_Reports.Location = new System.Drawing.Point(0, 312);
+            this.panel_SubeMenu_Reports.Location = new System.Drawing.Point(0, 351);
             this.panel_SubeMenu_Reports.Name = "panel_SubeMenu_Reports";
-            this.panel_SubeMenu_Reports.Size = new System.Drawing.Size(188, 78);
+            this.panel_SubeMenu_Reports.Size = new System.Drawing.Size(188, 117);
             this.panel_SubeMenu_Reports.TabIndex = 5;
+            // 
+            // bt_rpt_Inspection
+            // 
+            this.bt_rpt_Inspection.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_rpt_Inspection.FlatAppearance.BorderSize = 0;
+            this.bt_rpt_Inspection.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_rpt_Inspection.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.bt_rpt_Inspection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_rpt_Inspection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_rpt_Inspection.ForeColor = System.Drawing.Color.White;
+            this.bt_rpt_Inspection.Location = new System.Drawing.Point(0, 78);
+            this.bt_rpt_Inspection.Name = "bt_rpt_Inspection";
+            this.bt_rpt_Inspection.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.bt_rpt_Inspection.Size = new System.Drawing.Size(188, 39);
+            this.bt_rpt_Inspection.TabIndex = 2;
+            this.bt_rpt_Inspection.TabStop = false;
+            this.bt_rpt_Inspection.Text = "Inspection";
+            this.bt_rpt_Inspection.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_rpt_Inspection.UseVisualStyleBackColor = true;
+            this.bt_rpt_Inspection.Click += new System.EventHandler(this.bt_rpt_Inspection_Click);
             // 
             // bt_rpt_Yearly
             // 
@@ -435,7 +458,7 @@
             this.bt_Menu_Reports.ForeColor = System.Drawing.Color.White;
             this.bt_Menu_Reports.Image = ((System.Drawing.Image)(resources.GetObject("bt_Menu_Reports.Image")));
             this.bt_Menu_Reports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bt_Menu_Reports.Location = new System.Drawing.Point(0, 257);
+            this.bt_Menu_Reports.Location = new System.Drawing.Point(0, 296);
             this.bt_Menu_Reports.Name = "bt_Menu_Reports";
             this.bt_Menu_Reports.Size = new System.Drawing.Size(188, 55);
             this.bt_Menu_Reports.TabIndex = 3;
@@ -448,12 +471,33 @@
             // 
             // panel_SubMenu_Archived
             // 
+            this.panel_SubMenu_Archived.Controls.Add(this.bt_InspectionArchived);
             this.panel_SubMenu_Archived.Controls.Add(this.bt_RequestArchived);
             this.panel_SubMenu_Archived.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_SubMenu_Archived.Location = new System.Drawing.Point(0, 218);
             this.panel_SubMenu_Archived.Name = "panel_SubMenu_Archived";
-            this.panel_SubMenu_Archived.Size = new System.Drawing.Size(188, 39);
+            this.panel_SubMenu_Archived.Size = new System.Drawing.Size(188, 78);
             this.panel_SubMenu_Archived.TabIndex = 4;
+            // 
+            // bt_InspectionArchived
+            // 
+            this.bt_InspectionArchived.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_InspectionArchived.FlatAppearance.BorderSize = 0;
+            this.bt_InspectionArchived.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.bt_InspectionArchived.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.bt_InspectionArchived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_InspectionArchived.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_InspectionArchived.ForeColor = System.Drawing.Color.White;
+            this.bt_InspectionArchived.Location = new System.Drawing.Point(0, 39);
+            this.bt_InspectionArchived.Name = "bt_InspectionArchived";
+            this.bt_InspectionArchived.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.bt_InspectionArchived.Size = new System.Drawing.Size(188, 39);
+            this.bt_InspectionArchived.TabIndex = 1;
+            this.bt_InspectionArchived.TabStop = false;
+            this.bt_InspectionArchived.Text = "Inspection";
+            this.bt_InspectionArchived.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bt_InspectionArchived.UseVisualStyleBackColor = true;
+            this.bt_InspectionArchived.Click += new System.EventHandler(this.bt_InspectionArchived_Click);
             // 
             // bt_RequestArchived
             // 
@@ -668,7 +712,6 @@
         private System.Windows.Forms.Button bt_Menu_AddRequest;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel_Body;
         private System.Windows.Forms.Panel panel_SubMenu_Accounts;
         private System.Windows.Forms.Button bt_YourInfo;
         private System.Windows.Forms.Button bt_Menu_Accounts;
@@ -685,5 +728,8 @@
         private System.Windows.Forms.Button bt_MonthlyAccomplishment;
         private System.Windows.Forms.Button bt_WeeklyAccomlishment;
         private System.Windows.Forms.NotifyIcon notifyIcon_Tech;
+        private System.Windows.Forms.Button bt_rpt_Inspection;
+        private System.Windows.Forms.Button bt_InspectionArchived;
+        private System.Windows.Forms.Panel panel_Body;
     }
 }

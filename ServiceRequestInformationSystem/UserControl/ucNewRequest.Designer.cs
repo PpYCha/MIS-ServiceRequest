@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView_ListOfRequest = new MetroFramework.Controls.MetroGrid();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.cb_Office = new System.Windows.Forms.ComboBox();
@@ -49,7 +49,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.tb_RequestedBy = new System.Windows.Forms.TextBox();
             this.cb_Remarks = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,6 +62,7 @@
             this.dtp_Requested_Date = new System.Windows.Forms.DateTimePicker();
             this.dtp_Requested_Time = new System.Windows.Forms.DateTimePicker();
             this.bt_MultipleTechinicianAssign = new System.Windows.Forms.Button();
+            this.tb_RequestedBy = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListOfRequest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,23 +80,23 @@
             this.dataGridView_ListOfRequest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView_ListOfRequest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dataGridView_ListOfRequest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ListOfRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ListOfRequest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView_ListOfRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_ListOfRequest.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_ListOfRequest.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_ListOfRequest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_ListOfRequest.EnableHeadersVisualStyles = false;
             this.dataGridView_ListOfRequest.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -106,19 +106,19 @@
             this.dataGridView_ListOfRequest.Name = "dataGridView_ListOfRequest";
             this.dataGridView_ListOfRequest.ReadOnly = true;
             this.dataGridView_ListOfRequest.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_ListOfRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_ListOfRequest.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView_ListOfRequest.RowHeadersVisible = false;
             this.dataGridView_ListOfRequest.RowHeadersWidth = 5;
             this.dataGridView_ListOfRequest.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DimGray;
-            this.dataGridView_ListOfRequest.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DimGray;
+            this.dataGridView_ListOfRequest.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView_ListOfRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_ListOfRequest.Size = new System.Drawing.Size(1031, 180);
             this.dataGridView_ListOfRequest.TabIndex = 12;
@@ -302,15 +302,6 @@
             this.label8.TabIndex = 66;
             this.label8.Text = "Pending Request";
             // 
-            // tb_RequestedBy
-            // 
-            this.tb_RequestedBy.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tb_RequestedBy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_RequestedBy.Location = new System.Drawing.Point(14, 139);
-            this.tb_RequestedBy.Name = "tb_RequestedBy";
-            this.tb_RequestedBy.Size = new System.Drawing.Size(492, 29);
-            this.tb_RequestedBy.TabIndex = 1;
-            // 
             // cb_Remarks
             // 
             this.cb_Remarks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -452,6 +443,7 @@
             this.dtp_Requested_Time.Name = "dtp_Requested_Time";
             this.dtp_Requested_Time.Size = new System.Drawing.Size(111, 29);
             this.dtp_Requested_Time.TabIndex = 73;
+            this.dtp_Requested_Time.Visible = false;
             // 
             // bt_MultipleTechinicianAssign
             // 
@@ -467,6 +459,15 @@
             this.bt_MultipleTechinicianAssign.UseVisualStyleBackColor = true;
             this.bt_MultipleTechinicianAssign.Click += new System.EventHandler(this.bt_MultipleTechinicianAssign_Click);
             // 
+            // tb_RequestedBy
+            // 
+            this.tb_RequestedBy.FormattingEnabled = true;
+            this.tb_RequestedBy.Location = new System.Drawing.Point(14, 142);
+            this.tb_RequestedBy.Name = "tb_RequestedBy";
+            this.tb_RequestedBy.Size = new System.Drawing.Size(492, 23);
+            this.tb_RequestedBy.TabIndex = 74;
+            this.tb_RequestedBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_RequestedBy_KeyPress);
+            // 
             // ucNewRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -474,12 +475,12 @@
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.tb_RequestedBy);
             this.Controls.Add(this.dtp_Requested_Time);
             this.Controls.Add(this.dtp_Requested_Date);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cb_Remarks);
-            this.Controls.Add(this.tb_RequestedBy);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cb_Office);
             this.Controls.Add(this.cb_Service);
@@ -526,7 +527,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tb_RequestedBy;
         private System.Windows.Forms.ComboBox cb_Remarks;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -539,5 +539,6 @@
         private MetroFramework.Controls.MetroDateTime dtp_Accomplished;
         private System.Windows.Forms.DateTimePicker dtp_Requested_Date;
         private System.Windows.Forms.DateTimePicker dtp_Requested_Time;
+        private System.Windows.Forms.ComboBox tb_RequestedBy;
     }
 }

@@ -76,7 +76,6 @@
             this.label2.Size = new System.Drawing.Size(83, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Department";
-            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -123,7 +122,6 @@
             this.tb_Department.Name = "tb_Department";
             this.tb_Department.Size = new System.Drawing.Size(252, 22);
             this.tb_Department.TabIndex = 5;
-            this.tb_Department.Visible = false;
             this.tb_Department.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Department_KeyDown);
             this.tb_Department.Validating += new System.ComponentModel.CancelEventHandler(this.tb_Department_Validating);
             // 
@@ -335,7 +333,6 @@
             this.bt_DeparmentList.Size = new System.Drawing.Size(33, 32);
             this.bt_DeparmentList.TabIndex = 34;
             this.bt_DeparmentList.UseVisualStyleBackColor = false;
-            this.bt_DeparmentList.Visible = false;
             this.bt_DeparmentList.Click += new System.EventHandler(this.bt_DeparmentList_Click);
             // 
             // bt_AddDepartment
@@ -354,7 +351,6 @@
             this.bt_AddDepartment.Size = new System.Drawing.Size(35, 35);
             this.bt_AddDepartment.TabIndex = 33;
             this.bt_AddDepartment.UseVisualStyleBackColor = false;
-            this.bt_AddDepartment.Visible = false;
             this.bt_AddDepartment.Click += new System.EventHandler(this.bt_AddDepartment_Click);
             // 
             // bt_ServiceList

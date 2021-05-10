@@ -7,6 +7,7 @@ namespace ServiceRequestInformationSystem.Models
         public int TT_ID { get; set; }
         public string TitleName { get; set; }
         public ICollection<SystemDevelopment> SystemDevelopment { get; internal set; }
+
         //public ICollection<SystemDevelopment> SystemDevelopment { get; set; }
     }
 }

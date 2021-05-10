@@ -24,7 +24,7 @@
     <UpdatePackageVersion>False</UpdatePackageVersion>
     <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
     <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <PublishUrl>E:\MIS\</PublishUrl>
+    <PublishUrl>C:\Users\Mew\Desktop\MIS\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -205,8 +205,94 @@
     <Compile Include="Migrations\202101041529268_Tt.Designer.cs">
       <DependentUpon>202101041529268_Tt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102190347368_ProcedureAndInspection.cs" />
+    <Compile Include="Migrations\202102190347368_ProcedureAndInspection.Designer.cs">
+      <DependentUpon>202102190347368_ProcedureAndInspection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102190352082_testes.cs" />
+    <Compile Include="Migrations\202102190352082_testes.Designer.cs">
+      <DependentUpon>202102190352082_testes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102190354130_FixFieldsOfInspection.cs" />
+    <Compile Include="Migrations\202102190354130_FixFieldsOfInspection.Designer.cs">
+      <DependentUpon>202102190354130_FixFieldsOfInspection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102190401509_RelationShip.cs" />
+    <Compile Include="Migrations\202102190401509_RelationShip.Designer.cs">
+      <DependentUpon>202102190401509_RelationShip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103020307481_Abbreviation.cs" />
+    <Compile Include="Migrations\202103020307481_Abbreviation.Designer.cs">
+      <DependentUpon>202103020307481_Abbreviation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103040020202_UnitSpecification.cs" />
+    <Compile Include="Migrations\202103040020202_UnitSpecification.Designer.cs">
+      <DependentUpon>202103040020202_UnitSpecification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103040138364_Position.cs" />
+    <Compile Include="Migrations\202103040138364_Position.Designer.cs">
+      <DependentUpon>202103040138364_Position.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103040140467_PositionInspect.cs" />
+    <Compile Include="Migrations\202103040140467_PositionInspect.Designer.cs">
+      <DependentUpon>202103040140467_PositionInspect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103040407493_Performed.cs" />
+    <Compile Include="Migrations\202103040407493_Performed.Designer.cs">
+      <DependentUpon>202103040407493_Performed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103040537167_aaa..cs" />
+    <Compile Include="Migrations\202103040537167_aaa..Designer.cs">
+      <DependentUpon>202103040537167_aaa..cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105060350055_addSpPosition.cs" />
+    <Compile Include="Migrations\202105060350055_addSpPosition.Designer.cs">
+      <DependentUpon>202105060350055_addSpPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FindingParticular.cs" />
+    <Compile Include="Models\InspectedPerformedBy.cs" />
+    <Compile Include="Models\InspectionInfo.cs" />
+    <Compile Include="Models\ProcedureTest.cs" />
+    <Compile Include="Models\Recommendation.cs" />
     <Compile Include="Models\SystemDevelopment.cs" />
     <Compile Include="Models\SystemTitles.cs" />
+    <Compile Include="Models\UnitSpecification.cs" />
+    <Compile Include="Report\rpt_PerformedInspected.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_PerformedInspected.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rpt_Recommendations.cs">
+      <DependentUpon>rpt_Recommendations.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\rpt_FindingParticulars.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_FindingParticulars.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rpt_Inspection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_Inspection.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rpt_ProcedureTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_ProcedureTest.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rpt_UnitSpecification.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_UnitSpecification.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\rpt_Yearly_Technicians.cs">
       <DependentUpon>rpt_Yearly_Technicians.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -224,6 +310,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rpt_SystemDevWeekly.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucArchivedInspection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucArchivedInspection.Designer.cs">
+      <DependentUpon>ucArchivedInspection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ucInspectionReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucInspectionReport.Designer.cs">
+      <DependentUpon>ucInspectionReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucProgrammerWeeklyRpt.cs">
       <SubType>UserControl</SubType>
@@ -276,6 +374,24 @@
     <Compile Include="UserForm\DeveloperReportForm.Designer.cs">
       <DependentUpon>DeveloperReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForm\FindingParticularForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\FindingParticularForm.Designer.cs">
+      <DependentUpon>FindingParticularForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\ProcedureTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\ProcedureTestForm.Designer.cs">
+      <DependentUpon>ProcedureTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\RecommendationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\RecommendationForm.Designer.cs">
+      <DependentUpon>RecommendationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +442,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Technician.cs" />
+    <Compile Include="UserForm\RptInspectionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\RptInspectionReport.Designer.cs">
+      <DependentUpon>RptInspectionReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\RptYearlyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +508,12 @@
     <Compile Include="UserForm\UpdateArchivedRequest.Designer.cs">
       <DependentUpon>UpdateArchivedRequest.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForm\UpdateInspectionArchived.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\UpdateInspectionArchived.Designer.cs">
+      <DependentUpon>UpdateInspectionArchived.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +553,63 @@
     <EmbeddedResource Include="Migrations\202101041529268_Tt.resx">
       <DependentUpon>202101041529268_Tt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102190347368_ProcedureAndInspection.resx">
+      <DependentUpon>202102190347368_ProcedureAndInspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102190352082_testes.resx">
+      <DependentUpon>202102190352082_testes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102190354130_FixFieldsOfInspection.resx">
+      <DependentUpon>202102190354130_FixFieldsOfInspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102190401509_RelationShip.resx">
+      <DependentUpon>202102190401509_RelationShip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103020307481_Abbreviation.resx">
+      <DependentUpon>202103020307481_Abbreviation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103040020202_UnitSpecification.resx">
+      <DependentUpon>202103040020202_UnitSpecification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103040138364_Position.resx">
+      <DependentUpon>202103040138364_Position.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103040140467_PositionInspect.resx">
+      <DependentUpon>202103040140467_PositionInspect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103040407493_Performed.resx">
+      <DependentUpon>202103040407493_Performed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103040537167_aaa..resx">
+      <DependentUpon>202103040537167_aaa..cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105060350055_addSpPosition.resx">
+      <DependentUpon>202105060350055_addSpPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpt_PerformedInspected.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_PerformedInspected.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpt_Recommendations.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Recommendations.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpt_FindingParticulars.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_FindingParticulars.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpt_Inspection.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_Inspection.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpt_ProcedureTest.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_ProcedureTest.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpt_UnitSpecification.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_UnitSpecification.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rpt_Yearly_Technicians.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rpt_Yearly_Technicians.cs</LastGenOutput>
@@ -436,6 +621,12 @@
     <EmbeddedResource Include="Report\rpt_SystemDevWeekly.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rpt_SystemDevWeekly.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ucArchivedInspection.resx">
+      <DependentUpon>ucArchivedInspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ucInspectionReport.resx">
+      <DependentUpon>ucInspectionReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucProgrammerWeeklyRpt.resx">
       <DependentUpon>ucProgrammerWeeklyRpt.cs</DependentUpon>
@@ -466,6 +657,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\DeveloperReportForm.resx">
       <DependentUpon>DeveloperReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\FindingParticularForm.resx">
+      <DependentUpon>FindingParticularForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\ProcedureTestForm.resx">
+      <DependentUpon>ProcedureTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\RecommendationForm.resx">
+      <DependentUpon>RecommendationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
@@ -498,6 +698,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rpt_Programmer_Weekly.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\RptInspectionReport.resx">
+      <DependentUpon>RptInspectionReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserForm\RptYearlyForm.resx">
       <DependentUpon>RptYearlyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -527,6 +730,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\UpdateArchivedRequest.resx">
       <DependentUpon>UpdateArchivedRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\UpdateInspectionArchived.resx">
+      <DependentUpon>UpdateInspectionArchived.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>

@@ -43,7 +43,7 @@ namespace ServiceRequestInformationSystem
             PopulateComboBox("ServiceRequestInfoes", "SR_ID", "TypeOfServiceProvided", cb_Service);
             PopulateComboBox("ServiceRequestInfoes", "SR_ID", "RemarkDeatails", cb_Remarks);
             PopulateComboBox("ServiceRequestInfoes", "SR_ID", "OfficeDepartmentName", cb_Office);
-
+            PopulateComboBox("ServiceRequestInfoes", "SR_ID", "RequestedBy", tb_RequestedBy);
         }
 
         public void PopulateComboBox(string tableName, string valueName, string displayName, ComboBox cb_Name)
@@ -88,16 +88,20 @@ namespace ServiceRequestInformationSystem
             {
                 if (radioButton_Yes.Checked == true)
                 {
-                    if (!(string.IsNullOrEmpty(tb_ServiceProvided.Text)))
+                    if (!(string.IsNullOrEmpty(tb_ServiceProvided.Text)) && tempID == 0)
                     {
-                        SaveRequest();
+                        SaveRequest("Completed Request Added Succesfully");
+                    }
+                    else if (tempID != 0)
+                    {
+                        UpdateRequest();
                     }
                 }
                 else if (radioButton_No.Checked == true)
                 {
                     if (tempID == 0)
                     {
-                        SaveRequest();
+                        SaveRequest("New Request Added Succesfully");
                     }
                     else if (tempID != 0)
                     {
@@ -114,7 +118,7 @@ namespace ServiceRequestInformationSystem
 
         }
 
-        private void SaveRequest()
+        private void SaveRequest(string message)
         {
 
             dateTimeRequested = dtp_Requested_Date.Value.Date + dtp_Requested_Time.Value.TimeOfDay;
@@ -164,7 +168,7 @@ namespace ServiceRequestInformationSystem
             ClearTextbox();
             LoadRequest();
             PopulateComboBox_Infoes();
-            MetroFramework.MetroMessageBox.Show(this, "New Request Added Succesfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MetroFramework.MetroMessageBox.Show(this, message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -395,7 +399,7 @@ namespace ServiceRequestInformationSystem
             cb_Service.SelectedIndex = -1;
             cb_Remarks.SelectedIndex = -1;
             cb_Office.SelectedIndex = -1;
-            tb_RequestedBy.Clear();
+            tb_RequestedBy.SelectedIndex = -1;
             radioButton_No.Checked = true;
             cb_Remarks.Text = "Pending->";
             tempID = 0;
@@ -658,6 +662,11 @@ namespace ServiceRequestInformationSystem
                 tb_ServiceProvided.Clear();
 
             }
+        }
+
+        private void tb_RequestedBy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            custom_Class.ToUpper(e);
         }
     }
 }

@@ -98,6 +98,7 @@ namespace ServiceRequestInformationSystem
                                                     " AND {ServiceRequestInfoes.Status} = True";
 
 
+            
 
             string drCount = GetCount(desktopRepairCount, month, year);
             string lrCount = GetCount(laptopRepairCount, month, year);
@@ -115,7 +116,7 @@ namespace ServiceRequestInformationSystem
             report1.SetParameterValue("NetWorkConnectivityRepairCount", nrCOunt);
             report1.SetParameterValue("OthersRepair", orCOunt);
             // report1.SetParameterValue("param_year", year);
-
+           
             crystalReportViewer1.ShowPrintButton = true;
             crystalReportViewer1.ShowExportButton = true;
             crystalReportViewer1.ReportSource = report1;

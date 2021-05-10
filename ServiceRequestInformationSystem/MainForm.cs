@@ -74,7 +74,7 @@ namespace ServiceRequestInformationSystem
             panel_SubeMenu_SystemDevelopment.Visible = false;
         }
 
-        private void HideSubMenu()
+        public  void HideSubMenu()
         {
 
 
@@ -149,27 +149,9 @@ namespace ServiceRequestInformationSystem
 
         private void bt_Archived_Click(object sender, EventArgs e)
         {
-            //  ShowSubMenu(panel_SubMenu_Archived);
+            ShowSubMenu(panel_SubMenu_Archived);
 
-            Cursor.Current = Cursors.WaitCursor;
-            if (!panel_Body.Controls.Contains(ucArchived.Instance))
-            {
-                panel_Body.Controls.Add(ucArchived.Instance);
-                ucArchived.Instance.Dock = DockStyle.Fill;
-            }
-            ucArchived.Instance.BringToFront();
-            ucArchived archived = new ucArchived();
-            archived.dataGridView_ListOfRequest.Refresh();
-            panel_Body.Visible = true;
-            Cursor.Current = Cursors.Default;
-
-            ButtonInActive(bt_Menu_SystemDevelopment);
-            ButtonInActive(bt_Menu_Accounts);
-            ButtonInActive(bt_Menu_AddRequest);
-            ButtonActive(bt_Menu_Archived);
-            ButtonInActive(bt_Menu_BackUp);
-            ButtonInActive(bt_Menu_Import);
-            ButtonInActive(bt_Menu_Reports);
+          
         }
 
         private void LoaducArchive()
@@ -226,8 +208,25 @@ namespace ServiceRequestInformationSystem
 
         private void bt_RequestArchived_Click(object sender, EventArgs e)
         {
-            LoaducArchive();
-            HideSubMenu();
+            Cursor.Current = Cursors.WaitCursor;
+            if (!panel_Body.Controls.Contains(ucArchived.Instance))
+            {
+                panel_Body.Controls.Add(ucArchived.Instance);
+                ucArchived.Instance.Dock = DockStyle.Fill;
+            }
+            ucArchived.Instance.BringToFront();
+            ucArchived archived = new ucArchived();
+            archived.dataGridView_ListOfRequest.Refresh();
+            panel_Body.Visible = true;
+            Cursor.Current = Cursors.Default;
+
+            ButtonInActive(bt_Menu_SystemDevelopment);
+            ButtonInActive(bt_Menu_Accounts);
+            ButtonInActive(bt_Menu_AddRequest);
+            ButtonActive(bt_Menu_Archived);
+            ButtonInActive(bt_Menu_BackUp);
+            ButtonInActive(bt_Menu_Import);
+            ButtonInActive(bt_Menu_Reports);
         }
 
         private void bt_rpt_Monthly_Click(object sender, EventArgs e)
@@ -520,6 +519,44 @@ namespace ServiceRequestInformationSystem
         {
             RptYearlyForm rptYearlyForm = new RptYearlyForm();
             rptYearlyForm.Show();
+        }
+
+        private void bt_rpt_Inspection_Click(object sender, EventArgs e)
+        {
+            HideSubMenu();
+            Cursor.Current = Cursors.WaitCursor;
+            if (!panel_Body.Controls.Contains(ucInspectionReport.Instance))
+            {
+                panel_Body.Controls.Add(ucInspectionReport.Instance);
+                ucInspectionReport.Instance.Dock = DockStyle.Fill;
+            }
+
+            ucInspectionReport.Instance.BringToFront();
+            Cursor.Current = Cursors.Default;
+            panel_Body.Visible = true;
+        }
+
+        private void bt_InspectionArchived_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            if (!panel_Body.Controls.Contains(ucArchivedInspection.Instance))
+            {
+                panel_Body.Controls.Add(ucArchivedInspection.Instance);
+                ucArchivedInspection.Instance.Dock = DockStyle.Fill;
+            }
+            ucArchivedInspection.Instance.BringToFront();
+            ucArchivedInspection archived = new ucArchivedInspection();
+            archived.dataGridView_ListOfInspection.Refresh();
+            panel_Body.Visible = true;
+            Cursor.Current = Cursors.Default;
+            
+            ButtonInActive(bt_Menu_SystemDevelopment);
+            ButtonInActive(bt_Menu_Accounts);
+            ButtonInActive(bt_Menu_AddRequest);
+            ButtonActive(bt_Menu_Archived);
+            ButtonInActive(bt_Menu_BackUp);
+            ButtonInActive(bt_Menu_Import);
+            ButtonInActive(bt_Menu_Reports);
         }
     }
 }
